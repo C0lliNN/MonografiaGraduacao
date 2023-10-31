@@ -1,17 +1,7 @@
 \chapter{Fundamentação Teórica}
 \label{cap:fundamentacao}
 
-Este capítulo apresenta os conceitos de Arquitetura de software, Monólito, Sistemas Distribuídos, \acrfull{soa} Microsserviços, \acrfull{poo}, \acrfull{ddd} e Arquitetura Hexagonal.
-
-\section{Arquitetura de software}
-
-Há muitas definições sobre o termo “arquitetura de software”. Uma conceituação abrangente e precisa é proposta por \citeonline{documentingArchitectures} ``a arquitetura de software de sistema computacional é um conjunto de estruturas necessárias para compreender o sistema, que engloba elementos de software, suas relações e propriedades.`` (p.~8, tradução nossa). \citeonline{architectureFowler} complementa afirmando que se trata de decisões de projeto que são importantes e difíceis de serem alteradas.
-
-Em geral, a arquitetura de software pode ser entendida como o processo de organizar as diferentes estruturas de um sistema a fim de satisfazer os requisitos funcionais e não-funcionais atuais e futuros. 
-
-Dentro do escopo de arquitetura de software, dois outros termos geram confusão: padrão arquitetural e estilo arquitetural. Enquanto este se refere em termos gerais a uma forma de se organizar um sistema, aquele apresenta uma solução específica para um problema recorrente no contexto de engenharia de software. 
-
-As principais características de uma boa arquitetura de software são: flexibilidade, tolerância a falhas, reusabilidade, segurança e simplicidade. Por outro lado, sistemas com arquiteturas mal desenvolvidas são rígidos, frágeis, contém demasiada repetição e possuem uma complexidade desnecessária.
+Este capítulo apresenta os conceitos de Arquitetura de software, Monólito, Sistemas Distribuídos, \acrfull{soa} Microsserviços, \acrfull{ddd} e Arquitetura Hexagonal.
 
 \section{Monólito} 
 Monólito se refere a um estilo arquitetural em que toda a aplicação é construída e implantada como uma única unidade, geralmente um processo de sistema operacional. \citeonline{buildingMicroservices} vai além dessa definição, considerando um monólito todo sistema no qual as funcionalidades devem ser obrigatoriamente implantadas de maneira unificada.
@@ -172,7 +162,7 @@ Nem todo acoplamento é necessariamente maléfico. De fato, algum nível de acop
 \fonte{\citeonline{buildingMicroservices}.}
 \end{quadro}
 
-\subsubsection{\english{\acrfull{ddd}}}
+\subsubsection{\english{\acrfull{bc}}}
 Visando a construção de serviços com alta coesão e baixo acoplamento, portanto estáveis, os conceitos de \acrshort{ddd} podem ser utilizados. Uma abordagem interessante e comumente aplicada é mapear um \nameref{section:bounded_context} para cada serviço \cite{buildingMicroservices}. Como os \hyperref[section:bounded_context]{Bounded Contexts} representam uma parte do domínio onde um modelo se aplica, eles permitem que microsserviços sejam modelados ao redor de uma secção coesa e completamente funcional que ofereça funcionalidades de negócio. 
 
 Outra opção para modelagem de microsserviços é mapear cada \nameref{section:aggregate} para um serviço. Essa estratégia oferece um nível de granularidade menor que um \nameref{section:bounded_context}, visto que este geralmente engloba múltiplos \nameref{section:aggregate}s. No entanto, \citeonline{buildingMicroservices} sugere recorrer primeiro a delimitações maiores na construção de microsserviços, englobando um (ou até mais) \nameref{section:bounded_context}. Dessa forma, caso a equipe sinta necessidade de subdividir o serviço, poderá fazê-lo sem complicações.
@@ -195,46 +185,8 @@ Primeiramente, como microsserviços baseiam-se no conceito de \nameref{section:s
 
 Por outro lado, a \acrfull{ams} engloba desafios para manter a consistência dos dados. Enquanto em um sistema monolítico, dados são usualmente armazenados em uma única base de dados relacional, que oferece suporte a transações \acrshort{acid}, em um sistema distribuído, no qual múltiplos banco de dados - possivelmente de tipos e fornecedores diferentes - são empregados, esse tipo de segurança não pode ser atingido facilmente \cite{buildingMicroservices}. Transações distribuídas ou \english{Sagas} podem ser aplicadas para reduzir problemas de consistência, no entanto, essas técnicas adicionam grande complexidade ao sistema \cite{buildingMicroservices}.
 
-\section{Programação Orientada a Objetos (POO)} 
-A \acrfull{poo} é um paradigma de desenvolvimento de software, que busca realizar a modelagem do mundo real utilizando, entre outras outros, os conceitos de classe e objeto \cite{aragao2013java}. Além disso, trata-se de uma forma de se organizar aplicações através de uma coleção de objetos que colaboram entre si, cada um sendo uma instância de uma classe \cite{booch2006}. Esse paradigma tem os seguintes objetivos:
-\begin{itemize}
-    \item Promover a reutilização de código;
-    \item Facilitar a manutenção do sistema;
-    \item Tornar mais organizado e legível o código-fonte;
-\end{itemize}
-\cite{aragao2013java}.
-
-\acrshort{poo} é frequentemente o paradigma escolhido para aplicar os conceitos de \acrfull{ddd}. Em primeiro lugar, sistemas escritos no estilo procedural, por exemplo, possuem funções complexas unidas por caminhos de execução definidos antecipadamente, sem conexões conceituais com o domínio do negócio \cite{evans2004ddd}. Além disso, \acrshort{poo} é poderosa, pois se baseia em modelagem e fornece implementações para os elementos de modelagem como, por exemplo, classes e interfaces \cite{evans2004ddd}. Há 4 pilares do paradigma que são descritos a seguir: abstração, encapsulamento, herança e polimorfismo \cite{booch2006}.
-
-\subsection{Classe e Objeto}
-Uma classe por ser entendida como a implementação de um tipo abstrato de dado formado por propriedades, conhecidas como atributos, e operações, chamadas de métodos na terminologia \acrshort{poo} \cite{aragao2013java}. Pode-se definir, por exemplo, uma classe \textbf{Celular} composta pelos seguintes atributos: \textbf{marca}, \textbf{modelo}, \textbf{cor}. Como métodos, tem-se \textbf{ligar}, \textbf{desligar} e \textbf{atender}. Uma ilustração da classe \textbf{Celular} está disponível na \autoref{fig:classe_celular}.
-
-\begin{figure}[!ht]
-    \centering
-    \caption{Exemplo de classe}
-    \includegraphics[width=0.5\textwidth]{media/classe_celular.png}
-    \legend{Fonte: o autor}
-    \label{fig:classe_celular}
-\end{figure}
-
-Por outro lado, um objeto é considerado uma instância de uma classe, que possui valores próprios para os atributos definidos \cite{aragao2013java}. Tomando como base o exemplo anterior, dois objetos possíveis para a classe \textbf{Celular} são um \english{IPhone} 14 branco, desenvolvido pela \english{Apple Inc}, e um \english{Galaxy} S21 azul da \english{Samsung Eletronics}.
-
-\subsection{Abstração}
-Um objeto no mundo físico geralmente possui infinitas características e comportamentos. Por esse motivo, é necessário que a representação computacional desse objeto (classe) simplifique essas definições conforme o contexto em que o objeto está inserido. Nesse sentido, abstração pode ser compreendida como uma seleção dos atributos e métodos relevantes para o sistema em questão \cite{booch2006}.
-
-\subsection{Encapsulamento}
-Encapsulamento é uma técnica que consiste em esconder detalhes de implementação de um objeto \cite{booch2006}. Ela é usualmente alcançada através da ocultação de informações. Além disso, encapsulamento fornece barreiras explícitas entre diferentes abstrações e, portanto, gera uma clara separação de responsabilidades \cite{booch2006}.
-
-\subsection{Herança}
-Em sistemas não triviais, muitas abstrações estão presentes. Frequentemente, parte delas formam uma relação hierárquica, na qual um tipo abstrato estende outro tipo (usualmente chamado de supertipo). Assim, o conceito de herança no contexto de \acrshort{poo} pode ser entendido como um ranqueamento ou ordenação de abstrações \cite{booch2006}.
-
-\subsection{Polimorfismo}
-O polimorfismo é a possibilidade de subtipos possuírem uma implementação diferente para um método definido pelo supertipo. Ou seja, através da utilização deste recurso, abstrações filhas podem sobrescrever comportamentos da abstração pai \cite{aragao2013java}.
-
-\citeonline{booch2006} afirma que polimorfismo talvez seja o recurso mais poderoso de linguagens orientadas a objetos, sendo uma das principais características que distingue \acrshort{poo} de outros paradigmas de programação. Além disso, trata-se de um recurso que complementa a herança.
-
 \section{\english{Domain-Driven Design (DDD)}} 
-\english{\acrfull{ddd}} é uma abordagem para o desenvolvimento de software focada na construção de um modelo de domínio que representa de maneira sofisticada os processos e regras de negócio do sistema em questão \cite{dddFowler}. \acrshort{ddd} é muito efetivo para desenvolver sistemas com regras de negócio complexas, que possuem, por exemplo, diversos atores, entidades e validações.
+\english{\acrfull{ddd}} é uma abordagem para o desenvolvimento de software focada na construção de um modelo de domínio que representa de maneira sofisticada os processos e regras de negócio do sistema em questão \cite{dddFowler}. \acrshort{ddd} é muito efetivo para desenvolver sistemas com regras de negócio complexas, que possuem, por exemplo, diversos atores, entidades e validações. A \acrfull{poo} é geralmente empregada para a implementação do modelo de domínio, visto que possui uma série de recursos que facilitam a modelagem de objetos do mundo real \cite{evans2004ddd}.
 
 Um ponto central da metodologia \acrshort{ddd} no desenvolvimento de softwares complexos, é a utilização de uma linguagem ubíqua que insere terminologia e jargões do domínio em componentes de software como atributos, métodos, classes, interfaces e pacotes \cite{dddFowler}. Assim, tanto especialistas de negócio quanto desenvolvedores e projetistas compartilham um vocabulário comum que facilita na comunicação e reduz a necessidade de realizar o mapeamento entre termos técnicos e termos do domínio. Além disso, a estrutura de sistema passa a representar a estrutura do negócio, tornando-se, assim, mais fácil de ser compreendida e modificada.
 
@@ -250,9 +202,6 @@ No contexto da \acrfull{poo}, muitos objetos não são fundamentalmente definido
 Muitos objetos não possuem identidade conceitual, sendo somente utilizados para descrever características de outro objeto. São objetos que descrevem coisas, classificados como \acrfull{vo} \cite{evans2004ddd}. Para um sistema de uma loja de roupas, por exemplo, um objeto que representa cor de cada peça formado pelas propriedades \english{red}, \english{green} e \english{blue}, não possui identidade. Não necessita ser diferenciável de outro objeto com as mesmas propriedades. Este objeto somente descreve uma característica de uma peça de roupa. É importante ressaltar, porém, que a diferenciação entre Entidade e \english{\acrlong{vo}} depende do contexto do software. Para um sistema de software de computação gráfica, a cor é um conceito chave no sistema e pode possuir identidade.
 
 Pode-se pensar que é mais vantajoso sempre projetar os objetos do sistema como Entidade, pois adicionaria identidade, facilitaria o rastreamento de mudanças e agregaria mais recursos ao objeto. No entanto, a adição de identidade para objetos que não necessitam desta classificação pode prejudicar o desempenho do sistema, adicionar mais esforço de análise e aumentar a complexidade do modelo de domínio \cite{evans2004ddd}. Por esse motivo, recomenda-se a utilização de \acrshort{vo} sempre que for possível, pois se tratam de objetos mais fáceis de gerenciar.
-
-\subsection{\english{Domain Event}}
-
 
 \subsection{Serviço}
 Em muitos casos, há operações importantes no modelo que não pertencem conceitualmente a nenhuma Entidade ou \acrshort{vo}. Dessa forma, surge o conceito de Serviço: uma operação fornecida como uma interface autônoma no modelo, sem encapsular estado como outros tipos de objeto \cite{evans2004ddd}.
