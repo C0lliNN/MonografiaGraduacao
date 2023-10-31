@@ -85,8 +85,8 @@
 %    \settocpreprocessor \changes{v3.6k}{2012/09/18}{Added}
 \ifdefined\settocpreprocessor
 \else
-  \setboolean{ABNTEXsumario-tradicional}{true}
-  \setboolean{ABNTEXsumario-abnt-6027-2012}{false}
+  \setboolean{ABNTEXsumario-tradicional}{false}
+  \setboolean{ABNTEXsumario-abnt-6027-2012}{true}
 \fi
 
 
@@ -487,7 +487,7 @@
 %
 \ifthenelse{\boolean{ABNTEXsumario-abnt-6027-2012}}{%
   
-  % \cftsetindents{part}{0em}{\cftlastnumwidth}
+  \cftsetindents{part}{0em}{\cftlastnumwidth}
   \cftsetindents{chapter}{0em}{\cftlastnumwidth}
   \cftsetindents{section}{0em}{\cftlastnumwidth}
   \cftsetindents{subsection}{0em}{\cftlastnumwidth}
