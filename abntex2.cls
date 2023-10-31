@@ -487,7 +487,7 @@
 %
 \ifthenelse{\boolean{ABNTEXsumario-abnt-6027-2012}}{%
   
-  \cftsetindents{part}{0em}{\cftlastnumwidth}
+  % \cftsetindents{part}{0em}{\cftlastnumwidth}
   \cftsetindents{chapter}{0em}{\cftlastnumwidth}
   \cftsetindents{section}{0em}{\cftlastnumwidth}
   \cftsetindents{subsection}{0em}{\cftlastnumwidth}
