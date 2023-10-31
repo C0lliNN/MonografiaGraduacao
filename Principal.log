@@ -1,0 +1,3393 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10) (preloaded format=pdflatex 2023.10.30)  30 OCT 2023 22:54
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**./Principal.tex
+(Principal.tex
+LaTeX2e <2023-06-01> patch level 1
+L3 programming layer <2023-08-29>
+(configuracao.tex (abntex2.cls
+Document Class: abntex2 2023 v1 abnTeX2
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
+Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/memoir\memoir.cls
+Document Class: memoir 2023/08/21 v3.8.1 configurable book, report, article doc
+ument class
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/xpatch\xpatch.sty
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\expl3.sty
+Package: expl3 2023-08-29 L3 programming layer (loader) 
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
+tex.def
+File: l3backend-pdftex.def 2023-04-19 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count185
+\l__pdf_internal_box=\box51
+))
+Package: xpatch 2020/03/25 v0.3a Extending etoolbox patching commands
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/xparse\xpars
+e.sty
+Package: xparse 2023-08-29 L3 Experimental document command parser
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count186
+))
+\onelineskip=\skip48
+\lxvchars=\skip49
+\xlvchars=\skip50
+\@memcnta=\count187
+\c@@memmarkcntra=\count188
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+)
+\stockheight=\dimen140
+\stockwidth=\dimen141
+\trimtop=\skip51
+\trimedge=\skip52
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/memoir\mem12.clo
+File: mem12.clo 2022/07/29 v0.5 memoir class 12pt size option
+)
+\binding=\skip53
+\spinemargin=\skip54
+\foremargin=\skip55
+\uppermargin=\skip56
+\lowermargin=\skip57
+\headdrop=\skip58
+\normalrulethickness=\skip59
+\mem@maxheadheight=\skip60
+\mem@maxfootheight=\skip61
+\headwidth=\skip62
+\c@storedpagenumber=\count189
+\memPD=\dimen142
+\m@mabparskip=\skip63
+\thanksmarkwidth=\skip64
+\thanksmarksep=\skip65
+\droptitle=\skip66
+\c@book=\count190
+\c@part=\count191
+\c@chapter=\count192
+\c@section=\count193
+\c@subsection=\count194
+\c@subsubsection=\count195
+\c@paragraph=\count196
+\c@subparagraph=\count197
+\beforechapskip=\skip67
+\midchapskip=\skip68
+\afterchapskip=\skip69
+\chapindent=\skip70
+\bottomsectionskip=\skip71
+\secindent=\skip72
+\beforesecskip=\skip73
+\aftersecskip=\skip74
+\subsecindent=\skip75
+\beforesubsecskip=\skip76
+\aftersubsecskip=\skip77
+\subsubsecindent=\skip78
+\beforesubsubsecskip=\skip79
+\aftersubsubsecskip=\skip80
+\paraindent=\skip81
+\beforeparaskip=\skip82
+\afterparaskip=\skip83
+\subparaindent=\skip84
+\beforesubparaskip=\skip85
+\aftersubparaskip=\skip86
+\pfbreakskip=\skip87
+\c@@ppsavesec=\count198
+\c@@ppsaveapp=\count199
+\ragrparindent=\dimen143
+\everylistparindent=\dimen144
+\parsepi=\skip88
+\topsepi=\skip89
+\itemsepi=\skip90
+\parsepii=\skip91
+\topsepii=\skip92
+\topsepiii=\skip93
+\itemsepii=\skip94
+\itemsepiii=\skip95
+\partopsepii=\skip96
+\partopsepiii=\skip97
+\m@msavetopsep=\skip98
+\m@msavepartopsep=\skip99
+\@enLab=\toks17
+\abstitleskip=\skip100
+\absleftindent=\skip101
+\abs@leftindent=\dimen145
+\absrightindent=\skip102
+\absparindent=\skip103
+\absparsep=\skip104
+\c@vslineno=\count266
+\c@poemline=\count267
+\c@modulo@vs=\count268
+\c@memfvsline=\count269
+\vleftskip=\skip105
+\vrightskip=\skip106
+\stanzaskip=\skip107
+\versewidth=\skip108
+\vgap=\skip109
+\vindent=\skip110
+\vleftmargin=\dimen146
+\c@verse=\count270
+\c@chrsinstr=\count271
+\beforepoemtitleskip=\skip111
+\afterpoemtitleskip=\skip112
+\c@poem=\count272
+\beforePoemTitleskip=\skip113
+\midPoemTitleskip=\skip114
+\afterPoemTitleskip=\skip115
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
+Package: array 2022/09/04 v2.5g Tabular extension package (FMi)
+\col@sep=\dimen147
+\ar@mcellbox=\box52
+\extrarowheight=\dimen148
+\NC@list=\toks18
+\extratabsurround=\skip116
+\backup@length=\skip117
+\ar@cellbox=\box53
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/tools\dcolumn.sty
+Package: dcolumn 2014/10/28 v1.06 decimal alignment package (DPC)
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/tools\delarray.sty
+Package: delarray 2014/10/28 v1.01 array delimiter package (DPC)
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/tools\tabularx.sty
+Package: tabularx 2020/01/15 v2.11c `tabularx' package (DPC)
+\TX@col@width=\dimen149
+\TX@old@table=\dimen150
+\TX@old@col=\dimen151
+\TX@target=\dimen152
+\TX@delta=\dimen153
+\TX@cols=\count273
+\TX@ftn=\toks19
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen154
+\lightrulewidth=\dimen155
+\cmidrulewidth=\dimen156
+\belowrulesep=\dimen157
+\belowbottomsep=\dimen158
+\aboverulesep=\dimen159
+\abovetopsep=\dimen160
+\cmidrulesep=\dimen161
+\cmidrulekern=\dimen162
+\defaultaddspace=\dimen163
+\@cmidla=\count274
+\@cmidlb=\count275
+\@aboverulesep=\dimen164
+\@belowrulesep=\dimen165
+\@thisruleclass=\count276
+\@lastruleclass=\count277
+\@thisrulewidth=\dimen166
+)
+\ctableftskip=\skip118
+\ctabrightskip=\skip119
+\abovecolumnspenalty=\count278
+\@linestogo=\count279
+\@cellstogo=\count280
+\@cellsincolumn=\count281
+\crtok=\toks20
+\@mincolumnwidth=\dimen167
+\c@newflo@tctr=\count282
+\mem@margin@floatbox=\box54
+\@contcwidth=\skip120
+\@contindw=\skip121
+\abovecaptionskip=\skip122
+\belowcaptionskip=\skip123
+\subfloattopskip=\skip124
+\subfloatcapskip=\skip125
+\subfloatcaptopadj=\skip126
+\subfloatbottomskip=\skip127
+\subfloatlabelskip=\skip128
+\subfloatcapmargin=\dimen168
+\c@@contsubnum=\count283
+\m@mscap@capbox=\box55
+\m@mscap@fbox=\box56
+\sidecapsep=\dimen169
+\sidecapwidth=\dimen170
+\m@m@tempdima=\dimen171
+\m@mscapraise=\dimen172
+\sidecapraise=\dimen173
+\m@mscapmainwidth=\dimen174
+\m@mscaplkern=\dimen175
+\beforeepigraphskip=\skip129
+\afterepigraphskip=\skip130
+\epigraphwidth=\skip131
+\epigraphrule=\skip132
+LaTeX Info: Redefining \em on input line 6878.
+LaTeX Info: Redefining \emph on input line 6886.
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
+Package: nameref 2023-08-07 v2.53 Cross-referencing by name of section
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.s
+ty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+))
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettit
+lestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks21
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+)))
+\c@section@level=\count284
+)
+\tocentryskip=\skip133
+\tocbaseline=\skip134
+\cftparskip=\skip135
+\cftbeforebookskip=\skip136
+\cftbookindent=\dimen176
+\cftbooknumwidth=\dimen177
+\cftbeforepartskip=\skip137
+\cftpartindent=\skip138
+\cftpartnumwidth=\skip139
+\cftbeforechapterskip=\skip140
+\cftchapterindent=\skip141
+\cftchapternumwidth=\skip142
+\cftbeforesectionskip=\skip143
+\cftsectionindent=\skip144
+\cftsectionnumwidth=\skip145
+\cftbeforesubsectionskip=\skip146
+\cftsubsectionindent=\skip147
+\cftsubsectionnumwidth=\skip148
+\cftbeforesubsubsectionskip=\skip149
+\cftsubsubsectionindent=\skip150
+\cftsubsubsectionnumwidth=\skip151
+\cftbeforeparagraphskip=\skip152
+\cftparagraphindent=\skip153
+\cftparagraphnumwidth=\skip154
+\cftbeforesubparagraphskip=\skip155
+\cftsubparagraphindent=\skip156
+\cftsubparagraphnumwidth=\skip157
+\prechapterprecisshift=\dimen178
+\c@maxsecnumdepth=\count285
+\bibindent=\dimen179
+\bibitemsep=\skip158
+\indexcolsep=\skip159
+\indexrule=\skip160
+\indexmarkstyle=\toks22
+\@indexbox=\insert252
+LaTeX Info: Redefining \raggedbottom on input line 7881.
+LaTeX Info: Redefining \flushbottom on input line 7885.
+\glossarycolsep=\dimen180
+\glossaryrule=\dimen181
+\sideparvshift=\skip161
+\sideins=\insert251
+\sidebartopsep=\skip162
+\sidebarhsep=\skip163
+\sidebarvsep=\skip164
+\sidebarwidth=\skip165
+\footmarkwidth=\skip166
+\footmarksep=\skip167
+\footparindent=\skip168
+\footinsdim=\skip169
+\footinsv@r=\insert250
+\@mpfootinsv@r=\insert249
+\m@m@k=\count286
+\m@m@h=\dimen182
+\m@mipn@skip=\skip170
+\sidefootins=\insert248
+\sidefootadjust=\skip171
+\sidefootheight=\skip172
+\sidefoothsep=\skip173
+\sidefootvsep=\skip174
+\sidefootwidth=\skip175
+\m@mdownsf=\skip176
+\c@sidefootnote=\count287
+\sidefootmarkwidth=\skip177
+\sidefootmarksep=\skip178
+\sidefootparindent=\skip179
+\c@pagenote=\count288
+\c@pagenoteshadow=\count289
+\mem@pn@lastkern=\skip180
+\every@verbatim=\toks23
+\afterevery@verbatim=\toks24
+\verbatim@line=\toks25
+\tab@position=\count290
+\verbatim@in@stream=\read2
+\verbatimindent=\skip181
+\verbatim@out=\write3
+\bvboxsep=\skip182
+\c@memfbvline=\count291
+\c@bvlinectr=\count292
+\bvnumlength=\skip183
+\fb@frw=\dimen183
+\fb@frh=\dimen184
+\FrameRule=\dimen185
+\FrameSep=\dimen186
+\c@cp@cntr=\count293
+\c@ism@mctr=\count294
+\c@xsm@mctr=\count295
+\c@csm@mctr=\count296
+\c@ksm@mctr=\count297
+\c@xksm@mctr=\count298
+\c@cksm@mctr=\count299
+\c@msm@mctr=\count300
+\c@xmsm@mctr=\count301
+\c@cmsm@mctr=\count302
+\c@bsm@mctr=\count303
+\c@workm@mctr=\count304
+\c@sheetsequence=\count305
+\c@lastsheet=\count306
+\c@lastpage=\count307
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/textcase\textcase.sty
+Package: textcase 2023/07/27 v1.04 Text only upper/lower case changing (DPC)
+Package textcase Info: Defining Legacy names on input line 20.
+)
+\c@figure=\count308
+\c@lofdepth=\count309
+\cftbeforefigureskip=\skip184
+\cftfigureindent=\skip185
+\cftfigurenumwidth=\skip186
+\c@table=\count310
+\c@lotdepth=\count311
+\cftbeforetableskip=\skip187
+\cfttableindent=\skip188
+\cfttablenumwidth=\skip189
+Package abstract [2008/07/23] emulated by memoir.
+Package appendix [2008/07/23] emulated by memoir.
+Package ccaption [2008/07/23] emulated by memoir.
+Package changepage [2008/07/23] emulated by memoir.
+Package chngcntr [2008/07/23] emulated by memoir.
+Package chngpage [2008/07/23] emulated by memoir.
+Package crop emulated by memoir.
+Package enumerate [2008/07/23] emulated by memoir.
+Package epigraph [2008/07/23] emulated by memoir.
+Package ifmtarg [2008/07/23] emulated by memoir.
+Package index [2008/07/23] emulated by memoir.
+Package makeidx [2008/07/23] emulated by memoir.
+Package moreverb [2008/07/23] emulated by memoir.
+Package needspace [2008/07/23] emulated by memoir.
+Package newfile [2008/07/23] emulated by memoir.
+Package nextpage [2008/07/23] emulated by memoir.
+Package pagenote [2008/07/23] emulated by memoir.
+Package parskip [2008/07/23] emulated by memoir.
+Package patchcmd [2008/07/23] emulated by memoir.
+Package setspace [2008/07/23] emulated by memoir.
+Package shortvrb [2008/07/23] emulated by memoir.
+Package showidx [2008/07/23] emulated by memoir.
+Package titleref [2008/07/23] emulated by memoir.
+Package titling [2008/07/23] emulated by memoir.
+Package tocbibind [2008/07/23] emulated by memoir.
+Package tocloft [2008/07/23] emulated by memoir.
+Package tocvsec2 [2008/07/23] emulated by memoir.
+Package verbatim [2008/07/23] emulated by memoir.
+Package verse [2008/07/23] emulated by memoir.
+) (C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
+Package: hyperref 2023-07-08 v7.01b Hypertext links for LaTeX
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds
+.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefine
+keys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape.s
+ty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+) (C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/letltxmacro\letltxmacro
+.sty
+Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/auxhook\auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+)
+\@linkdim=\dimen187
+\Hy@linkcounter=\count312
+\Hy@pagecounter=\count313
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
+File: pd1enc.def 2023-07-08 v7.01b Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+\Hy@SavedSpaceFactor=\count314
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
+File: puenc.def 2023-07-08 v7.01b Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+Package hyperref Info: Hyper figures OFF on input line 4167.
+Package hyperref Info: Link nesting OFF on input line 4172.
+Package hyperref Info: Hyper index ON on input line 4175.
+Package hyperref Info: Plain pages OFF on input line 4182.
+Package hyperref Info: Backreferencing OFF on input line 4187.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4434.
+\c@Hy@tempcnt=\count315
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
+\Urlmuskip=\muskip16
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4772.
+\XeTeXLinkMargin=\dimen188
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintcalc
+.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
+)
+))
+\Fld@menulength=\count316
+\Field@Width=\dimen189
+\Fld@charsize=\dimen190
+Package hyperref Info: Hyper figures OFF on input line 6051.
+Package hyperref Info: Link nesting OFF on input line 6056.
+Package hyperref Info: Hyper index ON on input line 6059.
+Package hyperref Info: backreferencing OFF on input line 6066.
+Package hyperref Info: Link coloring OFF on input line 6071.
+Package hyperref Info: Link coloring with OCG OFF on input line 6076.
+Package hyperref Info: PDF/A mode OFF on input line 6081.
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/base\atbegshi-ltx.sty
+Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
+package with kernel methods
+)
+\Hy@abspage=\count317
+\c@Item=\count318
+\c@Hfootnote=\count319
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
+File: hpdftex.def 2023-07-08 v7.01b Hyperref driver for pdfTeX
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/base\atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
+kage
+with kernel methods
+)
+\Fld@listcount=\count320
+\c@bookmark@seq@number=\count321
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfil
+echeck.sty
+Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniquec
+ounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+85.
+)
+\Hy@SectionHShift=\skip190
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/memoir\memhfixc.sty
+Package: memhfixc 2023/07/28 v1.21 hyperref package fixes for memoir class
+\c@memhycontfloat=\count322
+\c@Hpagenote=\count323
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/bookmark\bookmark.sty
+Package: bookmark 2020-11-06 v1.29 PDF bookmarks (HO)
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/bookmark\bkm-pdftex.def
+File: bkm-pdftex.def 2020-11-06 v1.29 bookmark driver for pdfTeX (HO)
+\BKM@id=\count324
+)) (C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
+Package: babel 2023/09/29 v3.95 The Babel package
+\babel@savecnt=\count325
+\U@D=\dimen191
+\l@unhyphenated=\language79
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
+\bbl@readstream=\read3
+\bbl@dirlevel=\count326
+
+*************************************
+* Local config file bblopts.cfg used
+*
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/arabi\bblopts.cfg
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
+ babel
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/babel-english\english.l
+df
+Language: english 2017/06/06 v3.3r English support from the babel system
+Package babel Info: Hyphen rules for 'canadian' set to \l@english
+(babel)             (\language0). Reported on input line 102.
+Package babel Info: Hyphen rules for 'australian' set to \l@ukenglish
+(babel)             (\language73). Reported on input line 105.
+Package babel Info: Hyphen rules for 'newzealand' set to \l@ukenglish
+(babel)             (\language73). Reported on input line 108.
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/babel-french\french.l
+df
+Language: french 2023/03/08 v3.5q French support from the babel system
+Package babel Info: Hyphen rules for 'acadian' set to \l@french
+(babel)             (\language22). Reported on input line 91.
+Package babel Info: Hyphen rules for 'canadien' set to \l@french
+(babel)             (\language22). Reported on input line 92.
+\FB@nonchar=\count327
+Package babel Info: Making : an active character on input line 395.
+Package babel Info: Making ; an active character on input line 396.
+Package babel Info: Making ! an active character on input line 397.
+Package babel Info: Making ? an active character on input line 398.
+\FBguill@level=\count328
+\FBold@everypar=\toks26
+\FB@Mht=\dimen192
+\mc@charclass=\count329
+\mc@charfam=\count330
+\mc@charslot=\count331
+\std@mcc=\count332
+\dec@mcc=\count333
+\FB@parskip=\dimen193
+\listindentFB=\dimen194
+\descindentFB=\dimen195
+\labelindentFB=\dimen196
+\labelwidthFB=\dimen197
+\leftmarginFB=\dimen198
+\parindentFFN=\dimen199
+\FBfnindent=\dimen256
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/babel-spanish\spanish.l
+df
+Language: spanish.ldf 2021/05/27 v5.0q Spanish support from the babel system
+\es@quottoks=\toks27
+\es@quotdepth=\count334
+Package babel Info: Making " an active character on input line 570.
+Package babel Info: Making . an active character on input line 675.
+Package babel Info: Making < an active character on input line 722.
+Package babel Info: Making > an active character on input line 722.
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/babel-portuges\brazil.l
+df
+Language: portuges 2021/07/09 v1.2t Portuguese support from the babel system
+Package babel Info: Hyphen rules for 'brazil' set to \l@portuguese
+(babel)             (\language56). Reported on input line 111.
+))
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/babel/locale/es\babel
+-spanish.tex
+Package babel Info: Importing font and identification data for spanish
+(babel)             from babel-es.ini. Reported on input line 11.
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/babel/locale/fr\babel
+-french.tex
+Package babel Info: Importing font and identification data for french
+(babel)             from babel-fr.ini. Reported on input line 11.
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/babel/locale/en\babel
+-english.tex
+Package babel Info: Importing font and identification data for english
+(babel)             from babel-en.ini. Reported on input line 11.
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/carlisle\scalefnt.sty)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/enumitem\enumitem.sty
+Package: enumitem 2019/06/20 v3.9 Customized lists
+\labelindent=\skip191
+\enit@outerparindent=\dimen257
+\enit@toks=\toks28
+\enit@inbox=\box57
+\enit@count@id=\count335
+\enitdp@description=\count336
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/tools\calc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count337
+\calc@Bcount=\count338
+\calc@Adimen=\dimen258
+\calc@Bdimen=\dimen259
+\calc@Askip=\skip192
+\calc@Bskip=\skip193
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count339
+\calc@Cskip=\skip194
+)
+
+******************************************************
+Stock height and width: 845.04684pt by 597.50787pt
+Top and edge trims: 0pt and 0pt
+Page height and width: 845.04684pt by 597.50787pt
+Text height and width: 708pt by 455pt
+Spine and edge margins: 85.35826pt and 56.9055pt
+Upper and lower margins: 85.35826pt and 51.68858pt
+Headheight and headsep: 14.5pt and 19.8738pt
+Footskip: 30pt
+Columnsep and columnseprule: 10pt and 0pt
+Marginparsep and marginparwidth: 7pt and 42.9055pt
+Sidecapsep and sidecapwidth: 7pt and 42pt
+Sidebarhsep and sidebarwidth: 7pt and 42pt
+Sidebarvsep and sidebartopsep: 14.5pt and 0pt
+Sidebarheight: 590.14995pt
+Sidefoothsep and sidefootwidth: 7pt and 42pt
+Sidefootvsep and sidefootheight: 14.5pt and 590.14995pt
+******************************************************
+
+\c@abntex@bookmarkcounter=\count340
+\cftlastnumwidth=\skip195
+\chapternamenumlength=\skip196
+\ABNTEXcitacaorecuo=\skip197
+\c@alineasi=\count341
+\c@alineasii=\count342
+\enitdp@alineas=\count343
+\c@subalineasi=\count344
+\enitdp@subalineas=\count345
+\c@incisosi=\count346
+\enitdp@incisos=\count347
+\ABNTEXsignwidth=\skip198
+\ABNTEXsignthickness=\skip199
+\ABNTEXsignskip=\skip256
+\c@codigo=\count348
+\c@locdepth=\count349
+\cftbeforecodigoskip=\skip257
+\cftcodigoindent=\skip258
+\cftcodigonumwidth=\skip259
+\c@quadro=\count350
+\c@loqdepth=\count351
+\cftbeforequadroskip=\skip260
+\cftquadroindent=\skip261
+\cftquadronumwidth=\skip262
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/glossaries/base\glossar
+ies.sty
+Package: glossaries 2023/09/29 v4.53 (NLCT)
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/xkeyval\xkeyval.sty
+Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkeyval.tex
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkvutils.tex
+\XKV@toks=\toks29
+\XKV@tempa@toks=\toks30
+)
+\XKV@depth=\count352
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/mfirstuc\mfirstuc.sty
+Package: mfirstuc 2022/10/14 v2.08 (NLCT)
+\@glsmfirst=\toks31
+\@glsmrest=\toks32
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/xfor\xfor.sty
+Package: xfor 2009/02/05 v1.05 (NLCT)
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/datatool\datatool-base.
+sty
+Package: datatool-base 2019/09/27 v2.32 (NLCT)
+ (C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+Package: amsmath 2023/05/13 v2.17o AMS math features
+\@mathmargin=\skip263
+For additional information on amsmath, use the `?' option.
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+Package: amstext 2021/08/26 v2.01 AMS text
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks33
+\ex@=\dimen260
+))
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen261
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
+Package: amsopn 2022/04/08 v2.04 operator names
+)
+\inf@bad=\count353
+LaTeX Info: Redefining \frac on input line 234.
+\uproot@=\count354
+\leftroot@=\count355
+LaTeX Info: Redefining \overline on input line 399.
+LaTeX Info: Redefining \colon on input line 410.
+\classnum@=\count356
+\DOTSCASE@=\count357
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box58
+\strutbox@=\box59
+LaTeX Info: Redefining \big on input line 722.
+LaTeX Info: Redefining \Big on input line 723.
+LaTeX Info: Redefining \bigg on input line 724.
+LaTeX Info: Redefining \Bigg on input line 725.
+\big@size=\dimen262
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+\macc@depth=\count358
+LaTeX Info: Redefining \bmod on input line 905.
+LaTeX Info: Redefining \pmod on input line 910.
+LaTeX Info: Redefining \smash on input line 940.
+LaTeX Info: Redefining \relbar on input line 970.
+LaTeX Info: Redefining \Relbar on input line 971.
+\c@MaxMatrixCols=\count359
+\dotsspace@=\muskip17
+\c@parentequation=\count360
+\dspbrk@lvl=\count361
+\tag@help=\toks34
+\row@=\count362
+\column@=\count363
+\maxfields@=\count364
+\andhelp@=\toks35
+\eqnshift@=\dimen263
+\alignsep@=\dimen264
+\tagshift@=\dimen265
+\tagwidth@=\dimen266
+\totwidth@=\dimen267
+\lineht@=\dimen268
+\@envbody=\toks36
+\multlinegap=\skip264
+\multlinetaggap=\skip265
+\mathdisplay@stack=\toks37
+LaTeX Info: Redefining \[ on input line 2953.
+LaTeX Info: Redefining \] on input line 2954.
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/substr\substr.sty
+Package: substr 2009/10/20 v1.2 Handle substrings
+\c@su@anzahl=\count365
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/datatool\datatool-fp.st
+y
+Package: datatool-fp 2019/09/27 v2.32 (NLCT)
+ (C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/fp\fp.sty
+Package: fp 1995/04/02
+
+`Fixed Point Package', Version 0.8, April 2, 1995 (C) Michael Mehlich
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/fp\defpattern.sty
+Package: defpattern 1994/10/12
+\actioncount=\count366
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/fp\fp-basic.sty
+Package: fp-basic 1996/05/13
+\FP@xs=\count367
+\FP@xia=\count368
+\FP@xib=\count369
+\FP@xfa=\count370
+\FP@xfb=\count371
+\FP@rega=\count372
+\FP@regb=\count373
+\FP@regs=\count374
+\FP@times=\count375
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/fp\fp-addons.sty
+Package: fp-addons 1995/03/15
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/fp\fp-snap.sty
+Package: fp-snap 1995/04/05
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/fp\fp-exp.sty
+Package: fp-exp 1995/04/03
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/fp\fp-trigo.sty
+Package: fp-trigo 1995/04/14
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/fp\fp-pas.sty
+Package: fp-pas 1994/08/29
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/fp\fp-random.sty
+Package: fp-random 1995/02/23
+\FPseed=\count376
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/fp\fp-eqn.sty
+Package: fp-eqn 1995/04/03
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/fp\fp-upn.sty
+Package: fp-upn 1996/10/21
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/fp\fp-eval.sty
+Package: fp-eval 1995/04/03
+)))
+\@dtl@toks=\toks38
+\@dtl@tmpcount=\count377
+\dtl@tmplength=\skip266
+\dtl@sortresult=\count378
+\@dtl@numgrpsepcount=\count379
+\@dtl@datatype=\count380
+\dtl@codeA=\count381
+\dtl@codeB=\count382
+\@dtl@foreach@level=\count383
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/tracklang\tracklang.sty
+Package: tracklang 2022/12/13 v1.6.1 (NLCT) Track Languages
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/tracklang\tracklang.t
+ex))
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/translator\translator.s
+ty
+Package: translator 2021-05-31 v1.12d Easy translation of strings in LaTeX
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/glossaries-english\glos
+saries-english.ldf
+File: glossaries-english.ldf 2014/11/23 v1.0
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/glossaries-french\gloss
+aries-french.ldf
+File: glossaries-french.ldf 2016/12/12 v1.1
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/glossaries-spanish\glos
+saries-spanish.ldf
+File: glossaries-spanish.ldf 2014/11/23 v1.0
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/glossaries-spanish\glos
+saries-spanish-utf8.ldf))
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/glossaries-portuges\glo
+ssaries-pt-BR.ldf
+File: glossaries-pt-BR.ldf 2014/11/23 v1.0
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/glossaries-portuges\glo
+ssaries-portuges-utf8.ldf))
+\gls@level=\count384
+\@gls@tmpb=\toks39
+\gls@tmplen=\skip267
+
+
+Package glossaries Warning: Overriding \printglossary on input line 6158.
+
+
+Package glossaries Warning: Overriding `theglossary' environment on input line 
+6752.
+
+\glskeylisttok=\toks40
+\glslabeltok=\toks41
+\glsshorttok=\toks42
+\glslongtok=\toks43
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/glossaries/styles\gloss
+ary-hypernav.sty
+Package: glossary-hypernav 2023/09/29 v4.53 (NLCT)
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/glossaries/styles\gloss
+ary-list.sty
+Package: glossary-list 2023/09/29 v4.53 (NLCT)
+\glslistdottedwidth=\skip268
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/glossaries/styles\gloss
+ary-long.sty
+Package: glossary-long 2023/09/29 v4.53 (NLCT)
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/tools\longtable.sty
+Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
+\LTleft=\skip269
+\LTright=\skip270
+\LTpre=\skip271
+\LTpost=\skip272
+\LTchunksize=\count385
+\LTcapwidth=\dimen269
+\LT@head=\box60
+\LT@firsthead=\box61
+\LT@foot=\box62
+\LT@lastfoot=\box63
+\LT@gbox=\box64
+\LT@cols=\count386
+\LT@rows=\count387
+\c@LT@tables=\count388
+\c@LT@chunks=\count389
+\LT@p@ftn=\toks44
+)
+\glsdescwidth=\skip273
+\glspagelistwidth=\skip274
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/glossaries/styles\gloss
+ary-super.sty
+Package: glossary-super 2023/09/29 v4.53 (NLCT)
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/supertabular\supertabul
+ar.sty
+Package: supertabular 2020/02/02 v4.1g the supertabular environment
+\c@tracingst=\count390
+\ST@wd=\dimen270
+\ST@rightskip=\skip275
+\ST@leftskip=\skip276
+\ST@parfillskip=\skip277
+\ST@pageleft=\dimen271
+\ST@headht=\dimen272
+\ST@tailht=\dimen273
+\ST@pagesofar=\dimen274
+\ST@pboxht=\dimen275
+\ST@lineht=\dimen276
+\ST@prevht=\dimen277
+\ST@toadd=\dimen278
+\ST@dimen=\dimen279
+\ST@pbox=\box65
+))
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/glossaries/styles\gloss
+ary-tree.sty
+Package: glossary-tree 2023/09/29 v4.53 (NLCT)
+\glstreeindent=\skip278
+)) (pendencias.tex
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/cmap\cmap.sty
+Package: cmap 2021/02/06 v1.0j CMap support: searchable PDF
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/lm\lmodern.sty
+Package: lmodern 2015/05/01 v1.6.1 Latin Modern Fonts
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 22.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
+(Font)                  OML/cmm/m/it --> OML/lmm/m/it on input line 23.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/cmsy/m/n --> OMS/lmsy/m/n on input line 24.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 25.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 26.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  OML/cmm/b/it --> OML/lmm/b/it on input line 27.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/cmsy/b/n --> OMS/lmsy/b/n on input line 28.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 29.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 31.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 32.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> OT1/lmr/m/it on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 34.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 35.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> OT1/lmss/bx/n on input line 36.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 37.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/base\latexsym.sty
+Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
+\symlasy=\mathgroup4
+LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
+(Font)                  U/lasy/m/n --> U/lasy/b/n on input line 52.
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup5
+\symAMSb=\mathgroup6
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/ulem\ulem.sty
+\UL@box=\box66
+\UL@hyphenbox=\box67
+\UL@skip=\skip279
+\UL@hook=\toks45
+\UL@height=\dimen280
+\UL@pe=\count391
+\UL@pixel=\dimen281
+\ULC@box=\box68
+Package: ulem 2019/11/18
+\ULdepth=\dimen282
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.c
+fg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 107.
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen283
+\Gin@req@width=\dimen284
+) (C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/subfig\subfig.sty
+Package: subfig 2005/06/28 ver: 1.3 subfig package
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
+Package: caption 2023/08/05 v3.6o Customizing captions (AR)
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
+Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
+\caption@tempdima=\dimen285
+\captionmargin=\dimen286
+\caption@leftmargin=\dimen287
+\caption@rightmargin=\dimen288
+\caption@width=\dimen289
+\caption@indent=\dimen290
+\caption@parindent=\dimen291
+\caption@hangindent=\dimen292
+Package caption Info: memoir document class detected.
+Package caption Info: french babel package is loaded.
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption-memoir.
+sto
+File: caption-memoir.sto 2023/09/08 v2.2c Adaption of the caption package to th
+e memoir document class (AR)
+))
+\c@caption@flags=\count392
+\c@continuedfloat=\count393
+Package caption Info: changepage package is loaded.
+\caption@adjustwidth@hsize=\dimen293
+\caption@adjustwidth@linewidth=\dimen294
+Package caption Info: hyperref package is loaded.
+Package caption Info: longtable package is loaded.
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/caption\ltcaption.sty
+Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
+)
+Package caption Info: supertabular package is loaded.
+)
+\c@KVtest=\count394
+\sf@farskip=\skip280
+\sf@captopadj=\dimen295
+\sf@capskip=\skip281
+\sf@nearskip=\skip282
+\c@subfigure=\count395
+\c@subfigure@save=\count396
+\c@subtable=\count397
+\c@subtable@save=\count398
+\sf@top=\skip283
+\sf@bottom=\skip284
+) (C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/wrapfig\wrapfig.sty
+\wrapoverhang=\dimen296
+\WF@size=\dimen297
+\c@WF@wrappedlines=\count399
+\WF@box=\box69
+\WF@everypar=\toks46
+Package: wrapfig 2003/01/31  v 3.6
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/wasysym\wasysym.sty
+Package: wasysym 2020/01/19 v2.4 Wasy-2 symbol support package
+\symwasy=\mathgroup7
+LaTeX Font Info:    Overwriting symbol font `wasy' in version `bold'
+(Font)                  U/wasy/m/n --> U/wasy/b/n on input line 93.
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/adjustbox\adjustbox.sty
+Package: adjustbox 2022/10/17 v1.3a Adjusting TeX boxes (trim, clip, ...)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/adjustbox\adjcalc.sty
+Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back
+-ends (calc, etex, pgfmath)
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/adjustbox\trimclip.sty
+Package: trimclip 2020/08/19 v1.2 Trim and clip general TeX material
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/collectbox\collectbox.s
+ty
+Package: collectbox 2022/10/17 v0.4c Collect macro arguments as boxes
+\collectedbox=\box70
+)
+\tc@llx=\dimen298
+\tc@lly=\dimen299
+\tc@urx=\dimen300
+\tc@ury=\dimen301
+Package trimclip Info: Using driver 'tc-pdftex.def'.
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/adjustbox\tc-pdftex.def
+File: tc-pdftex.def 2019/01/04 v2.2 Clipping driver for pdftex
+))
+\adjbox@Width=\dimen302
+\adjbox@Height=\dimen303
+\adjbox@Depth=\dimen304
+\adjbox@Totalheight=\dimen305
+\adjbox@pwidth=\dimen306
+\adjbox@pheight=\dimen307
+\adjbox@pdepth=\dimen308
+\adjbox@ptotalheight=\dimen309
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/ifoddpage\ifoddpage.sty
+Package: ifoddpage 2022/10/18 v1.2 Conditionals for odd/even page detection
+\c@checkoddpage=\count400
+LaTeX Info: Redefining \checkoddpage on input line 45.
+) (C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/varwidth\varwidth.sty
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box71
+\sift@deathcycles=\count401
+\@vwid@loff=\dimen310
+\@vwid@roff=\dimen311
+))
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/ragged2e\ragged2e.sty
+Package: ragged2e 2023/06/22 v3.6 ragged2e Package
+\CenteringLeftskip=\skip285
+\RaggedLeftLeftskip=\skip286
+\RaggedRightLeftskip=\skip287
+\CenteringRightskip=\skip288
+\RaggedLeftRightskip=\skip289
+\RaggedRightRightskip=\skip290
+\CenteringParfillskip=\skip291
+\RaggedLeftParfillskip=\skip292
+\RaggedRightParfillskip=\skip293
+\JustifyingParfillskip=\skip294
+\CenteringParindent=\skip295
+\RaggedLeftParindent=\skip296
+\RaggedRightParindent=\skip297
+\JustifyingParindent=\skip298
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+Package: xcolor 2022/06/12 v2.14 LaTeX color extensions (UK)
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 227.
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/colortbl\colortbl.sty
+Package: colortbl 2022/06/20 v1.0f Color table columns (DPC)
+\everycr=\toks47
+\minrowclearance=\skip299
+\rownum=\count402
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1353.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1357.
+Package xcolor Info: Model `RGB' extended on input line 1369.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1371.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1372.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1373.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1374.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1375.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1376.
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\svgnam.def
+File: svgnam.def 2022/06/12 v2.14 Predefined colors according to SVG 1.1 (UK)
+))
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/pgf/frontendlayer\tikz.
+sty
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgf.sty
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfrcs.st
+y
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil
+-common.tex
+\pgfutil@everybye=\toks48
+\pgfutil@tempdima=\dimen312
+\pgfutil@tempdimb=\dimen313
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil
+-latex.def
+\pgfutil@abb=\box72
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfrcs.
+code.tex
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf\pgf.revision.tex)
+Package: pgfrcs 2023-01-15 v3.1.10 (3.1.10)
+))
+Package: pgf 2023-01-15 v3.1.10 (3.1.10)
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgfcore.
+sty
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/pgf/systemlayer\pgfsys.
+sty
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+s.code.tex
+Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys
+.code.tex
+\pgfkeys@pathtoks=\toks49
+\pgfkeys@temptoks=\toks50
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys
+libraryfiltered.code.tex
+\pgfkeys@tmptoks=\toks51
+))
+\pgf@x=\dimen314
+\pgf@y=\dimen315
+\pgf@xa=\dimen316
+\pgf@ya=\dimen317
+\pgf@xb=\dimen318
+\pgf@yb=\dimen319
+\pgf@xc=\dimen320
+\pgf@yc=\dimen321
+\pgf@xd=\dimen322
+\pgf@yd=\dimen323
+\w@pgf@writea=\write4
+\r@pgf@reada=\read4
+\c@pgf@counta=\count403
+\c@pgf@countb=\count404
+\c@pgf@countc=\count405
+\c@pgf@countd=\count406
+\t@pgf@toka=\toks52
+\t@pgf@tokb=\toks53
+\t@pgf@tokc=\toks54
+\pgf@sys@id@count=\count407
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgf.c
+fg
+File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
+)
+Driver file for pgf: pgfsys-pdftex.def
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+s-pdftex.def
+File: pgfsys-pdftex.def 2023-01-15 v3.1.10 (3.1.10)
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+s-common-pdf.def
+File: pgfsys-common-pdf.def 2023-01-15 v3.1.10 (3.1.10)
+)))
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+ssoftpath.code.tex
+File: pgfsyssoftpath.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfsyssoftpath@smallbuffer@items=\count408
+\pgfsyssoftpath@bigbuffer@items=\count409
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+sprotocol.code.tex
+File: pgfsysprotocol.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+e.code.tex
+Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code
+.tex
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathutil.
+code.tex)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathparse
+r.code.tex
+\pgfmath@dimen=\dimen324
+\pgfmath@count=\count410
+\pgfmath@box=\box73
+\pgfmath@toks=\toks55
+\pgfmath@stack@operand=\toks56
+\pgfmath@stack@operation=\toks57
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.code.tex)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.basic.code.tex)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.trigonometric.code.tex)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.random.code.tex)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.comparison.code.tex)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.base.code.tex)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.round.code.tex)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.misc.code.tex)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.integerarithmetics.code.tex)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathcalc.
+code.tex)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfloat
+.code.tex
+\c@pgfmathroundto@lastzeros=\count411
+))
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfint.code.
+tex)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+epoints.code.tex
+File: pgfcorepoints.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@picminx=\dimen325
+\pgf@picmaxx=\dimen326
+\pgf@picminy=\dimen327
+\pgf@picmaxy=\dimen328
+\pgf@pathminx=\dimen329
+\pgf@pathmaxx=\dimen330
+\pgf@pathminy=\dimen331
+\pgf@pathmaxy=\dimen332
+\pgf@xx=\dimen333
+\pgf@xy=\dimen334
+\pgf@yx=\dimen335
+\pgf@yy=\dimen336
+\pgf@zx=\dimen337
+\pgf@zy=\dimen338
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+epathconstruct.code.tex
+File: pgfcorepathconstruct.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@path@lastx=\dimen339
+\pgf@path@lasty=\dimen340
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+epathusage.code.tex
+File: pgfcorepathusage.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@shorten@end@additional=\dimen341
+\pgf@shorten@start@additional=\dimen342
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+escopes.code.tex
+File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfpic=\box74
+\pgf@hbox=\box75
+\pgf@layerbox@main=\box76
+\pgf@picture@serial@count=\count412
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+egraphicstate.code.tex
+File: pgfcoregraphicstate.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgflinewidth=\dimen343
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+etransformations.code.tex
+File: pgfcoretransformations.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@pt@x=\dimen344
+\pgf@pt@y=\dimen345
+\pgf@pt@temp=\dimen346
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+equick.code.tex
+File: pgfcorequick.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+eobjects.code.tex
+File: pgfcoreobjects.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+epathprocessing.code.tex
+File: pgfcorepathprocessing.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+earrows.code.tex
+File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfarrowsep=\dimen347
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+eshade.code.tex
+File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@max=\dimen348
+\pgf@sys@shading@range@num=\count413
+\pgf@shadingcount=\count414
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+eimage.code.tex
+File: pgfcoreimage.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+eexternal.code.tex
+File: pgfcoreexternal.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfexternal@startupbox=\box77
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+elayers.code.tex
+File: pgfcorelayers.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+etransparency.code.tex
+File: pgfcoretransparency.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+epatterns.code.tex
+File: pgfcorepatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+erdf.code.tex
+File: pgfcorerdf.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)))
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
+shapes.code.tex
+File: pgfmoduleshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfnodeparttextbox=\box78
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
+plot.code.tex
+File: pgfmoduleplot.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfco
+mp-version-0-65.sty
+Package: pgfcomp-version-0-65 2023-01-15 v3.1.10 (3.1.10)
+\pgf@nodesepstart=\dimen349
+\pgf@nodesepend=\dimen350
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfco
+mp-version-1-18.sty
+Package: pgfcomp-version-1-18 2023-01-15 v3.1.10 (3.1.10)
+))
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgffor.st
+y
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfkeys.s
+ty
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys
+.code.tex))
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/pgf/math\pgfmath.sty
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code
+.tex))
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgffor.
+code.tex
+Package: pgffor 2023-01-15 v3.1.10 (3.1.10)
+\pgffor@iter=\dimen351
+\pgffor@skip=\dimen352
+\pgffor@stack=\toks58
+\pgffor@toks=\toks59
+))
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z\tikz.code.tex
+Package: tikz 2023-01-15 v3.1.10 (3.1.10)
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibr
+aryplothandlers.code.tex
+File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@plot@mark@count=\count415
+\pgfplotmarksize=\dimen353
+)
+\tikz@lastx=\dimen354
+\tikz@lasty=\dimen355
+\tikz@lastxsaved=\dimen356
+\tikz@lastysaved=\dimen357
+\tikz@lastmovetox=\dimen358
+\tikz@lastmovetoy=\dimen359
+\tikzleveldistance=\dimen360
+\tikzsiblingdistance=\dimen361
+\tikz@figbox=\box79
+\tikz@figbox@bg=\box80
+\tikz@tempbox=\box81
+\tikz@tempbox@bg=\box82
+\tikztreelevel=\count416
+\tikznumberofchildren=\count417
+\tikznumberofcurrentchild=\count418
+\tikz@fig@count=\count419
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
+matrix.code.tex
+File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfmatrixcurrentrow=\count420
+\pgfmatrixcurrentcolumn=\count421
+\pgf@matrix@numberofcolumns=\count422
+)
+\tikz@expandcount=\count423
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)))
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibraryintersections.code.tex
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibr
+aryintersections.code.tex
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibr
+aryfpu.code.tex)
+\pgf@intersect@solutions=\count424
+))
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibraryshapes.code.tex
+File: tikzlibraryshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibraryshapes.geometric.code.tex
+File: tikzlibraryshapes.geometric.code.tex 2023-01-15 v3.1.10 (3.1.10)
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\
+pgflibraryshapes.geometric.code.tex
+File: pgflibraryshapes.geometric.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibraryshapes.misc.code.tex
+File: tikzlibraryshapes.misc.code.tex 2023-01-15 v3.1.10 (3.1.10)
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\
+pgflibraryshapes.misc.code.tex
+File: pgflibraryshapes.misc.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibraryshapes.symbols.code.tex
+File: tikzlibraryshapes.symbols.code.tex 2023-01-15 v3.1.10 (3.1.10)
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\
+pgflibraryshapes.symbols.code.tex
+File: pgflibraryshapes.symbols.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibraryshapes.arrows.code.tex
+File: tikzlibraryshapes.arrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\
+pgflibraryshapes.arrows.code.tex
+File: pgflibraryshapes.arrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibraryshapes.callouts.code.tex
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\
+pgflibraryshapes.callouts.code.tex))
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibraryshapes.multipart.code.tex
+File: tikzlibraryshapes.multipart.code.tex 2023-01-15 v3.1.10 (3.1.10)
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\
+pgflibraryshapes.multipart.code.tex
+File: pgflibraryshapes.multipart.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfnodepartlowerbox=\box83
+\pgfnodeparttwobox=\box84
+\pgfnodepartthreebox=\box85
+\pgfnodepartfourbox=\box86
+\pgfnodeparttwentybox=\box87
+\pgfnodepartnineteenbox=\box88
+\pgfnodeparteighteenbox=\box89
+\pgfnodepartseventeenbox=\box90
+\pgfnodepartsixteenbox=\box91
+\pgfnodepartfifteenbox=\box92
+\pgfnodepartfourteenbox=\box93
+\pgfnodepartthirteenbox=\box94
+\pgfnodeparttwelvebox=\box95
+\pgfnodepartelevenbox=\box96
+\pgfnodeparttenbox=\box97
+\pgfnodepartninebox=\box98
+\pgfnodeparteightbox=\box99
+\pgfnodepartsevenbox=\box100
+\pgfnodepartsixbox=\box101
+\pgfnodepartfivebox=\box102
+)))
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibraryarrows.code.tex
+File: tikzlibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibr
+aryarrows.code.tex
+File: pgflibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\arrowsize=\dimen362
+))
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibrarychains.code.tex
+File: tikzlibrarychains.code.tex 2023-01-15 v3.1.10 (3.1.10)
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibrarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/tools\hhline.sty
+Package: hhline 2020/01/04 v2.04 Table rule package (DPC)
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/tools\multicol.sty
+Package: multicol 2023/03/30 v1.9f multicolumn formatting (FMi)
+\c@tracingmulticols=\count425
+\mult@box=\box103
+\multicol@leftmargin=\dimen363
+\c@unbalance=\count426
+\c@collectmore=\count427
+\doublecol@number=\count428
+\multicoltolerance=\count429
+\multicolpretolerance=\count430
+\full@width=\dimen364
+\page@free=\dimen365
+\premulticols=\dimen366
+\postmulticols=\dimen367
+\multicolsep=\skip300
+\multicolbaselineskip=\skip301
+\partial@page=\box104
+\last@line=\box105
+\mc@boxedresult=\box106
+\maxbalancingoverflow=\dimen368
+\mult@rightbox=\box107
+\mult@grightbox=\box108
+\mult@firstbox=\box109
+\mult@gfirstbox=\box110
+\@tempa=\box111
+\@tempa=\box112
+\@tempa=\box113
+\@tempa=\box114
+\@tempa=\box115
+\@tempa=\box116
+\@tempa=\box117
+\@tempa=\box118
+\@tempa=\box119
+\@tempa=\box120
+\@tempa=\box121
+\@tempa=\box122
+\@tempa=\box123
+\@tempa=\box124
+\@tempa=\box125
+\@tempa=\box126
+\@tempa=\box127
+\@tempa=\box128
+\@tempa=\box129
+\@tempa=\box130
+\@tempa=\box131
+\@tempa=\box132
+\@tempa=\box133
+\@tempa=\box134
+\@tempa=\box135
+\@tempa=\box136
+\@tempa=\box137
+\@tempa=\box138
+\@tempa=\box139
+\@tempa=\box140
+\@tempa=\box141
+\@tempa=\box142
+\@tempa=\box143
+\@tempa=\box144
+\@tempa=\box145
+\@tempa=\box146
+\c@minrows=\count431
+\c@columnbadness=\count432
+\c@finalcolumnbadness=\count433
+\last@try=\dimen369
+\multicolovershoot=\dimen370
+\multicolundershoot=\dimen371
+\mult@nat@firstbox=\box147
+\colbreak@box=\box148
+\mc@col@check@num=\count434
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/tabto-ltx\tabto.sty
+Package: tabto 2018/12/28  v 1.4  Another tabbing mechanism
+\CurrentLineWidth=\dimen372
+\TabPrevPos=\dimen373
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/multirow\multirow.sty
+Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
+\multirow@colwidth=\skip302
+\multirow@cntb=\count435
+\multirow@dima=\skip303
+\bigstrutjot=\dimen374
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/makecell\makecell.sty
+Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
+\rotheadsize=\dimen375
+\c@nlinenum=\count436
+\TeXr@lab=\toks60
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/fancyhdr\fancyhdr.sty
+Package: fancyhdr 2022/11/09 v4.1 Extensive control of page headers and footers
+
+\f@nch@headwidth=\skip304
+\f@nch@O@elh=\skip305
+\f@nch@O@erh=\skip306
+\f@nch@O@olh=\skip307
+\f@nch@O@orh=\skip308
+\f@nch@O@elf=\skip309
+\f@nch@O@erf=\skip310
+\f@nch@O@olf=\skip311
+\f@nch@O@orf=\skip312
+)) (C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 11
+2.
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmr.fd
+File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)<<t1.cmap>>) (C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/base\inpu
+tenc.sty
+Package: inputenc 2021/02/14 v1.3d Input encoding file
+\inpenc@prehook=\toks61
+\inpenc@posthook=\toks62
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/lastpage\lastpage.sty
+Package: lastpage 2023/10/14 v2.0e lastpage: 2.09 or 2e? (HMM)
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/lastpage\lastpage2e.sty
+Package: lastpage2e 2023/10/14 v2.0e Decide which 2e lastpage version to use (H
+MM)
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/lastpage\lastpagemodern
+.sty
+Package: lastpagemodern 2023-10-14 v2.0e Refers to last page's name (HMM; JPG)
+\c@lastpagecount=\count437
+) 
+))
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/tools\indentfirst.sty
+Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/pgfplots\pgfplots.sty
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplots.rev
+ision.tex)
+Package: pgfplots 2021/05/15 v1.18.1 Data Visualization (1.18.1)
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplots.cod
+e.tex
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplotscore
+.code.tex
+\t@pgfplots@toka=\toks63
+\t@pgfplots@tokb=\toks64
+\t@pgfplots@tokc=\toks65
+\pgfplots@tmpa=\dimen376
+\c@pgfplots@coordindex=\count438
+\c@pgfplots@scanlineindex=\count439
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/sys\pgfplots
+sysgeneric.code.tex))
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/libs\pgfplot
+slibrary.code.tex)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/oldpgfcompat
+ib\pgfplotsoldpgfsupp_loader.code.tex
+Package pgfplots: loading complementary utilities for your pgf version...
+\t@pgf@toka=\toks66
+\t@pgf@tokb=\toks67
+\t@pgf@tokc=\toks68
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/oldpgfcompat
+ib\pgfplotsoldpgfsupp_pgfutil-common-lists.tex))
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/util\pgfplot
+sutil.code.tex
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/liststructur
+e\pgfplotsliststructure.code.tex)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/liststructur
+e\pgfplotsliststructureext.code.tex)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/liststructur
+e\pgfplotsarray.code.tex
+\c@pgfplotsarray@tmp=\count440
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/liststructur
+e\pgfplotsmatrix.code.tex)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/numtable\pgf
+plotstableshared.code.tex
+\c@pgfplotstable@counta=\count441
+\t@pgfplotstable@a=\toks69
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/liststructur
+e\pgfplotsdeque.code.tex)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/util\pgfplot
+sbinary.code.tex
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/util\pgfplot
+sbinary.data.code.tex))
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/util\pgfplot
+sutil.verb.code.tex)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/libs\pgflibr
+arypgfplots.surfshading.code.tex
+\c@pgfplotslibrarysurf@no=\count442
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/sys\pgflibra
+rypgfplots.surfshading.pgfsys-pdftex.def)))
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/util\pgfplot
+scolormap.code.tex
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/util\pgfplot
+scolor.code.tex))
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplotsstac
+kedplots.code.tex)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplotsplot
+handlers.code.tex
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplotsmesh
+plothandler.code.tex
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplotsmesh
+plotimage.code.tex)))
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplots.sca
+ling.code.tex)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplotscoor
+dprocessing.code.tex)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplots.err
+orbars.code.tex)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplots.mar
+kers.code.tex)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplotstick
+s.code.tex)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots\pgfplots.pat
+hs.code.tex)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibrarydecorations.code.tex
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
+decorations.code.tex
+\pgfdecoratedcompleteddistance=\dimen377
+\pgfdecoratedremainingdistance=\dimen378
+\pgfdecoratedinputsegmentcompleteddistance=\dimen379
+\pgfdecoratedinputsegmentremainingdistance=\dimen380
+\pgf@decorate@distancetomove=\dimen381
+\pgf@decorate@repeatstate=\count443
+\pgfdecorationsegmentamplitude=\dimen382
+\pgfdecorationsegmentlength=\dimen383
+)
+\tikz@lib@dec@box=\box149
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibrarydecorations.pathmorphing.code.tex
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/decorat
+ions\pgflibrarydecorations.pathmorphing.code.tex))
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibrarydecorations.pathreplacing.code.tex
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/decorat
+ions\pgflibrarydecorations.pathreplacing.code.tex))
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgfplots/libs\tikzlib
+rarypgfplots.contourlua.code.tex)
+\pgfplots@numplots=\count444
+\pgfplots@xmin@reg=\dimen384
+\pgfplots@xmax@reg=\dimen385
+\pgfplots@ymin@reg=\dimen386
+\pgfplots@ymax@reg=\dimen387
+\pgfplots@zmin@reg=\dimen388
+\pgfplots@zmax@reg=\dimen389
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibraryplotmarks.code.tex
+File: tikzlibraryplotmarks.code.tex 2023-01-15 v3.1.10 (3.1.10)
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibr
+aryplotmarks.code.tex
+File: pgflibraryplotmarks.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)))
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/microtype\microtype.sty
+Package: microtype 2023/03/13 v3.1a Micro-typographical refinements (RS)
+\MT@toks=\toks70
+\MT@tempbox=\box150
+\MT@count=\count445
+LaTeX Info: Redefining \noprotrusionifhmode on input line 1059.
+LaTeX Info: Redefining \leftprotrusion on input line 1060.
+\MT@prot@toks=\toks71
+LaTeX Info: Redefining \rightprotrusion on input line 1078.
+LaTeX Info: Redefining \textls on input line 1368.
+\MT@outer@kern=\dimen390
+LaTeX Info: Redefining \textmicrotypecontext on input line 1988.
+\MT@listname@count=\count446
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/microtype\microtype-pdf
+tex.def
+File: microtype-pdftex.def 2023/03/13 v3.1a Definitions specific to pdftex (RS)
+
+LaTeX Info: Redefining \lsstyle on input line 902.
+LaTeX Info: Redefining \lslig on input line 902.
+\MT@outer@space=\skip313
+)
+Package microtype Info: Loading configuration file microtype.cfg.
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/microtype\microtype.cfg
+File: microtype.cfg 2023/03/13 v3.1a microtype main configuration file (RS)
+))
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/placeins\placeins.sty
+Package: placeins 2005/04/18  v 2.2
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/graphics\rotating.sty
+Package: rotating 2016/08/11 v2.16d rotated objects in LaTeX
+\c@r@tfl@t=\count447
+\rotFPtop=\skip314
+\rotFPbot=\skip315
+\rot@float@box=\box151
+\rot@mess@toks=\toks72
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/chemfig\chemfig.sty
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/chemfig\chemfig.tex
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/simplekv\simplekv.tex
+Package: simplekv 2023/10/02 v0.2c Simple keyval package (CT)
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibr
+aryarrows.meta.code.tex
+File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfarrowinset=\dimen391
+\pgfarrowlength=\dimen392
+\pgfarrowwidth=\dimen393
+\pgfarrowlinewidth=\dimen394
+)
+\CF_cnt_atomgroup=\count448
+\CF_cnt_group=\count449
+\CF_cnt_atom=\count450
+\CF_cnt_cycle=\count451
+\CF_cnt_cyclebonds=\count452
+\CF_cnt_compound=\count453
+\CF_dim=\dimen395
+\CF_arrowsize=\dimen396
+\CF_zero=\dimen397
+\CF_box=\box152
+\CF_boxstuff=\box153
+\CF_testbox=\box154
+\CF_chargebox=\box155
+\CF_substtoks=\toks73
+)
+Package: chemfig 2023/06/30 v1.6e Draw molecule with an easy syntax (CT)
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/bigints\bigints.sty
+Package: bigints 2010/02/15 Writing big integrals
+Package bigints Info: This is Bigints by Merciadri Luca. on input line 5.
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
+\lst@mode=\count454
+\lst@gtempboxa=\box156
+\lst@token=\toks74
+\lst@length=\count455
+\lst@currlwidth=\dimen398
+\lst@column=\count456
+\lst@pos=\count457
+\lst@lostspace=\dimen399
+\lst@width=\dimen400
+\lst@newlines=\count458
+\lst@lineno=\count459
+\lst@maxwidth=\dimen401
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
+File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
+\c@lstnumber=\count460
+\lst@skipnumbers=\count461
+\lst@framebox=\box157
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
+File: listings.cfg 2023/02/27 1.9 listings configuration
+))
+Package: listings 2023/02/27 1.9 (Carsten Heinz)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/pdfpages\pdfpages.sty
+Package: pdfpages 2022/12/19 v0.5x Insert pages of external PDF documents (AM)
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/eso-pic\eso-pic.sty
+Package: eso-pic 2023/05/03 v3.0c eso-pic (RN)
+\ESO@tempdima=\dimen402
+\ESO@tempdimb=\dimen403
+)
+\AM@pagewidth=\dimen404
+\AM@pageheight=\dimen405
+\AM@fboxrule=\dimen406
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/pdfpages\pppdftex.def
+File: pppdftex.def 2022/12/19 v0.5x Pdfpages driver for pdfTeX (AM)
+)
+\pdfpages@includegraphics@status=\count462
+\AM@pagebox=\box158
+\AM@global@opts=\toks75
+\AM@pagecnt=\count463
+\AM@toc@title=\toks76
+\AM@lof@heading=\toks77
+\c@AM@survey=\count464
+\AM@templatesizebox=\box159
+) (C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/multirow\bigstrut.sty
+Package: bigstrut 2021/03/15 v2.8 Provide larger struts in tabulars
+) (C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count465
+\float@exts=\toks78
+\float@box=\box160
+\@float@everytoks=\toks79
+\@floatcapt=\box161
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/lipsum\lipsum.sty
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/l3keys2e\l3k
+eys2e.sty
+Package: l3keys2e 2023-08-29 LaTeX2e option processing using LaTeX3 keys
+)
+Package: lipsum 2021-09-20 v2.7 150 paragraphs of Lorem Ipsum dummy text
+\g__lipsum_par_int=\count466
+\l__lipsum_a_int=\count467
+\l__lipsum_b_int=\count468
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/lipsum\lipsum.ltd.tex))
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\backref.sty
+Package: backref 2023/04/20 v1.42 Bibliographical back referencing
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/abntex2\abntex2cite.sty
+Package: abntex2cite 2018/11/24 v-1.9.7 abnTeX2
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/abntex2\abntex2abrev.st
+y)
+\minimumbiblabelwidth=\skip316
+\ABCIauxlen=\skip317
+\c@ABCIaux=\count469
+\c@ABCImax=\count470
+ (C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifpdf.sty
+Package: ifpdf 2019/10/25 v3.4 ifpdf legacy package. Use iftex instead.
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifxetex.sty
+Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/relsize\relsize.sty
+Package: relsize 2013/03/29 ver 4.1
+)
+\biblabelsep=\skip318
+LaTeX Info: Redefining \newblock on input line 591.
+LaTeX Info: Redefining \cite on input line 618.
+\ABCItoken=\toks80
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 281.
+\Principal@idxfile=\write5
+\openout5 = `Principal.idx'.
+
+
+Writing index file Principal.idx 
+) (pre/sigas.tex)
+
+LaTeX Warning: Unused global option(s):
+    [normalfigtabnum,pnumromarab,chapter,section].
+
+(Principal.aux)
+\openout1 = `Principal.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+Package hyperref Info: Link coloring ON on input line 43.
+LaTeX Info: Redefining \degres on input line 43.
+LaTeX Info: Redefining \up on input line 43.
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/tools\hhline.sty
+Package: hhline 2020/01/04 v2.04 Table rule package (DPC)
+)
+\myptabbox=\box162
+\myptabboxwidth=\skip319
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/glossaries-english\glos
+saries-dictionary-English.dict
+Dictionary: glossaries-dictionary, Language: English 
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/glossaries-spanish\glos
+saries-dictionary-Spanish.dict
+Dictionary: glossaries-dictionary, Language: Spanish 
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/glossaries-portuges\glo
+ssaries-dictionary-Brazilian.dict
+Dictionary: glossaries-dictionary, Language: Brazilian 
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
+ii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count471
+\scratchdimen=\dimen407
+\scratchbox=\box163
+\nofMPsegments=\count472
+\nofMParguments=\count473
+\everyMPshowfont=\toks81
+\MPscratchCnt=\count474
+\MPscratchDim=\dimen408
+\MPnumerator=\count475
+\makeMPintoPDFobject=\count476
+\everyMPtoPDFconversion=\toks82
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
+ase.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.c
+fg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+))
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: float package is loaded.
+Package caption Info: listings package is loaded.
+Package caption Info: rotating package is loaded.
+Package caption Info: wrapfig package is loaded.
+Package caption Info: End \AtBeginDocument code.
+
+Package pgfplots notification 'compat/show suggested version=true': you might b
+enefit from \pgfplotsset{compat=1.18} (current compat level: 1.17).
+
+LaTeX Info: Redefining \microtypecontext on input line 43.
+Package microtype Info: Applying patch `item' on input line 43.
+Package microtype Info: Applying patch `toc' on input line 43.
+Package microtype Info: Applying patch `eqnum' on input line 43.
+Package microtype Info: Applying patch `footnote' on input line 43.
+Package microtype Info: Applying patch `verbatim' on input line 43.
+Package microtype Info: Generating PDF output.
+Package microtype Info: Character protrusion enabled (level 2).
+Package microtype Info: Using default protrusion set `alltext'.
+Package microtype Info: Automatic font expansion enabled (level 2),
+(microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
+Package microtype Info: Using default expansion set `alltext-nott'.
+LaTeX Info: Redefining \showhyphens on input line 43.
+Package microtype Info: No adjustment of tracking.
+Package microtype Info: No adjustment of interword spacing.
+Package microtype Info: No adjustment of character kerning.
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-cmr.cfg
+File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
+(RS)
+)
+\c@lstlisting=\count477
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/pdflscape\pdflscape.sty
+Package: pdflscape 2022-10-27 v0.13 Display of landscape pages in PDF
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/pdflscape\pdflscape-nom
+etadata.sty
+Package: pdflscape-nometadata 2022-10-28 v0.13 Display of landscape pages in PD
+F (HO)
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/graphics\lscape.sty
+Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+))
+(pre/01-capa.tex
+LaTeX Font Info:    Trying to load font information for T1+lmss on input line 2
+.
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmss.fd
+File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `lmss' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+LaTeX Font Info:    Font shape `T1/lmss/bx/it' in size <20.74> not available
+(Font)              Font shape `T1/lmss/bx/sl' tried instead on input line 2.
+ [1
+
+{C:/Users/rapph/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/rapp
+h/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}]) (pre/02-rosto.t
+ex
+! Argument of \end  has an extra }.
+<inserted text> 
+                \par 
+l.3 \end
+        
+I've run across a `}' that doesn't seem to match anything.
+For example, `\def\a#1{...}' and `\a}' would produce
+this error. If you simply proceed now, the `\par' that
+I've just inserted will cause me to report a runaway
+argument that might be the root of the problem. But if
+your `}' was spurious, just type `2' and it will go away.
+
+Runaway argument?
+! Paragraph ended before \end  was complete.
+<to be read again> 
+                   \par 
+l.3 \end
+        
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+LaTeX Font Info:    Font shape `T1/lmss/bx/it' in size <17.28> not available
+(Font)              Font shape `T1/lmss/bx/sl' tried instead on input line 3.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 3
+.
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd
+File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)<<ot1.cmap>>
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 3
+.
+ (C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/lm\omllmm.fd
+File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)<<oml.cmap>>
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
+3.
+ (C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/lm\omslmsy.fd
+File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)<<oms.cmap>>
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
+3.
+ (C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/lm\omxlmex.fd
+File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <12> on input line 3.
+<<omx.cmap>>
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 3.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 3.
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 3.
+
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/base\ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+)
+LaTeX Font Info:    Trying to load font information for U+msa on input line 3.
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msa.cfg
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 3.
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+)
+LaTeX Font Info:    Trying to load font information for U+wasy on input line 3.
+
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/wasysym\uwasy.fd
+File: uwasy.fd 2020/01/19 v2.4 Wasy-2 symbol font definitions
+)
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.3 \end
+         [1
+
+
+
+
+
+
+]) (pre/03-assinaturas.tex [2
+
+]) (pre/04-agradecimentos.tex [3
+
+
+])
+(pre/05-resumo.tex [4
+
+]) (pre/06-abstract.tex [5
+
+]) (pre/07-figuras.tex
+(Principal.lof) [6
+
+]) (pre/08-quadros.tex (Principal.loq) [7
+
+])
+(pre/09-tabelas.tex (Principal.lot) [8
+
+]) (pre/10-codigos.tex (Principal.loc)
+[9
+
+]) (pre/11-siglas.tex
+No file Principal.gls.
+Using TeX to sort glossary entries---this may take a while
+[10
+
+]
+Underfull \hbox (badness 1067) in paragraph at lines 10--10
+[]|[][]\T1/lmr/m/n/12 (+20) 12[][], [][]13[][],
+ []
+
+
+Underfull \hbox (badness 1454) in paragraph at lines 10--10
+[][]\T1/lmr/m/n/12 (+20) 14[][], [][]17[][],
+ []
+
+
+Underfull \hbox (badness 1454) in paragraph at lines 10--10
+[][]\T1/lmr/m/n/12 (+20) 19[][], [][]20[][],
+ []
+
+
+Underfull \hbox (badness 1248) in paragraph at lines 10--10
+[][]\T1/lmr/m/n/12 (+20) 21[][], [][]22[][],
+ []
+
+
+Underfull \hbox (badness 1248) in paragraph at lines 10--10
+[][]\T1/lmr/m/n/12 (+20) 23[][], [][]29[][],
+ []
+
+
+Underfull \hbox (badness 1248) in paragraph at lines 10--10
+[][]\T1/lmr/m/n/12 (+20) 33[][], [][]34[][],
+ []
+
+
+Underfull \hbox (badness 1248) in paragraph at lines 10--10
+[][]\T1/lmr/m/n/12 (+20) 35[][], [][]36[][],
+ []
+
+
+Underfull \hbox (badness 1067) in paragraph at lines 10--10
+[]|[][]\T1/lmr/m/n/12 (+20) 33[][], [][]36[][],
+ []
+
+
+Underfull \hbox (badness 1067) in paragraph at lines 10--10
+[]|[][]\T1/lmr/m/n/12 (+20) 13[][], [][]28[][],
+ []
+
+
+Underfull \hbox (badness 1248) in paragraph at lines 10--10
+[][]\T1/lmr/m/n/12 (+20) 31[][], [][]33[][],
+ []
+
+
+Underfull \hbox (badness 1248) in paragraph at lines 10--10
+[][]\T1/lmr/m/n/12 (+20) 34[][], [][]35[][],
+ []
+
+
+Underfull \hbox (badness 1067) in paragraph at lines 10--10
+[]|[][]\T1/lmr/m/n/12 (+20) 12[][], [][]13[][],
+ []
+
+
+Underfull \hbox (badness 1454) in paragraph at lines 10--10
+[][]\T1/lmr/m/n/12 (+20) 14[][], [][]15[][],
+ []
+
+
+Underfull \hbox (badness 1248) in paragraph at lines 10--10
+[][]\T1/lmr/m/n/12 (+20) 21[][], [][]22[][],
+ []
+
+
+Underfull \hbox (badness 1248) in paragraph at lines 10--10
+[][]\T1/lmr/m/n/12 (+20) 23[][], [][]25[][],
+ []
+
+
+Underfull \hbox (badness 1248) in paragraph at lines 10--10
+[][]\T1/lmr/m/n/12 (+20) 26[][], [][]29[][],
+ []
+
+
+Underfull \hbox (badness 1248) in paragraph at lines 10--10
+[][]\T1/lmr/m/n/12 (+20) 33[][], [][]34[][],
+ []
+
+
+Underfull \hbox (badness 1248) in paragraph at lines 10--10
+[][]\T1/lmr/m/n/12 (+20) 35[][], [][]37[][],
+ []
+
+
+Underfull \hbox (badness 1248) in paragraph at lines 10--10
+[][]\T1/lmr/m/n/12 (+20) 38[][], [][]39[][],
+ []
+
+
+Underfull \hbox (badness 1067) in paragraph at lines 10--10
+[]|[][]\T1/lmr/m/n/12 (+20) 17[][], [][]23[][],
+ []
+
+
+Underfull \hbox (badness 1067) in paragraph at lines 10--10
+[]|[][]\T1/lmr/m/n/12 (+20) 18[][], [][]23[][],
+ []
+
+
+Underfull \hbox (badness 1067) in paragraph at lines 10--10
+[]|[][]\T1/lmr/m/n/12 (+20) 15[][], [][]23[][],
+ []
+
+
+Underfull \hbox (badness 1248) in paragraph at lines 10--10
+[][]\T1/lmr/m/n/12 (+20) 24[][], [][]25[][],
+ []
+
+
+Underfull \hbox (badness 1067) in paragraph at lines 10--10
+[]|[][]\T1/lmr/m/n/12 (+20) 15[][], [][]16[][],
+ []
+
+
+Underfull \hbox (badness 1067) in paragraph at lines 10--10
+[]|[][]\T1/lmr/m/n/12 (+20) 26[][], [][]27[][],
+ []
+
+[11
+
+
+] [12]) (pre/11-simbolos.tex
+
+Package glossaries Warning: Empty glossary for \printnoidxglossary[type={symbol
+s}]. Rerun may be required (or you may have forgotten to use commands like \gls
+) on input line 8.
+
+) (pre/12-sumario.tex
+Underfull \hbox (badness 10000) in paragraph at lines 7--7
+ [] 
+ []
+
+(Principal.toc
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <12> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 24.
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10.95> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 28.
+LaTeX Font Info:    Font shape `T1/lmss/bx/it' in size <12> not available
+(Font)              Font shape `T1/lmss/bx/sl' tried instead on input line 40.
+ [13
+
+
+] [14]) [15]) (textual/t1-introducao.tex
+
+LaTeX Warning: Citation `netflixMigration' on page 16 undefined on input line 8
+.
+
+
+LaTeX Warning: Citation `netflixMigration' on page 16 undefined on input line 1
+0.
+
+
+LaTeX Warning: Citation `microservices' on page 16 undefined on input line 12.
+
+
+LaTeX Warning: Citation `microserviceAdoption' on page 16 undefined on input li
+ne 12.
+
+[16
+
+
+]
+
+LaTeX Warning: Citation `dddFowler' on page 17 undefined on input line 14.
+
+
+LaTeX Warning: Citation `buildingMicroservices' on page 17 undefined on input l
+ine 16.
+
+
+LaTeX Warning: Citation `amazonBackMigration' on page 17 undefined on input lin
+e 20.
+
+[17]
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 3
+4.
+ (C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
+File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+))
+(textual/t2-fundamentacao.tex [18{C:/Users/rapph/AppData/Local/Programs/MiKTeX/
+fonts/enc/dvips/lm/lm-ts1.enc}]
+
+LaTeX Warning: Citation `documentingArchitectures' on page 19 undefined on inpu
+t line 8.
+
+
+LaTeX Warning: Citation `architectureFowler' on page 19 undefined on input line
+ 8.
+
+
+LaTeX Warning: Citation `buildingMicroservices' on page 19 undefined on input l
+ine 17.
+
+
+LaTeX Warning: Citation `richardson2018microservices' on page 19 undefined on i
+nput line 19.
+
+[19
+
+]
+
+LaTeX Warning: Citation `microservices' on page 20 undefined on input line 23.
+
+
+LaTeX Warning: Citation `tanenbaum2010sistemas' on page 20 undefined on input l
+ine 28.
+
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <14.4> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 34.
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\acrfull' on input line 34.
+
+
+LaTeX Warning: Citation `understandingSOA' on page 20 undefined on input line 3
+7.
+
+[20]
+
+LaTeX Warning: Citation `buildingMicroservices' on page 21 undefined on input l
+ine 44.
+
+
+LaTeX Warning: Citation `buildingMicroservices' on page 21 undefined on input l
+ine 46.
+
+
+LaTeX Warning: Citation `richardson2018microservices' on page 21 undefined on i
+nput line 50.
+
+
+LaTeX Warning: Citation `richardson2018microservices' on page 21 undefined on i
+nput line 52.
+
+
+LaTeX Warning: Citation `buildingMicroservices' on page 21 undefined on input l
+ine 54.
+
+[21]
+
+LaTeX Warning: Citation `richardson2018microservices' on page 22 undefined on i
+nput line 59.
+
+
+LaTeX Warning: Citation `richardson2018microservices' on page 22 undefined on i
+nput line 61.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 85--85
+[]|\T1/lmr/m/it/12 (+20) Asynchronous re-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 85--85
+\T1/lmr/m/it/12 (+20) quest/re-sponse []\T1/lmr/m/n/12 (+20) e
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 86--86
+[]|\T1/lmr/m/it/12 (+20) Publish/subscribe
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 86--86
+\T1/lmr/m/it/12 (+20) Pub-lish/async re-
+ []
+
+
+LaTeX Warning: Citation `richardson2018microservices' on page 22 undefined on i
+nput line 90.
+
+
+LaTeX Warning: Citation `richardson2018microservices' on page 22 undefined on i
+nput line 90.
+
+
+Overfull \hbox (2.74908pt too wide) in paragraph at lines 104--104
+[]|\T1/lmr/m/it/12 (-20) Request/Response| 
+ []
+
+
+LaTeX Warning: Citation `richardson2018microservices' on page 22 undefined on i
+nput line 110.
+
+
+LaTeX Warning: Citation `richardson2018microservices' on page 22 undefined on i
+nput line 110.
+
+[22]
+Overfull \hbox (2.18625pt too wide) in paragraph at lines 124--124
+[]|\T1/lmr/m/it/12 (-20) Publish/Subscribe| 
+ []
+
+
+LaTeX Warning: Citation `richardson2018microservices' on page 23 undefined on i
+nput line 129.
+
+
+LaTeX Warning: Citation `richardson2018microservices' on page 23 undefined on i
+nput line 129.
+
+
+LaTeX Warning: Citation `buildingMicroservices' on page 23 undefined on input l
+ine 135.
+
+
+LaTeX Warning: Citation `buildingMicroservices' on page 23 undefined on input l
+ine 138.
+
+[23]
+
+LaTeX Warning: Citation `Parnas2012' on page 24 undefined on input line 144.
+
+
+LaTeX Warning: Citation `Yourdon1979' on page 24 undefined on input line 147.
+
+
+LaTeX Warning: Citation `buildingMicroservices' on page 24 undefined on input l
+ine 147.
+
+
+LaTeX Warning: Citation `buildingMicroservices' on page 24 undefined on input l
+ine 149.
+
+
+LaTeX Warning: Citation `buildingMicroservices' on page 24 undefined on input l
+ine 152.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 165--165
+[]|\T1/lmr/m/it/12 (+20) Domain Cou-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 166--166
+[]|\T1/lmr/m/it/12 (+20) Pass-Through
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 167--167
+[]|\T1/lmr/m/it/12 (+20) Common Cou-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 168--168
+[]|\T1/lmr/m/it/12 (+20) Content Cou-
+ []
+
+
+LaTeX Warning: Citation `buildingMicroservices' on page 24 undefined on input l
+ine 172.
+
+
+LaTeX Warning: Citation `buildingMicroservices' on page 24 undefined on input l
+ine 172.
+
+[24]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\acrfull' on input line 175.
+
+
+LaTeX Warning: Citation `buildingMicroservices' on page 25 undefined on input l
+ine 176.
+
+
+LaTeX Warning: Citation `buildingMicroservices' on page 25 undefined on input l
+ine 178.
+
+[25]
+
+LaTeX Warning: Citation `buildingMicroservices' on page 26 undefined on input l
+ine 181.
+
+
+LaTeX Warning: Citation `buildingMicroservices' on page 26 undefined on input l
+ine 187.
+
+
+LaTeX Warning: Citation `richardson2018microservices' on page 26 undefined on i
+nput line 192.
+
+
+LaTeX Warning: Citation `richardson2018microservices' on page 26 undefined on i
+nput line 194.
+
+[26]
+
+LaTeX Warning: Citation `buildingMicroservices' on page 27 undefined on input l
+ine 196.
+
+
+LaTeX Warning: Citation `buildingMicroservices' on page 27 undefined on input l
+ine 196.
+
+
+LaTeX Warning: Citation `aragao2013java' on page 27 undefined on input line 199
+.
+
+
+LaTeX Warning: Citation `booch2006' on page 27 undefined on input line 199.
+
+
+LaTeX Warning: Citation `aragao2013java' on page 27 undefined on input line 205
+.
+
+
+LaTeX Warning: Citation `evans2004ddd' on page 27 undefined on input line 207.
+
+
+LaTeX Warning: Citation `evans2004ddd' on page 27 undefined on input line 207.
+
+
+LaTeX Warning: Citation `booch2006' on page 27 undefined on input line 207.
+
+
+LaTeX Warning: Citation `aragao2013java' on page 27 undefined on input line 210
+.
+
+[27]
+<media/classe_celular.png, id=623, 407.27156pt x 341.02406pt>
+File: media/classe_celular.png Graphic file (type png)
+<use media/classe_celular.png>
+Package pdftex.def Info: media/classe_celular.png  used on input line 215.
+(pdftex.def)             Requested size: 227.5pt x 190.49344pt.
+
+
+LaTeX Warning: Citation `aragao2013java' on page 28 undefined on input line 220
+.
+
+
+LaTeX Warning: Citation `booch2006' on page 28 undefined on input line 223.
+
+
+LaTeX Warning: Citation `booch2006' on page 28 undefined on input line 226.
+
+
+LaTeX Warning: Citation `booch2006' on page 28 undefined on input line 226.
+
+
+LaTeX Warning: Citation `booch2006' on page 28 undefined on input line 229.
+
+[28 <./media/classe_celular.png>]
+
+LaTeX Warning: Citation `aragao2013java' on page 29 undefined on input line 232
+.
+
+
+LaTeX Warning: Citation `booch2006' on page 29 undefined on input line 234.
+
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <17.28> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 236.
+
+LaTeX Warning: Citation `dddFowler' on page 29 undefined on input line 237.
+
+
+LaTeX Warning: Citation `dddFowler' on page 29 undefined on input line 239.
+
+
+LaTeX Warning: Citation `evans2004ddd' on page 29 undefined on input line 241.
+
+
+LaTeX Warning: Citation `evans2004ddd' on page 29 undefined on input line 244.
+
+
+LaTeX Warning: Citation `evans2004ddd' on page 29 undefined on input line 244.
+
+[29]
+
+LaTeX Warning: Citation `evans2004ddd' on page 30 undefined on input line 247.
+
+
+LaTeX Warning: Citation `evans2004ddd' on page 30 undefined on input line 247.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\acrfull' on input line 249.
+
+
+LaTeX Warning: Citation `evans2004ddd' on page 30 undefined on input line 250.
+
+
+LaTeX Warning: Citation `evans2004ddd' on page 30 undefined on input line 252.
+
+[30]
+
+LaTeX Warning: Citation `evans2004ddd' on page 31 undefined on input line 258.
+
+
+LaTeX Warning: Citation `evans2004ddd' on page 31 undefined on input line 260.
+
+
+LaTeX Warning: Citation `evans2004ddd' on page 31 undefined on input line 262.
+
+
+LaTeX Warning: Citation `evans2004ddd' on page 31 undefined on input line 271.
+
+
+LaTeX Warning: Citation `evans2004ddd' on page 31 undefined on input line 273.
+
+
+LaTeX Warning: Citation `evans2004ddd' on page 31 undefined on input line 273.
+
+
+LaTeX Warning: Citation `evans2004ddd' on page 31 undefined on input line 273.
+
+[31]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\acrfull' on input line 275.
+
+
+LaTeX Warning: Citation `evans2004ddd' on page 32 undefined on input line 277.
+
+
+LaTeX Warning: Citation `cockburn2005' on page 32 undefined on input line 282.
+
+<media/hexagonal_architecture.png, id=659, 740.7675pt x 724.95844pt>
+File: media/hexagonal_architecture.png Graphic file (type png)
+<use media/hexagonal_architecture.png>
+Package pdftex.def Info: media/hexagonal_architecture.png  used on input line 2
+87.
+(pdftex.def)             Requested size: 341.25pt x 333.97165pt.
+[32]) (textual/t3-trabalhos.tex [33 <./media/hexagonal_architecture.png>]
+PGFPlots: reading {media/publications_per_year.csv}
+PGFPlots: reading {media/publications_per_territory.csv}
+Package pgfplots info on input line 52: Using 'lua backend=false' for axis: x c
+oord trafo unsupported.
+
+[34
+
+{C:/Users/rapph/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}]
+
+LaTeX Warning: Citation `ma20221285' on page 35 undefined on input line 77.
+
+
+LaTeX Warning: Citation `Rademacher2018' on page 35 undefined on input line 81.
+
+
+
+LaTeX Warning: Citation `Vural202132721' on page 35 undefined on input line 85.
+
+
+
+LaTeX Warning: Citation `Merson20207' on page 35 undefined on input line 89.
+
+
+LaTeX Warning: Citation `Farsi2021' on page 35 undefined on input line 93.
+
+
+LaTeX Warning: Citation `Diepenbrock20171777' on page 35 undefined on input lin
+e 97.
+
+
+LaTeX Warning: Citation `Rademacher201836' on page 35 undefined on input line 1
+01.
+
+
+LaTeX Warning: Citation `Petrasch2017' on page 35 undefined on input line 105.
+
+
+LaTeX Warning: Citation `Singjai2021' on page 35 undefined on input line 109.
+
+
+LaTeX Warning: Citation `Ozkan2023' on page 35 undefined on input line 113.
+
+
+LaTeX Warning: Citation `Yale20171856' on page 35 undefined on input line 117.
+
+
+LaTeX Warning: Citation `Zhang2022310' on page 35 undefined on input line 121.
+
+
+LaTeX Warning: Citation `Joselyne201843' on page 35 undefined on input line 125
+.
+
+
+LaTeX Warning: Citation `Singjai202125' on page 35 undefined on input line 129.
+
+
+
+LaTeX Warning: Citation `Joselyne2021' on page 35 undefined on input line 133.
+
+
+LaTeX Warning: Citation `Kapferer2020299' on page 35 undefined on input line 13
+7.
+
+
+LaTeX Warning: Citation `Vural202132721' on page 35 undefined on input line 147
+.
+
+
+LaTeX Warning: Citation `Singjai202125' on page 35 undefined on input line 149.
+
+
+
+LaTeX Warning: Citation `ma20221285' on page 35 undefined on input line 149.
+
+
+LaTeX Warning: Citation `evans2004ddd' on page 35 undefined on input line 149.
+
+
+LaTeX Warning: Citation `Singjai202125' on page 35 undefined on input line 151.
+
+
+[35] [36]
+
+LaTeX Warning: Citation `Singjai202125' on page 37 undefined on input line 159.
+
+
+
+LaTeX Warning: Citation `Singjai2021' on page 37 undefined on input line 159.
+
+
+LaTeX Warning: Citation `Singjai202125' on page 37 undefined on input line 159.
+
+
+
+LaTeX Warning: Citation `Diepenbrock20171777' on page 37 undefined on input lin
+e 161.
+
+
+LaTeX Warning: Citation `Diepenbrock20171777' on page 37 undefined on input lin
+e 161.
+
+
+LaTeX Warning: Citation `Rademacher201836' on page 37 undefined on input line 1
+64.
+
+
+LaTeX Warning: Citation `Diepenbrock20171777' on page 37 undefined on input lin
+e 164.
+
+
+LaTeX Warning: Citation `Rademacher201836' on page 37 undefined on input line 1
+73.
+
+
+Class memoir Warning: The material used in the headers is too large
+(28.99998pt) for the given head height (14.5pt), it is recommended to
+either increase the head height or redesign the header
+(in both cases you will find help in the memoir manual). on input line 175.
+
+
+Overfull \vbox (14.49998pt too high) has occurred while \output is active []
+
+
+[37]
+
+LaTeX Warning: Citation `Rademacher201836' on page 38 undefined on input line 1
+75.
+
+
+LaTeX Warning: Citation `Rademacher201836' on page 38 undefined on input line 1
+78.
+
+
+LaTeX Warning: Citation `Rademacher201836' on page 38 undefined on input line 1
+78.
+
+
+LaTeX Warning: Citation `Rademacher201836' on page 38 undefined on input line 1
+81.
+
+
+LaTeX Warning: Citation `Rademacher201836' on page 38 undefined on input line 1
+83.
+
+
+LaTeX Warning: Citation `Diepenbrock20171777' on page 38 undefined on input lin
+e 186.
+
+
+LaTeX Warning: Citation `Diepenbrock20171777' on page 38 undefined on input lin
+e 188.
+
+
+Overfull \vbox (14.49998pt too high) has occurred while \output is active []
+
+
+[38]
+
+LaTeX Warning: Citation `Diepenbrock20171777' on page 39 undefined on input lin
+e 190.
+
+
+LaTeX Warning: Citation `Farsi2021' on page 39 undefined on input line 193.
+
+
+LaTeX Warning: Citation `Vural202132721' on page 39 undefined on input line 193
+.
+
+
+LaTeX Warning: Citation `Singjai2021' on page 39 undefined on input line 193.
+
+
+LaTeX Warning: Citation `Ozkan2023' on page 39 undefined on input line 193.
+
+
+LaTeX Warning: Citation `Singjai202125' on page 39 undefined on input line 193.
+
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 206--206
+[]|\T1/lmr/m/it/12 (+20) Anemic do-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 208--208
+[]|\T1/lmr/m/it/12 (+20) Distributed
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 209--209
+[]|\T1/lmr/m/it/12 (+20) Start with
+ []
+
+
+LaTeX Warning: Citation `Singjai2021' on page 39 undefined on input line 209.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 211--211
+[]|\T1/lmr/m/it/12 (+20) Inappropiate
+ []
+
+
+LaTeX Warning: Citation `Farsi2021' on page 39 undefined on input line 215.
+
+
+LaTeX Warning: Citation `Vural202132721' on page 39 undefined on input line 215
+.
+
+
+LaTeX Warning: Citation `Singjai2021' on page 39 undefined on input line 215.
+
+
+LaTeX Warning: Citation `Ozkan2023' on page 39 undefined on input line 215.
+
+
+LaTeX Warning: Citation `Singjai202125' on page 39 undefined on input line 215.
+
+
+
+LaTeX Warning: Citation `Farsi2021' on page 39 undefined on input line 215.
+
+
+LaTeX Warning: Citation `Vural202132721' on page 39 undefined on input line 215
+.
+
+
+LaTeX Warning: Citation `Singjai2021' on page 39 undefined on input line 215.
+
+
+LaTeX Warning: Citation `Ozkan2023' on page 39 undefined on input line 215.
+
+
+LaTeX Warning: Citation `Singjai202125' on page 39 undefined on input line 215.
+
+
+) (textual/t4-metodologia.tex [39] [40]
+<media/bpmn_metodo_recurso.png, id=750, 1522.18687pt x 918.43124pt>
+File: media/bpmn_metodo_recurso.png Graphic file (type png)
+<use media/bpmn_metodo_recurso.png>
+Package pdftex.def Info: media/bpmn_metodo_recurso.png  used on input line 9.
+(pdftex.def)             Requested size: 409.49722pt x 247.06883pt.
+
+
+LaTeX Warning: Citation `microserviceAdoption' on page 41 undefined on input li
+ne 20.
+
+
+LaTeX Warning: Citation `richardson2018microservices' on page 41 undefined on i
+nput line 20.
+
+[41
+
+ <./media/bpmn_metodo_recurso.png>] [42] [43] [44] [45])
+(textual/t5-desenvolvimento.tex [46] [47
+
+]
+<./media/image35.png, id=806, 1319.93124pt x 438.63875pt>
+File: ./media/image35.png Graphic file (type png)
+<use ./media/image35.png>
+Package pdftex.def Info: ./media/image35.png  used on input line 58.
+(pdftex.def)             Requested size: 462.52666pt x 200.19pt.
+
+Overfull \hbox (7.52666pt too wide) in paragraph at lines 58--59
+ [][] 
+ []
+
+[48 <./media/image35.png (PNG copy)>]
+<./media/image32.png, id=815, 844.15375pt x 497.86pt>
+File: ./media/image32.png Graphic file (type png)
+<use ./media/image32.png>
+Package pdftex.def Info: ./media/image32.png  used on input line 82.
+(pdftex.def)             Requested size: 370.0248pt x 218.26141pt.
+ [49 <./media/image32.png (PNG copy)>]
+[50]
+Underfull \hbox (badness 3514) in paragraph at lines 277--277
+[]|\T1/lmr/bx/n/12 (+20) Cenário Prin-ci-
+ []
+
+[51]
+Underfull \hbox (badness 3514) in paragraph at lines 322--322
+[]|\T1/lmr/bx/n/12 (+20) Cenário Prin-ci-
+ []
+
+
+Underfull \hbox (badness 3514) in paragraph at lines 366--366
+[]|\T1/lmr/bx/n/12 (+20) Cenário Prin-ci-
+ []
+
+[52]
+Underfull \hbox (badness 3514) in paragraph at lines 410--410
+[]|\T1/lmr/bx/n/12 (+20) Cenário Prin-ci-
+ []
+
+
+Underfull \hbox (badness 3514) in paragraph at lines 454--454
+[]|\T1/lmr/bx/n/12 (+20) Cenário Prin-ci-
+ []
+
+[53]
+Underfull \hbox (badness 3514) in paragraph at lines 489--489
+[]|\T1/lmr/bx/n/12 (+20) Cenário Prin-ci-
+ []
+
+[54]
+Underfull \hbox (badness 3514) in paragraph at lines 572--572
+[]|\T1/lmr/bx/n/12 (+20) Cenário Prin-ci-
+ []
+
+
+Underfull \hbox (badness 3514) in paragraph at lines 614--614
+[]|\T1/lmr/bx/n/12 (+20) Cenário Prin-ci-
+ []
+
+[55]) (textual/t6-resultados.tex [56]
+<./media/resultados.png, id=918, 534.46185pt x 284.0379pt>
+File: ./media/resultados.png Graphic file (type png)
+<use ./media/resultados.png>
+Package pdftex.def Info: ./media/resultados.png  used on input line 13.
+(pdftex.def)             Requested size: 361.35782pt x 221.14993pt.
+ [57
+
+ <./media/resultados.png>]
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
+File: lstlang1.sty 2023/02/27 1.9 listings language file
+)
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 2
+4.
+
+(C:\Users\rapph\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `lmtt' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+<./media/image34.png, id=928, 408.52625pt x 677.53125pt>
+File: ./media/image34.png Graphic file (type png)
+<use ./media/image34.png>
+Package pdftex.def Info: ./media/image34.png  used on input line 40.
+(pdftex.def)             Requested size: 133.69826pt x 212.47235pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 40--41
+ [][] 
+ []
+
+<./media/image5.png, id=931, 425.59pt x 704.6325pt>
+File: ./media/image5.png Graphic file (type png)
+<use ./media/image5.png>
+Package pdftex.def Info: ./media/image5.png  used on input line 54.
+(pdftex.def)             Requested size: 138.75668pt x 221.14328pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 54--55
+ [][] 
+ []
+
+[58 <./media/image34.png>]
+<./media/image3.png, id=946, 426.59375pt x 706.64pt>
+File: ./media/image3.png Graphic file (type png)
+<use ./media/image3.png>
+Package pdftex.def Info: ./media/image3.png  used on input line 69.
+(pdftex.def)             Requested size: 139.48102pt x 221.14793pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 69--70
+ [][] 
+ []
+
+[59 <./media/image5.png> <./media/image3.png>]
+<./media/image60.png, id=955, 425.59pt x 704.6325pt>
+File: ./media/image60.png Graphic file (type png)
+<use ./media/image60.png>
+Package pdftex.def Info: ./media/image60.png  used on input line 84.
+(pdftex.def)             Requested size: 139.48401pt x 221.14328pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 84--85
+ [][] 
+ []
+
+<./media/image49.png, id=958, 427.5975pt x 706.64pt>
+File: ./media/image49.png Graphic file (type png)
+<use ./media/image49.png>
+Package pdftex.def Info: ./media/image49.png  used on input line 98.
+(pdftex.def)             Requested size: 139.47646pt x 221.14793pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 98--99
+ [][] 
+ []
+
+[60 <./media/image60.png>]
+<./media/image52.png, id=967, 425.59pt x 704.6325pt>
+File: ./media/image52.png Graphic file (type png)
+<use ./media/image52.png>
+Package pdftex.def Info: ./media/image52.png  used on input line 112.
+(pdftex.def)             Requested size: 139.48401pt x 190.07054pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 112--113
+ [][] 
+ []
+
+[61 <./media/image49.png> <./media/image52.png>]
+<./media/image43.png, id=976, 425.59pt x 704.6325pt>
+File: ./media/image43.png Graphic file (type png)
+<use ./media/image43.png>
+Package pdftex.def Info: ./media/image43.png  used on input line 125.
+(pdftex.def)             Requested size: 138.75668pt x 221.14328pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 125--126
+ [][] 
+ []
+
+<./media/image41.png, id=979, 410.53375pt x 775.89874pt>
+File: ./media/image41.png Graphic file (type png)
+<use ./media/image41.png>
+Package pdftex.def Info: ./media/image41.png  used on input line 138.
+(pdftex.def)             Requested size: 138.75275pt x 221.14528pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 138--139
+ [][] 
+ []
+
+[62 <./media/image43.png>]
+<./media/image42.png, id=986, 428.60126pt x 704.6325pt>
+File: ./media/image42.png Graphic file (type png)
+<use ./media/image42.png>
+Package pdftex.def Info: ./media/image42.png  used on input line 150.
+(pdftex.def)             Requested size: 138.75748pt x 221.14328pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 150--151
+ [][] 
+ []
+
+<./media/image48.png, id=989, 428.60126pt x 704.6325pt>
+File: ./media/image48.png Graphic file (type png)
+<use ./media/image48.png>
+Package pdftex.def Info: ./media/image48.png  used on input line 162.
+(pdftex.def)             Requested size: 138.75748pt x 221.14328pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 162--163
+ [][] 
+ []
+
+[63 <./media/image41.png> <./media/image42.png>]) (textual/t7-conclusoes.tex
+[64 <./media/image48.png>] [65
+
+])
+No file Principal.bbl.
+[66] [67
+
+] (pos/pos-apendice.tex
+<media/questionariopaint.png, id=1020, 914.66719pt x 435.87843pt>
+File: media/questionariopaint.png Graphic file (type png)
+<use media/questionariopaint.png>
+Package pdftex.def Info: media/questionariopaint.png  used on input line 6.
+(pdftex.def)             Requested size: 433.62pt x 206.63869pt.
+ [68
+
+ <./media/questionariopaint.png>] [69
+
+]
+[70]
+
+LaTeX Warning: Reference `cod:senha' on page 71 undefined on input line 119.
+
+[71] [72] [73]) (pos/pos-anexos.tex)
+
+Class memoir Warning: The material used in the headers is too large
+(28.99998pt) for the given head height (14.5pt), it is recommended to
+either increase the head height or redesign the header
+(in both cases you will find help in the memoir manual). on input line 109.
+
+[74]
+\tf@lof=\write6
+\openout6 = `Principal.lof'.
+
+\tf@loq=\write7
+\openout7 = `Principal.loq'.
+
+\tf@lot=\write8
+\openout8 = `Principal.lot'.
+
+\tf@loc=\write9
+\openout9 = `Principal.loc'.
+
+\tf@toc=\write10
+\openout10 = `Principal.toc'.
+
+
+
+! LaTeX Error: \begin{folhaderosto} on input line 1 ended by \end{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.109 \end{document}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+enddocument/afterlastpage: lastpage setting LastPage.
+(Principal.aux)
+ ***********
+LaTeX2e <2023-06-01> patch level 1
+L3 programming layer <2020/03/25>
+ ***********
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ )
+(\end occurred inside a group at level 1)
+
+### semi simple group (level 1) entered at line 1 (\begingroup)
+### bottom level 
+Here is how much of TeX's memory you used:
+ 59437 strings out of 475248
+ 1276825 string characters out of 5757812
+ 2303249 words of memory out of 5000000
+ 79035 multiletter control sequences out of 15000+600000
+ 664298 words of font info for 238 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 104i,13n,139p,2379b,2775s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+pdfTeX warning (dest): name{codigo.caption.57} has been referenced but does not
+ exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{codigo.caption.56} has been referenced but does not
+ exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{codigo.caption.41} has been referenced but does not
+ exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{quadro.caption.29} has been referenced but does not
+ exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{quadro.caption.28} has been referenced but does not
+ exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{quadro.caption.22} has been referenced but does not
+ exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{quadro.caption.21} has been referenced but does not
+ exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{quadro.caption.14} has been referenced but does not
+ exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{quadro.caption.13} has been referenced but does not
+ exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{figure.caption.43} has been referenced but does not
+ exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{figure.caption.40} has been referenced but does not
+ exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{figure.caption.26} has been referenced but does not
+ exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{figure.caption.23} has been referenced but does not
+ exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{figure.caption.18} has been referenced but does not
+ exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{figure.caption.17} has been referenced but does not
+ exist, replaced by a fixed one
+
+<C:/Users/rapph/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb>
+<C:/Users/rapph/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb>
+<C:/Users/rapph/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbxi10.pfb
+><C:/Users/rapph/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb>
+<C:/Users/rapph/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><
+C:/Users/rapph/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><
+C:/Users/rapph/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><
+C:/Users/rapph/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmss10.pfb><
+C:/Users/rapph/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmss12.pfb><
+C:/Users/rapph/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmss17.pfb><
+C:/Users/rapph/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbo10.pfb
+><C:/Users/rapph/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.p
+fb><C:/Users/rapph/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsso10.
+pfb><C:/Users/rapph/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsso12
+.pfb><C:/Users/rapph/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsso1
+7.pfb><C:/Users/rapph/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt9
+.pfb>
+Output written on Principal.pdf (75 pages, 1956492 bytes).
+PDF statistics:
+ 1646 PDF objects out of 1728 (max. 8388607)
+ 457 named destinations out of 1000 (max. 500000)
+ 60774 words of extra memory for PDF output out of 61914 (max. 10000000)
+

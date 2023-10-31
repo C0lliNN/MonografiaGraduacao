@@ -1,0 +1,224 @@
+\chapter{Trabalhos Relacionados}
+\label{cap:trabalhos}
+Este capítulo apresenta os trabalhos relacionados ao objeto de pesquisa obtidos utilizando o protocolo descrito no \autoref{cap:metodologia}.
+
+\section{Caracterização dos estudos}
+
+\begin{figure}
+\centering
+\caption{Número de publicações ao longo dos anos}
+\begin{tikzpicture}
+\begin{axis}[
+    width=0.8\textwidth,
+    height=0.6\textwidth,
+    xlabel={Ano},
+    ylabel={Número de publicações},
+    xtick=data, % Use data points for x-axis ticks
+    xticklabel style={/pgf/number format/1000 sep=}, % Remove comma from tick labels
+    ymajorgrids=true, % Show y-axis grid lines
+    grid style=dashed, % Style of grid lines
+    legend pos=north west, % Position of the legend
+]
+\addplot[
+    smooth, % Show only the dots without connecting lines
+    mark=*,
+    mark options={scale=1.5}, % Adjust dot size
+] table [x=Year, y=Publications, col sep=comma] {media/publications_per_year.csv};
+\end{axis}
+\end{tikzpicture}
+\legend{Fonte: \english{Scopus}}
+\label{fig:publications_per_year}
+\end{figure}
+
+Na \autoref{fig:publications_per_year}, pode-se observar a quantidade de publicações por ano, encontradas a partir da expressão de busca descrita na seção \ref{section:string_busca}. No total, foram obtidos 65 resultados. Percebe-se, claramente, um aumento exponencial no número de publicações sobre o tema, principalmente a partir de 2019, demonstrando crescimento no interesse de se realizar pesquisas sobre o assunto.
+
+\begin{figure}
+    \centering
+    \caption{Publicações por localização}
+    \pgfplotstableread[col sep=comma]{media/publications_per_territory.csv}\datatable
+
+    \begin{tikzpicture}
+        \begin{axis}[
+            xbar,
+            bar width=0.5cm,
+            height=0.6\textwidth,
+            width=0.8\textwidth,
+            symbolic y coords={Alemanha, China, Áustria, Itália, Suíça, Taiwan, Estados Unidos, Indonésia, Brasil, Colômbia},
+            ytick=data,
+            xlabel={Publicações},
+            ylabel={Localização},
+            nodes near coords,
+            nodes near coords align={horizontal},
+            ]
+            \addplot table[x=Publications, y=Territory] {\datatable};
+        \end{axis}
+    \end{tikzpicture}
+    \legend{Fonte: \english{Scopus}}
+    \label{fig:publications_per_territory}
+\end{figure}
+
+A Alemanha lidera em número de publicações, como pode ser visualizado na \autoref{fig:publications_per_territory}. Por outro lado, o Brasil só possui duas entre as sessenta e cinco publicações retornadas.
+
+Utilizando-se os critérios de inclusão e exclusão descritos nas seções \ref{section:criterios_inclusao} e \ref{section:criterios_exclusao}, respectivamente, dos 65 artigos retornados, 27 foram selecionados inicialmente. Após realizada as leituras, apenas 16 publicações mostraram-se relevantes para responder às questões de pesquisa e/ou apoiar na elaboração do estudo de caso. Esta listagem está disponível no \autoref{quad:publicacoes_selecionadas}. 
+
+\begin{quadro}
+\centering
+
+\setlength{\tabcolsep}{0.8em} % for the horizontal padding
+\renewcommand{\arraystretch}{1.5}% for the vertical padding
+\begin{tabular}{p{3in}|p{1in}|p{0.5}}
+\hline
+
+\multicolumn{1}{|p{4in}}{\textbf{Título}} & 
+\multicolumn{1}{|p{0.5in}|}{\textbf{Ano}} \\
+\hhline{---}
+
+\multicolumn{1}{|p{4in}}{\english{Microservice Migration Using Strangler Fig Pattern and Domain-Driven Design}} & 
+\multicolumn{1}{|p{0.5in}|}{\citeyear{ma20221285}} \\
+\hhline{---}
+
+\multicolumn{1}{|p{4in}}{\english{Microservice architecture and model-driven development: Yet singles, Soon Married ?}} & 
+\multicolumn{1}{|p{0.5in}|}{\citeyear{Rademacher2018}} \\
+\hhline{---}
+
+\multicolumn{1}{|p{4in}}{\english{Does Domain-Driven Design Lead to Finding the Optimal Modularity of a Microservice?}} & 
+\multicolumn{1}{|p{0.5in}|}{\citeyear{Vural202132721}} \\
+\hhline{---}
+
+\multicolumn{1}{|p{4in}}{\english{Modeling Microservices with DDD}} & 
+\multicolumn{1}{|p{0.5in}|}{\citeyear{Merson20207}} \\
+\hhline{---}
+
+\multicolumn{1}{|p{4in}}{\english{Following Domain Driven Design principles for Microservices decomposition: Is it enough?}} & 
+\multicolumn{1}{|p{0.5in}|}{\citeyear{Farsi2021}} \\
+\hhline{---}
+
+\multicolumn{1}{|p{4in}}{\english{An Ontology-based Approach for Domain-driven Design of Microservice Architectures}} & 
+\multicolumn{1}{|p{0.5in}|}{\citeyear{Diepenbrock20171777}} \\
+\hhline{---}
+
+\multicolumn{1}{|p{4in}}{\english{Challenges of domain-driven microservice design: A model-driven perspective}} & 
+\multicolumn{1}{|p{0.5in}|}{\citeyear{Rademacher201836}} \\
+\hhline{---}
+
+\multicolumn{1}{|p{4in}}{\english{Model-based engineering for microservice architectures using Enterprise Integration }} & 
+\multicolumn{1}{|p{0.5in}|}{\citeyear{Petrasch2017}} \\
+\hhline{---}
+
+\multicolumn{1}{|p{4in}}{\english{Patterns on Deriving APIs and their Endpoints from Domain Models }} & 
+\multicolumn{1}{|p{0.5in}|}{\citeyear{Singjai2021}} \\
+\hhline{---}
+
+\multicolumn{1}{|p{4in}}{\english{Refactoring with domain-driven design in an industrial context: An action research report}} & 
+\multicolumn{1}{|p{0.5in}|}{\citeyear{Ozkan2023}} \\
+\hhline{---}
+
+\multicolumn{1}{|p{4in}}{\english{A microservice based reference architecture model in the context of enterprise architecture}} & 
+\multicolumn{1}{|p{0.5in}|}{\citeyear{Yale20171856}} \\
+\hhline{---}
+
+\multicolumn{1}{|p{4in}}{\english{Design of Domain-driven Microservices-based Software Talent Evaluation and Recommendation System}} & 
+\multicolumn{1}{|p{0.5in}|}{\citeyear{Zhang2022310}} \\
+\hhline{---}
+
+\multicolumn{1}{|p{4in}}{\english{Partitioning microservices: A domain engineering approach}} & 
+\multicolumn{1}{|p{0.5in}|}{\citeyear{Joselyne201843}} \\
+\hhline{---}
+
+\multicolumn{1}{|p{4in}}{\english{Practitioner Views on the Interrelation of Microservice APIs and Domain-Driven Design: A Grey Literature Study Based on Grounded Theory}} & 
+\multicolumn{1}{|p{0.5in}|}{\citeyear{Singjai202125}} \\
+\hhline{---}
+
+\multicolumn{1}{|p{4in}}{\english{A Systematic Framework of Application Modernization to Microservice based Architecture}} & 
+\multicolumn{1}{|p{0.5in}|}{\citeyear{Joselyne2021}} \\
+\hhline{---}
+
+\multicolumn{1}{|p{4in}}{\english{Domain-specific language and tools for strategic domain-driven design, context mapping and bounded context modeling}} & 
+\multicolumn{1}{|p{0.5in}|}{\citeyear{Kapferer2020299}} \\
+\hhline{---}
+
+\end{tabular}
+\caption{Publicações selecionadas}
+\label{quad:publicacoes_selecionadas}
+\end{quadro}
+
+
+\section{Estratégias para elaboração de sistemas com microsserviços e DDD}
+Todas as publicações revisadas sugerem o mapeamento de cada \nameref{section:bounded_context} para um microsserviço. \citeonline{Vural202132721} afirmam que o objetivo principal da delimitação é alcançar serviços com baixo acoplamento e alta coesão. Porém, o grande desafio está na definição de maneira apropriada do escopo de cada \acrshort{bc}.
+
+\citeonline{Singjai202125} e \citeonline{ma20221285} mencionam os padrões \english{\acrfull{ohs}} e \english{\acrfull{acl}} como estratégias para comunicação, conceitualmente, entre \hyperref[section:bounded_context]{Bounded Contexts}. No \acrshort{ohs}, o serviço que envia as mensagens implementa uma camada extra com objetivo de realizar a tradução para um formato que possa ser processado pelo serviço receptor. Dessa forma, os detalhes de implementação do serviço cliente não são expostos, diminuindo o acoplamento entre as partes. Semelhantemente, o \acrshort{acl} é uma camada extra inserida no serviço que recebe as mensagens. Trata-se de uma abordagem útil quando o serviço receptor não deseja aderir ao contrato do componente que produz as mensagens \cite{evans2004ddd}.
+
+Outro ponto importante levantando no material revisado é o mapeamento do modelo de domínio para uma \acrfull{api} para possibilitar o consumo das funcionalidades tanto por outros serviços quanto de aplicações cliente. Algumas opções citadas por \citeonline{Singjai202125} são:
+\begin{itemize}
+    \item Expor todo o modelo de domínio em uma relação de 1 para 1 com a \acrshort{api}.
+    \item Expor uma parte do modelo como uma \acrshort{api}.
+    \item Expor cada \acrshort{bc} como uma \acrshort{api}.
+    \item Expor parte dos \acrshort{bc}s como \acrshort{api}s.
+\end{itemize}
+
+As alternativas mais indicadas são a exposição total ou de grupo de \acrshort{bc}s como \acrshort{api}s. Além disso, \citeonline{Singjai202125} e \citeonline{Singjai2021} levantam abordagens para definição do contrato de \acrshort{api} de acordo com modelo de domínio. As duas principais opões apresentadas pelos autores são: explicitamente definir o contrato de \acrshort{api} e extrair o contrato de \acrshort{api} a partir do modelo. \citeonline{Singjai202125} argumenta que ambas opções auxiliam na obtenção da separação do contrato de \acrshort{api} e das responsabilidades do modelo de domínio.
+
+\citeonline{Diepenbrock20171777} apresenta uma abordagem para \acrshort{ddd} no contexto da \acrshort{ams}. O autor propõe um metamodelo que representa a sintaxe abstrata de um linguagem formal de modelagem. Em outras palavras, ele define os conceitos suportados pela linguagem e seus relacionamentos. Os principais componentes do metamodelo são: \english{External Context}, \english{\acrlong{bc}}, \english{Domain Model}, \english{Attribute} e \english{Association}. O objetivo principal desse modelo é minimizar os impactos dos desafios semânticos da utilização dessas tecnologias \cite{Diepenbrock20171777}.
+
+\section{Desafios na utilização de DDD como estratégia de delimitação de microsserviços}
+\citeonline{Rademacher201836} menciona três principais desafios da utilização de \acrshort{ddd} no contexto da \acrshort{ams}. Adicionalmente, \citeonline{Diepenbrock20171777} cita desafios semânticos juntamente com sua proposta de metamodelo.
+
+\subsection{Extraindo microsserviços a partir de modelos de domínio}
+Para fomentar o foco em conceitos relevantes e \english{design} efetivo, modelos de domínio tipicamente omitem informações obrigatórias para extração de microsserviços, como:
+\begin{itemize}
+    \item Interfaces e operações;
+    \item Parâmetros e tipos de retorno das operações
+    \item \english{Endpoints}, protocolos e formatos de mensagens.
+\end{itemize}
+\cite{Rademacher201836}.
+
+Informações específicas sobre esses pontos são cruciais para implementação dos serviços. Considerando diferentes \acrshort{bc}s conectados entre si no modelo, e que cada \acrshort{bc} é mapeado para um microsserviço, um componente vai necessitar acessar instâncias de um outro serviço. Assim, uma operação desse tipo deve ser fornecida e usualmente não é especificada no modelo, deixando espaço para ambiguidade \cite{Rademacher201836}.
+
+\subsection{Componentes de infraestrutura faltantes no modelo de domínio}
+Modelos de domínio intencionalmente não compreendem componentes de infraestrutura da \acrshort{ams} \cite{Rademacher201836}. Esses componentes incluem \english{API Gateways}, \english{containers}, banco de dados, entre outros. Por outro lado, requisitos do modelo podem afetar questões técnicas e esses pontos devem ser documentados separadamente do modelo de domínio \cite{Rademacher201836}. Por exemplo, caso um microsserviço que realize o gerenciamento de usuários necessite ser acessível externamente para faturamento, configurações em diferentes componentes técnicos como \english{API Gateway} necessitarão ser aplicadas.
+
+\subsection{Modelagem de domínio autônoma}
+Responsabilidade sobre um microsserviço é geralmente atribuída a um único time, devido à alta coesão e baixo acoplamento \cite{Rademacher201836}. Essa equipe é responsável pela implementação do serviço, operação, \english{design} e manutenção desse \acrfull{bc}. Dessa forma, surgem desafios relacionados a visibilidade dos modelos e gerenciamento de alterações.
+
+Primeiramente, é crucial definir a visibilidade de cada \acrshort{bc}, ou seja, especificar quais equipes terão acesso a quais modelos de domínios \cite{Rademacher201836}. Além disso, a permissão para realizar alterações é uma consideração essencial. Embora seja possível conceder a outras equipes privilégios para modificar outros \acrshort{bc}, essa abordagem apresenta a desvantagem de possibilitar alterações, por vezes críticas, efetuadas por profissionais que não estão familiarizados com o contexto específico. No entanto, restringir exclusivamente à equipe responsável a capacidade de realizar mudanças pode resultar em gargalos significativos, especialmente em projetos envolvendo diversos contextos.
+
+\subsection{Desafios semânticos}
+\citeonline{Diepenbrock20171777} apresenta uma série de desafios semânticos na elaboração de microsserviços com \acrshort{ddd}. Inicialmente, um problema de semântico típico ocorre quando um atributo de um conceito de domínio é derivado de outro atributo. Por exemplo, quando um atributo de uma entidade é criado a partir da concatenação de dois outros atributos de outra entidade, ocorre um problema de semântica porque os dados ficam fragmentados.
+
+Simultaneamente, é importante reconhecer que diferentes \acrshort{bc}s podem interpretar os conceitos de domínio compartilhados de maneiras distintas \cite{Diepenbrock20171777}. Nesse contexto, surgem desafios como atributos com nomes diversos, mas significados idênticos, bem como propriedades com o mesmo nome, porém, com significados diferentes. Esse risco é amplificado no contexto da \acrshort{ams}, onde é comum que diferentes \acrshort{bc}s sejam desenvolvidos por equipes distintas. Esse ambiente descentralizado pode potencializar a disparidade de interpretações e a falta de consistência nos conceitos de modelos compartilhados.
+
+Além disso, um mecanismo de definição de identificadores únicos deve ser definido entre as equipes para permitir a identificação semântica de diferentes conceitos do modelo com objetivo de tornar os serviços capazes de distinguir diferentes elementos em um contexto distribuído \cite{Diepenbrock20171777}.
+
+\section{Anti-padrões a serem evitados}
+\citeonline{Farsi2021}, \citeonline{Vural202132721}, \citeonline{Singjai2021}, \citeonline{Ozkan2023} e \citeonline{Singjai202125} identificaram uma série de anti-padrões no contexto da \acrshort{ams} e \acrshort{ddd}. Um compilado pode ser observado no \autoref{quad:anti_padroes}.
+
+\begin{quadro}
+\centering
+\caption{Anti-padrões}
+\setlength{\tabcolsep}{0.8em} % for the horizontal padding
+\renewcommand{\arraystretch}{1.5}% for the vertical padding
+\begin{tabular}{|p{1in}|p{3.7in}|}
+\hline
+
+\textbf{Nome} & \textbf{Descrição} \\ \hline
+\english{Chattiness of a service} &  Refere-se a excessiva comunicação entre microsserviços que gera ineficiência devido à latência de rede. \\ \hline
+\english{Nanoservice} & Um serviço excessivamente granular no qual a sobrecarga de comunicação, manutenção e operação supera sua utilidade. \\ \hline
+\english{Anemic domain model} & Trata-se de um modelo de domínio em que os objetos contém pouca ou nenhuma regra de negócio. As invariantes são misturadas com outras lógicas, o que dificulta manutenção e refatoração. \\ \hline
+\english{Data class} & Similar ao \english{Anemic domain model}, esse tipo de classe só contem, além de atributos, \english{getters} e \english{setters}. Os comportamentos são criados fora da classe, o que reduz coesão e dificulta a manutenção. \\ \hline
+\english{Distributed monoliths} & Refere-se a um sistema que externamente se assemelha a \acrlong{ams}, porém possui um alto nível de acoplamento entre os componentes, diminuindo assim as vantagens dos microsserviços. \\ \hline
+\english{Start with API Design} & Trata-se de uma abordagem na qual o contrato de \acrshort{api} é definido antes do modelo de domínio. \citeonline{Singjai2021} levantou que esta estratégia costuma gerar a criação de \english{Anemic domain models}. \\ \hline
+\english{Feature envy} & Acontece quando um método está mais interessado em uma classe diferente da que está inserido. \\ \hline
+\english{Inappropiate intimacy} & Descreve um par de classes não relacionadas conceitualmente, mas que possuem grande acoplamento entre si. \\ \hline
+\english{Message chain} & Uma cadeia de mensagem ocorre quando um cliente envia uma mensagem a outro objeto que, por sua vez, a envia outro o objeto e assim por diante. \\ \hline
+
+\end{tabular}
+\fonte{\citeonline{Farsi2021}, \citeonline{Vural202132721}, \citeonline{Singjai2021}, \citeonline{Ozkan2023} e \citeonline{Singjai202125}}
+\label{quad:anti_padroes}
+\end{quadro}
+
+\section{Discussões}
+O mapeamento da literatura mostrou-se efetivo para responder às questões de pesquisa, na medida em que foram encontradas publicações que auxiliam na resolução das perguntas-chave. O levantamento das estratégias, desafios e anti-padrões foi realizado com êxito a partir de artigos de alta qualidade.
+
+No entanto, publicações em outros idiomas que não foram revisadas, assim como publicações não indexadas pelas ferramentas de busca utilizadas, representam uma ameaça a validade da pesquisa. Isso se deve ao fato de que informações essenciais podem não ter sido revisadas devido a essas limitações
+
+Por fim, as informações obtidas nesse mapeamento contribuem tanto para atingir os objetivos gerais da pesquisa quanto para a elaboração do estudo de caso.
