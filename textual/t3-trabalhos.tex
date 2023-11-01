@@ -158,10 +158,12 @@ Outro ponto importante levantando no material revisado é o mapeamento do modelo
 
 As alternativas mais indicadas são a exposição total ou de grupo de \acrshort{bc}s como \acrshort{api}s. Além disso, \citeonline{Singjai202125} e \citeonline{Singjai2021} levantam abordagens para definição do contrato de \acrshort{api} de acordo com modelo de domínio. As duas principais opões apresentadas pelos autores são: explicitamente definir o contrato de \acrshort{api} e extrair o contrato de \acrshort{api} a partir do modelo. \citeonline{Singjai202125} argumenta que ambas opções auxiliam na obtenção da separação do contrato de \acrshort{api} e das responsabilidades do modelo de domínio.
 
-\citeonline{Diepenbrock20171777} apresenta uma abordagem para \acrshort{ddd} no contexto da \acrshort{ams}. O autor propõe um metamodelo que representa a sintaxe abstrata de um linguagem formal de modelagem. Em outras palavras, ele define os conceitos suportados pela linguagem e seus relacionamentos. Os principais componentes do metamodelo são: \english{External Context}, \english{\acrlong{bc}}, \english{Domain Model}, \english{Attribute} e \english{Association}. O objetivo principal desse modelo é minimizar os impactos dos desafios semânticos da utilização dessas tecnologias \cite{Diepenbrock20171777}.
+Para este trabalho de conclusão de curso, a estratégia de mapeamento de um \acrshort{bc} para um microsserviço é utilizada. Com objetivo de habilitar a comunicação entre subdomínios, o padrão \acrfull{ohs} é empregado. Adicionalmente, o contrato de \acrshort{api} será definido explicitamente a partir do modelo de domínio. Assim, pretende-se utilizar as estratégias mais indicadas pelos autores revisados na elaboração do estudo de caso.
 
 \section{Desafios na utilização de DDD como estratégia de delimitação de microsserviços}
 \citeonline{Rademacher201836} menciona três principais desafios da utilização de \acrshort{ddd} no contexto da \acrshort{ams}. Adicionalmente, \citeonline{Diepenbrock20171777} cita desafios semânticos juntamente com sua proposta de metamodelo.
+
+A ciência desse conjunto de desafios é crucial para elaboração do estudo de caso deste trabalho de conclusão de curso.
 
 \subsection{Extraindo microsserviços a partir de modelos de domínio}
 Para fomentar o foco em conceitos relevantes e \english{design} efetivo, modelos de domínio tipicamente omitem informações obrigatórias para extração de microsserviços, como:
@@ -189,6 +191,8 @@ Simultaneamente, é importante reconhecer que diferentes \acrshort{bc}s podem in
 
 Além disso, um mecanismo de definição de identificadores únicos deve ser definido entre as equipes para permitir a identificação semântica de diferentes conceitos do modelo com objetivo de tornar os serviços capazes de distinguir diferentes elementos em um contexto distribuído \cite{Diepenbrock20171777}.
 
+Por essas motivações, \citeonline{Diepenbrock20171777} apresenta uma abordagem para \acrshort{ddd} no contexto da \acrshort{ams}. O autor propõe um metamodelo que representa a sintaxe abstrata de um linguagem formal de modelagem. Em outras palavras, ele define os conceitos suportados pela linguagem e seus relacionamentos. Os principais componentes do metamodelo são: \english{External Context}, \english{\acrlong{bc}}, \english{Domain Model}, \english{Attribute} e \english{Association}. O objetivo principal desse modelo é minimizar os impactos dos desafios semânticos da utilização dessas tecnologias \cite{Diepenbrock20171777}.
+
 \section{Anti-padrões a serem evitados}
 \citeonline{Farsi2021}, \citeonline{Vural202132721}, \citeonline{Singjai2021}, \citeonline{Ozkan2023} e \citeonline{Singjai202125} identificaram uma série de anti-padrões no contexto da \acrshort{ams} e \acrshort{ddd}. Um compilado pode ser observado no \autoref{quad:anti_padroes}.
 
@@ -215,6 +219,8 @@ Além disso, um mecanismo de definição de identificadores únicos deve ser def
 \fonte{\citeonline{Farsi2021}, \citeonline{Vural202132721}, \citeonline{Singjai2021}, \citeonline{Ozkan2023} e \citeonline{Singjai202125}}
 \label{quad:anti_padroes}
 \end{quadro}
+
+Os anti-padrões mencionados são importantes para o desenvolvimento do estudo de caso, pois devem ser evitados para que os benefícios da utilização conjunta de \acrshort{ddd} e \acrshort{ams} sejam alcançados.
 
 \section{Discussões}
 O mapeamento da literatura mostrou-se efetivo para responder às questões de pesquisa, na medida em que foram encontradas publicações que auxiliam na resolução das perguntas-chave. O levantamento das estratégias, desafios e anti-padrões foi realizado com êxito a partir de artigos de alta qualidade.
