@@ -340,3 +340,8 @@
 %% 
 %% exemplo da página https://latex.org/forum/viewtopic.php?t=24038
 %%
+
+% comandos para excluir items da table of contents (Sumário)
+\let\oldaddcontentsline\addcontentsline
+\newcommand{\hidefromtoc}{\renewcommand{\addcontentsline}[3]{}}
+\newcommand{\writetotoc}{\let\addcontentsline\oldaddcontentsline}
