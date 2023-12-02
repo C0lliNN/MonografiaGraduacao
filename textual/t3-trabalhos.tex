@@ -163,9 +163,6 @@ Para este trabalho de conclusão de curso, a estratégia de mapeamento de um \ac
 \section{Desafios na utilização de DDD como estratégia de delimitação de microsserviços}
 \citeonline{Rademacher201836} menciona três principais desafios da utilização de \acrshort{ddd} no contexto da \acrshort{ams}. Adicionalmente, \citeonline{Diepenbrock20171777} cita desafios semânticos juntamente com sua proposta de metamodelo.
 
-A ciência desse conjunto de desafios é crucial para elaboração do estudo de caso deste trabalho de conclusão de curso.
-
-\subsection{Extraindo microsserviços a partir de modelos de domínio}
 Para fomentar o foco em conceitos relevantes e \english{design} efetivo, modelos de domínio tipicamente omitem informações obrigatórias para extração de microsserviços, como:
 \begin{itemize}
     \item Interfaces e operações;
@@ -176,15 +173,12 @@ Para fomentar o foco em conceitos relevantes e \english{design} efetivo, modelos
 
 Informações específicas sobre esses pontos são cruciais para implementação dos serviços. Considerando diferentes \acrshort{bc}s conectados entre si no modelo, e que cada \acrshort{bc} é mapeado para um microsserviço, um componente vai necessitar acessar instâncias de um outro serviço. Assim, uma operação desse tipo deve ser fornecida e usualmente não é especificada no modelo, deixando espaço para ambiguidade \cite{Rademacher201836}.
 
-\subsection{Componentes de infraestrutura faltantes no modelo de domínio}
 Modelos de domínio intencionalmente não compreendem componentes de infraestrutura da \acrshort{ams} \cite{Rademacher201836}. Esses componentes incluem \english{API Gateways}, \english{containers}, banco de dados, entre outros. Por outro lado, requisitos do modelo podem afetar questões técnicas e esses pontos devem ser documentados separadamente do modelo de domínio \cite{Rademacher201836}. Por exemplo, caso um microsserviço que realize o gerenciamento de usuários necessite ser acessível externamente para faturamento, configurações em diferentes componentes técnicos como \english{API Gateway} necessitarão ser aplicadas.
 
-\subsection{Modelagem de domínio autônoma}
 Responsabilidade sobre um microsserviço é geralmente atribuída a um único time, devido à alta coesão e baixo acoplamento \cite{Rademacher201836}. Essa equipe é responsável pela implementação do serviço, operação, \english{design} e manutenção desse \acrfull{bc}. Dessa forma, surgem desafios relacionados a visibilidade dos modelos e gerenciamento de alterações.
 
 Primeiramente, é crucial definir a visibilidade de cada \acrshort{bc}, ou seja, especificar quais equipes terão acesso a quais modelos de domínios \cite{Rademacher201836}. Além disso, a permissão para realizar alterações é uma consideração essencial. Embora seja possível conceder a outras equipes privilégios para modificar outros \acrshort{bc}, essa abordagem apresenta a desvantagem de possibilitar alterações, por vezes críticas, efetuadas por profissionais que não estão familiarizados com o contexto específico. No entanto, restringir exclusivamente à equipe responsável a capacidade de realizar mudanças pode resultar em gargalos significativos, especialmente em projetos envolvendo diversos contextos.
 
-\subsection{Desafios semânticos}
 \citeonline{Diepenbrock20171777} apresenta uma série de desafios semânticos na elaboração de microsserviços com \acrshort{ddd}. Inicialmente, um problema de semântico típico ocorre quando um atributo de um conceito de domínio é derivado de outro atributo. Por exemplo, quando um atributo de uma entidade é criado a partir da concatenação de dois outros atributos de outra entidade, ocorre um problema de semântica porque os dados ficam fragmentados.
 
 Simultaneamente, é importante reconhecer que diferentes \acrshort{bc}s podem interpretar os conceitos de domínio compartilhados de maneiras distintas \cite{Diepenbrock20171777}. Nesse contexto, surgem desafios como atributos com nomes diversos, mas significados idênticos, bem como propriedades com o mesmo nome, porém, com significados diferentes. Esse risco é amplificado no contexto da \acrshort{ams}, onde é comum que diferentes \acrshort{bc}s sejam desenvolvidos por equipes distintas. Esse ambiente descentralizado pode potencializar a disparidade de interpretações e a falta de consistência nos conceitos de modelos compartilhados.
