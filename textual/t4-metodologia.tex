@@ -91,4 +91,51 @@ A pesquisa é executada seguindo os passos a seguir:
 \end{enumerate}
 
 \section{Estudo de Caso}
-A FAZER
+
+\subsection{Contexto}
+\label{section:contexto}
+O estudo de caso é realizado em uma empresa fictícia chamada \emph{CarroFacil}. Essa empresa é uma locadora de veículos que atua em todo o território nacional. A empresa possui uma frota de veículos própria. A \emph{CarroFacil} possui uma grande quantidade de clientes, que podem ser pessoas físicas ou jurídicas. Os clientes podem alugar veículos por períodos de tempo variados, que podem ser de horas até semanas. Os veículos podem ser retirados em uma das lojas da empresa. A \emph{Locadora de Veículos} possui um sistema de locação de veículos que foi desenvolvido há alguns anos e está apresentando problemas de escalabilidade e manutenção. Por esse motivo, a empresa decidiu desenvolver um novo sistema de locação de veículos utilizando microsserviços e diversos conceitos do \acrshort{ddd}.
+
+\subsection{Processo de Desenvolvimento}
+\label{section:processo_desenvolvimento}
+O processo de desenvolvimento utilizado para construir o sistema de locação de veículos é o \english{Kanban}. Essa metodologia de desenvolvimento ágil é baseada em um quadro de tarefas, no qual cada tarefa é representada por um cartão. O quadro é dividido em colunas que representam o estado atual de cada tarefa. As colunas mais comuns são: \english{To Do}, \english{Doing} e \english{Done}. O quadro é atualizado conforme as tarefas são realizadas. A \autoref{fig:kanban} apresenta um exemplo de quadro \english{Kanban}.
+
+\begin{figure}[h]
+    \centering
+    \caption{Exemplo de quadro \english{Kanban}}
+    \includegraphics[width=0.9\textwidth]{media/kanban.png}
+    \legend{Fonte: o autor}
+    \label{fig:kanban}
+\end{figure}
+
+\subsection{Requisitos}
+A seguir são apresentados os requisitos do sistema de locação de veículos.
+\subsubsection{Requisitos Funcionais}
+
+\subsubsection{Requisitos não Funcionais}
+
+\subsection{Design}
+Para realização do Design deste projeto, é utilizada o \english{Astah UML}. Com essa ferramenta, são criados diagramas de classes, diagramas de sequência, diagramas de casos de uso, entre outros diagramas da \english{\acrfull{uml}}. Além disso, para modelagem da arquitetura do sistema, o modelo C4 é empregado.
+
+Para construção de cada microsserviços, é feito uso da \autoref{section:hexagonal}. Essa, por sua vez, separa a aplicação em duas partes principais: núcleo da aplicação e adaptadores. O núcleo da aplicação contém as regras de negócio e os adaptadores são responsáveis por adaptar a aplicação para o mundo externo. Para modelagem do domínio, é utilizado o \english{\acrfull{ddd}}. O \acrshort{ddd} fornece uma estratégia para modelagem do domínio de negócio, diversos padrões para resolver problemas de modelagem recorrentes e facilidade de entendimento e manutenção de código.
+
+\subsection{Implementação}
+A implementação desse projeto é feita utilizando a linguagem de programação \english{Java} na versão 17. Para construção dos microsserviços, é utilizado o \english{Spring Boot}. Essa ferramenta fornece uma série de recursos para construção de microsserviços, como: injeção de dependências, configuração de banco de dados, configuração de \english{logs}, entre outros. 
+
+São utilizados dois banco de dados para armazenamento dos dados do sistema. O primeiro é um banco de dados relacional, que armazena dados de reservas. O segundo é um banco de dados não relacional, que armazena dados de clientes, veículos, entre outros. Para o banco de dados relacional, é utilizado o \english{PostgreSQL}. Para o banco de dados não relacional, é utilizado o \english{Amazon DynamoDB}.
+
+Para a intercomunicação entre os microsserviços de maneira assíncrona, é utilizado o \english{Amazon SQS}. Esse \english{broker} de mensagens permite que os microsserviços se comuniquem de maneira assíncrona, sem que um microsserviço precise conhecer o outro. Além disso, o \english{Amazon SQS} permite que as mensagens sejam armazenadas em uma fila, caso o microsserviço que as recebeu esteja fora do ar.
+
+\subsection{Validação}
+O projeto é desenvolvido com as estratégias de \acrfull{tdd} e \acrfull{bdd}. Essas abordagens de desenvolvimento de \english{software} permitem que o código seja desenvolvido de maneira mais confiável e com maior qualidade. Além disso, o \acrshort{tdd} e o \acrshort{bdd} permitem que o código seja desenvolvido de maneira mais rápida, pois os testes são escritos antes do código.
+
+Três tipos de testes são escritos para validar o sistema: testes unitários, testes de integração e testes de aceitação. Os testes unitários são escritos para validar as classes do sistema. Os testes de integração são escritos para validar a integração entre os microsserviços. Os testes de aceitação são escritos para validar os requisitos do sistema. É importante ressaltar que todos os testes são automatizados utilizando o \english{JUnit}.
+
+\subsection{Implantação}
+O sistema é implantado na nuvem da \english{\acrfull{aws}}. A \acrshort{aws} é uma plataforma de computação em nuvem que oferece mais de 200 serviços completos de datacenters em todo o mundo. Esses serviços incluem computação, armazenamento, banco de dados, \english{networking}, \english{analytics}, \english{machine learning}, inteligência artificial, \english{Internet of Things}, segurança, entre outros.
+
+Cada microsserviço é implantado em um \english{container} \english{Docker}. Essa tecnologia permite que os microsserviços sejam executados de maneira isolada, sem que um microsserviço interfira no outro. Além disso, o \english{Docker} permite que os microsserviços sejam executados em qualquer ambiente, sem que seja necessário realizar alterações no código. O serviço \english{Amazon ECS} é utilizado para orquestrar os \english{containers} \english{Docker}. Esse serviço permite que os \english{containers} sejam executados em um ambiente de produção de maneira escalável e confiável.
+
+Um \english{cluster} \english{PostgreSQL} com o auxilío do serviço \english{Amazon RDS} é utilizado. Por outro lado, o \english{Amazon DynamoDB} e o \english{Amazon SQS} são soluções nativas da \acrshort{aws}.
+
+Para a orchestração e automatização do provisonamento e configuração da infraestrutura, é feito uso da ferramenta \english{Terraform}. Essa ferramenta permite que a infraestrutura seja definida como código, ou seja, é possível definir a infraestrutura utilizando uma linguagem de programação. Além disso, o \english{Terraform} permite que a infraestrutura seja provisionada e configurada de maneira automatizada.
