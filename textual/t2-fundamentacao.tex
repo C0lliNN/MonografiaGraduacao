@@ -208,6 +208,7 @@ Em grandes projetos, muitos modelos coexistem em diferentes contextos. Quando a 
 Por exemplo, um \english{software} para um \english{e-commerce} possui um módulo que lida com pedidos, em que cada pedido contém um ou mais produtos. Da mesma forma, outra equipe é responsável por um módulo de realiza o gerenciamento de produtos em estoque. O conceito de um produto para um sistema de pedidos é distinto de uma aplicação de estoque. Enquanto este pode ter um enfoque no armazém, na categoria e no estoque do produto, aquele está mais preocupado com o preço, nome e disponibilidade. Assim, ao tratar esses dois conceitos da maneira igual, confusões e defeitos são gerados.
 
 \section{Arquitetura Hexagonal} 
+\label{section:hexagonal}
 A arquitetura hexagonal, também conhecida como \english{Ports and Adapters}, possui como objetivo isolar regras de negócio de agentes externos \cite{cockburn2005}. Nesse sentido, o que está dentro do hexágono representa o modelo de domínio. Do mesmo modo, componentes de fora representam detalhes de implementação, como persistência, interface de usuário, envio de \english{e-mails}, entre outros. Um ponto crucial nessa arquitetura é a direção das dependências: o que está dentro do hexágono não pode depender do que está fora. Assim, é a garantida a independência e o isolamento de regras de negócio das dependências técnicas.
 
 \begin{figure}[!ht]
