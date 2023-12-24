@@ -94,7 +94,7 @@ A pesquisa é executada seguindo os passos a seguir:
 
 \subsection{Contexto}
 \label{section:contexto}
-O estudo de caso é realizado em uma empresa fictícia chamada \emph{CarroFacil}. Essa empresa é uma locadora de veículos que atua em todo o território nacional. A empresa possui uma frota de veículos própria. A \emph{CarroFacil} possui uma grande quantidade de clientes, sendo pessoas físicas ou jurídicas. Eles podem alugar veículos por períodos de tempo variados, desde horas até semanas. Os veículos são retirados em uma das lojas da empresa. A \emph{Locadora de Veículos} possui um sistema de locação de veículos que foi desenvolvido há alguns anos e está apresentando problemas de escalabilidade e manutenção. Por esse motivo, a empresa decidiu desenvolver um novo sistema de locação de veículos utilizando microsserviços e \acrshort{ddd}.
+O estudo de caso é realizado em uma empresa fictícia chamada \emph{CarroFacil}. Essa empresa é uma locadora de veículos que atua em todo o território nacional. Ela possui uma frota de veículos própria e uma grande quantidade de clientes, sendo pessoas físicas ou jurídicas. Eles podem alugar veículos por períodos de tempo variados, desde horas até semanas. Os veículos são retirados em uma das lojas da empresa. A \emph{CarroFacil} possui um sistema de locação de veículos que foi desenvolvido há alguns anos e está apresentando problemas de escalabilidade e manutenção. Por esse motivo, a empresa decidiu desenvolver um novo sistema de locação de veículos utilizando microsserviços e \acrshort{ddd}.
 
 \subsection{Processo de Desenvolvimento}
 \label{section:processo_desenvolvimento}
@@ -112,26 +112,160 @@ O processo de desenvolvimento utilizado para construir o sistema de locação de
 A seguir são apresentados os requisitos do sistema de locação de veículos.
 \subsubsection{Requisitos Funcionais}
 
+\begin{quadro}[H]
+    \centering
+    \caption{Registrar cliente}
+    \label{quad:registrar_cliente}
+    \begin{tabular}{|p{1.2in}|p{3.5in}|}
+    \hline
+    
+    \textbf{Caso de uso} & Registrar cliente \\ \hline
+    \textbf{Descrição} & Permite que o cliente se cadastre na plataforma. \\ \hline
+    \textbf{Ator} & Cliente \\ \hline
+    \textbf{Pre-condições} & O cliente ainda não está cadastrado. \\ \hline
+    \textbf{Pós-condições} & O cliente é registrado na plataforma\\ \hline
+    \textbf{Cenário Principal} & \begin{enumerate}
+        \item O cliente informa o nome, \acrshort{cpf} ou \acrshort{cnpj}, e-mail e senha.
+        \item O cliente é redirecionado para a tela principal.
+    \end{enumerate}  \\ \hline
+    \textbf{Fluxo de Exceção} & \begin{enumerate}
+        \item Dados inválidos são informados. Nesse caso, o sistema exibe uma mensagem de erro.
+        \item Usuário já cadastrado. O sistema também exibe uma mensagem de erro customizada para esse caso.
+    \end{enumerate}  \\ \hline
+    \end{tabular}
+    \fonte{o autor.}
+\end{quadro}
+
+O caso de uso do quadro \ref{quad:registrar_cliente} especifica o registro de um cliente. Esse é o primeiro passo para que um cliente possa realizar uma reserva de veículo.
+
+\begin{quadro}[H]
+    \centering
+    \caption{Listar veículos}
+    \label{quad:listar_veiculos}
+    \begin{tabular}{|p{1.2in}|p{3.5in}|}
+    \hline
+    
+    \textbf{Caso de uso} & Listar veículos \\ \hline
+    \textbf{Descrição} & Permite que o cliente visualize os veículos disponíveis para aluguel. \\ \hline
+    \textbf{Ator} & Cliente \\ \hline
+    \textbf{Pre-condições} & - \\ \hline
+    \textbf{Pós-condições} & Uma listagem de veículos disponíveis é exibida. \\ \hline
+    \textbf{Cenário Principal} & O cliente acessa a página de veículos, onde é possível visualizar os veículos disponíveis. \\ \hline
+    
+    \end{tabular}
+    \fonte{o autor.}
+\end{quadro}
+
+O quadro \ref{quad:listar_veiculos} especifica o processo de listagem de veículos. Esse processo é realizado pelo cliente e permite que ele visualize os veículos disponíveis para aluguel.
+
+\begin{quadro}[H]
+    \centering
+    \caption{Reservar um veículo}
+    \label{quad:reservar_veiculo}
+    \begin{tabular}{|p{1.2in}|p{3.5in}|}
+    \hline
+    
+    \textbf{Caso de uso} & Reservar um veículo \\ \hline
+    \textbf{Descrição} & Permite que um cliente reserve um veículo por um período de tempo. \\ \hline
+    \textbf{Ator} & Cliente \\ \hline
+    \textbf{Pre-condições} & Cliente está autenticado na plataforma. \\ \hline
+    \textbf{Pós-condições} & Veículo reservado fica indisponível para outros clientes. \\ \hline
+    \textbf{Cenário Principal} & \begin{enumerate}
+        \item Na tela de reservas, o usuário seleciona a localização que vai retirar o veículo, o período do aluguel, bem como outras informações.
+        \item É exibida uma confirmação para o usuário.
+    \end{enumerate}  \\ \hline
+    \textbf{Fluxo de Exceção} & \begin{enumerate}
+        \item O veículo não está disponível naquela localidade.
+        \item O cliente seleciona um período de tempo indisponível.  
+        \item Em ambos os casos, o cliente é alertado sobre o problema.
+    \end{enumerate}  \\ \hline
+    \end{tabular} 
+    \fonte{o autor.}
+\end{quadro}
+
+O quadro \ref{quad:reservar_veiculo} especifica o processo de reserva de um veículo. Esse processo é realizado pelo cliente e permite que ele alugue um veículo por um período de tempo.
+
+\begin{quadro}[H]
+    \centering
+    \caption{Realizar \english{check-in}}
+    \label{quad:realizar_checkin}
+    \begin{tabular}{|p{1.2in}|p{3.5in}|}
+    \hline
+    
+    \textbf{Caso de uso} & Realizar \english{check-in} \\ \hline
+    \textbf{Descrição} & Permite a realização do check-in da reserva entre o cliente e o funcionário. \\ \hline
+    \textbf{Ator} & Funcionário \\ \hline
+    \textbf{Pre-condições} & \begin{enumerate}
+        \item O cliente possui uma reserva e seu identificador.
+        \item O horário do \english{check-in} próximo do período da reserva.
+    \end{enumerate} \\ \hline
+    \textbf{Pós-condições} & O status da reserva é alterado para em progresso. \\ \hline
+    \textbf{Cenário Principal} & O cliente apresenta o identificador da reserva ao funcionário que o insere no sistema para realizar o check-in. \\ \hline
+    \textbf{Fluxo de Exceção} & \begin{enumerate}
+        \item O check-in para aquela reserva já foi realizado.
+        \item O cliente chegou à localidade fora do período de \english{check-in}.
+        \item Em ambos os casos, o cliente é alertado sobre o problema.
+    \end{enumerate}  \\ \hline
+    \end{tabular}
+    \fonte{o autor.}
+\end{quadro}
+
+O caso de uso Realizar \english{check-in} é apresentado no quadro \ref{quad:realizar_checkin}. Esse caso de uso é realizado pelo funcionário e permite que o cliente retire o veículo reservado.
+
+\begin{quadro}[H]
+    \centering
+    \caption{Realizar \english{check-out}}
+    \label{quad:realizar_checkout}
+    \begin{tabular}{|p{1.2in}|p{3.5in}|}
+    \hline
+    
+    \textbf{Caso de uso} & Realizar \english{check-out} \\ \hline
+    \textbf{Descrição} & Permite a realização do check-out da reserva entre o cliente e o funcionário. \\ \hline
+    \textbf{Ator} & Funcionário \\ \hline
+    \textbf{Pre-condições} & \begin{enumerate}
+        \item O cliente possui uma reserva em progresso.
+        \item O horário atual está próximo do período de \english{check-out} da reserva.
+    \end{enumerate} \\ \hline
+    \textbf{Pós-condições} & O status da reserva é alterado para concluída. \\ \hline
+    \textbf{Cenário Principal} & O cliente retorna o veículo para a loja, o funcionário verifica o estado do veículo, e obtém informações sobre a reserva a partir da placa. Por fim, o funcionário finaliza a reserva. \\ \hline
+    \textbf{Fluxo de Exceção} & \begin{enumerate}
+        \item O \english{check-in} não foi realizado para reserva.
+        \item O cliente chegou à localidade fora do período de \english{check-out}.
+        \item Em ambos os casos, o cliente é alertado sobre o problema.
+    \end{enumerate} \\ \hline
+    \end{tabular}
+    \fonte{o autor.}
+\end{quadro}
+
+O quadro \ref{quad:realizar_checkout} especifica o processo de realização do \english{check-out}. Esse processo é realizado pelo funcionário e permite que o cliente devolva o veículo alugado.
+
 \subsubsection{Requisitos não Funcionais}
 
-\subsection{Design}
-Para realização do Design deste projeto, é utilizado o \english{Astah UML}. Com essa ferramenta, são criados diagramas de classes, diagramas de sequência, diagramas de casos de uso, entre outros diagramas da \english{\acrfull{uml}} \cite{astahUml}. Além disso, para modelagem da arquitetura do sistema, o modelo C4 é empregado. Este, pode ser entendido como um conjunto hierárquico de diagramas que possibilita a visão do sistema em diferentes níveis de abstração \cite{c4Model}. 
+\begin{enumerate}
+    \item O sistema deve garantir a segurança dos dados dos clientes.
+    \item O tempo de resposta do sistema deve ser menor que 500 milissegundos em 95\% das requisições.
+    \item O sistema deve suportar 1000 requisições por segundo.
+    \item A disponibilidade do sistema deve ser de 99,9\%.
+\end{enumerate}
 
-Para construção de cada microsserviços, é feito uso da \hyperref[section:hexagonal]{Arquitetura Hexagonal}  Essa, por sua vez, separa a aplicação em duas partes principais: núcleo da aplicação e adaptadores. O núcleo da aplicação contém as regras de negócio e os adaptadores são responsáveis por adaptar a aplicação para o mundo externo. Para modelagem do domínio, é utilizado o \english{\acrfull{ddd}}. O \acrshort{ddd} fornece uma estratégia para modelagem do domínio de negócio, diversos padrões para resolver problemas de modelagem recorrentes e facilidade de entendimento e manutenção de código \cite{evans2004ddd}.
+\subsection{Design}
+Para realização do \english{design} deste projeto, é utilizado o \english{Astah UML}. Com essa ferramenta, são criados diagramas de classes, diagramas de sequência, diagramas de casos de uso, entre outros diagramas da \english{\acrfull{uml}} \cite{astahUml}. Além disso, para modelagem da arquitetura do sistema, o modelo C4 é empregado. Este, pode ser entendido como um conjunto hierárquico de diagramas que possibilita a visão do sistema em diferentes níveis de abstração \cite{c4Model}. 
+
+Para construção de cada microsserviços, é feito uso da \hyperref[section:hexagonal]{Arquitetura Hexagonal}. Essa, por sua vez, separa a aplicação em duas partes principais: núcleo da aplicação e adaptadores. O núcleo da aplicação contém as regras de negócio e os adaptadores são responsáveis por adaptar a aplicação para o mundo externo. Para modelagem do domínio, é utilizado o \english{\acrfull{ddd}}. O \acrshort{ddd} fornece uma estratégia para modelagem do domínio de negócio, diversos padrões para resolver problemas de modelagem recorrentes e facilidade de entendimento e manutenção de código \cite{evans2004ddd}.
 
 \subsection{Implementação}
-A implementação desse projeto é feita utilizando a linguagem de programação \english{Java} na versão 17. Para construção dos microsserviços, é utilizado o \english{framework} \english{Spring Boot}. Essa ferramenta fornece uma série de recursos para construção de microsserviços, como: injeção de dependências, configuração de banco de dados, configuração de \english{logs}, entre outros \cite{springBoot}. 
+A implementação desse projeto é feita utilizando a linguagem de programação \english{Java} na versão 17. Além disso, o\english{framework} \english{Spring Boot} é empregado na construção dos microsserviços. Essa ferramenta fornece uma série de recursos para construção de microsserviços, como: injeção de dependências, configuração de banco de dados, configuração de \english{logs}, entre outros \cite{springBoot}. 
 
 São utilizados dois banco de dados para armazenamento dos dados do sistema. O primeiro é um banco de dados relacional, que armazena dados de reservas. O segundo é um banco de dados não relacional, que armazena dados de clientes, veículos, entre outros. Para o banco de dados relacional, é utilizado o \english{PostgreSQL}. Para o banco de dados não relacional, foi escolhido o \english{Amazon DynamoDB}.
 
-O \english{PostgreSQL} é um sistema de gerenciamento de banco de dados relacional de código aberto. Esse banco de dados é um dos mais populares do mundo, sendo utilizado por diversas empresas, como: \english{Apple}, \english{Cisco}, \english{Red Hat}, \english{Juniper Networks}, \english{Skype}, \english{Instagram}, \english{Spotify}, \english{Netflix}, entre outras \cite{postgreSql}. Trata-se de um banco de dados escalável, confiável, fácil de usar e com suporte a transações \acrshort{acid}.
+O \english{PostgreSQL} é um sistema de gerenciamento de banco de dados relacional de código aberto. Esse banco de dados é um dos mais populares do mundo, sendo utilizado por diversas empresas, como: \english{Apple}, \english{Spotify}, \english{Netflix}, entre outras \cite{postgreSql}. Trata-se de um banco de dados escalável, confiável, fácil de usar e com suporte a transações \acrshort{acid}.
 
 Por outro lado, o \english{Amazon DynamoDB} é um banco de dados não relacional, que fornece desempenho de milissegundos de um dígito a qualquer escala. Esse banco de dados é totalmente gerenciado, ou seja, não é necessário realizar a configuração de servidores, escalabilidade, replicação, entre outros. Além disso, o \english{Amazon DynamoDB} é um banco de dados sem servidor, ou seja, o usuário paga apenas pelo que utiliza \cite{dynamoDb}.
 
-Para a intercomunicação entre os microsserviços de maneira assíncrona, é utilizado o \english{Amazon SQS}. Esse \english{broker} de mensagens permite que os microsserviços se comuniquem de maneira assíncrona, sem que um microsserviço precise conhecer o outro \cite{amazonSqs}. Além disso, o \english{Amazon SQS} permite que as mensagens sejam armazenadas em uma fila, caso o microsserviço que as recebeu esteja fora do ar.
+Para a intercomunicação entre os microsserviços de maneira assíncrona, é utilizado o \english{Amazon SQS}. Esse \english{broker} de mensagens permite que os microsserviços se comuniquem de maneira assíncrona, sem que um microsserviço precise conhecer o outro \cite{amazonSqs}. Além disso, o \english{Amazon SQS} permite que as mensagens sejam armazenadas em uma fila, caso o microsserviço destinatário da mensagem esteja fora do ar.
 
 \subsection{Validação}
-O projeto é desenvolvido com as estratégias de \acrfull{tdd} e \acrfull{bdd}. Essas abordagens de desenvolvimento de \english{software} permitem que o código seja desenvolvido de maneira mais confiável e com maior qualidade \cite{barauna2020tdd}. Além disso, o \acrshort{tdd} e o \acrshort{bdd} permitem que o código seja desenvolvido de maneira mais rápida, pois os testes são escritos antes do código.
+O projeto é desenvolvido com as estratégias \acrfull{tdd} e \acrfull{bdd}. Essas abordagens de desenvolvimento de \english{software} permitem que o código seja desenvolvido de maneira mais confiável e com maior qualidade \cite{barauna2020tdd}. Além disso, o \acrshort{tdd} e o \acrshort{bdd} permitem que o código seja desenvolvido de maneira mais rápida, pois os testes são escritos antes do código.
 
 Três tipos de testes são escritos para validar o sistema: testes unitários, testes de integração e testes de aceitação. Os testes unitários são escritos para validar métodos e classes do sistema. Por outro lado, os testes de integração validam a integração entre dois microsserviços e integrações com componentes externos, como banco de dados. Por fim, os testes de aceitação são implementados para validar os requisitos do sistema. É importante ressaltar que todos os testes são automatizados utilizando o \english{JUnit}.
 
