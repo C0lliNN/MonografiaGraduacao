@@ -7,7 +7,7 @@ A abordagem convencional no desenvolvimento de sistemas corporativos, na qual to
 
 Por outro lado, \english{\acrfull{ddd}} é uma abordagem para o desenvolvimento de software, na qual os elementos de software como pacotes, classes, interfaces, métodos e nomes de variáveis devem corresponder aos conceitos do domínio de negócio \cite{dddFowler}. Adicionalmente, o \acrshort{ddd} se configura como uma estratégia para harmonizar especialistas de negócios, desenvolvedores e projetistas, promovendo uma otimização nas interações ao reduzir o mapeamento entre termos de negócio e termos técnicos.
 
-Em agosto de 2008, um grande incidente interrompeu as operações da \emph{Netflix}, empresa que nesse período alugava \acrshort{dvd}s através de seu site na \english{web}. Uma corrupção no banco de dados impediu que a companhia pudesse realizar envios por três dias. A partir desse momento, os engenheiros perceberam que necessitavam reduzir pontos únicos de falha, tais como grandes bases de dados relacionais armazenadas em somente um \english{data center}. Em vez disso, optaram por adotar sistemas distribuídos na nuvem, escalonados horizontalmente, para garantir maior confiabilidade e minimizar o impacto das falhas \cite{netflixMigration}.
+Em agosto de 2008, um grande incidente interrompeu as operações da \emph{Netflix}, empresa que nesse período alugava DVDs através de seu site na \english{web}. Uma corrupção no banco de dados impediu que a companhia pudesse realizar envios por três dias. A partir desse momento, os engenheiros perceberam que necessitavam reduzir pontos únicos de falha, tais como grandes bases de dados relacionais armazenadas em somente um \english{data center}. Em vez disso, optaram por adotar sistemas distribuídos na nuvem, escalonados horizontalmente, para garantir maior confiabilidade e minimizar o impacto das falhas \cite{netflixMigration}.
 
 Essa transição resultou em vários benefícios para a \emph{Netflix}, destacando-se a conquista de uma disponibilidade de 'quatro noves' (99,99\%) e significativa redução de custos. Além disso, a \acrfull{ams} permitiu que diferentes aplicações utilizassem diferentes tecnologias, facilitando contratações e extraindo o melhor de cada opção. Assim, em 2016 (8 anos após a migração) a empresa tinha 8 vezes mais assinantes, muito mais ativos, com o número de visualizações crescendo em três ordens de grandeza nesse período \cite{netflixMigration}.
 
@@ -24,13 +24,13 @@ Nesse contexto, este trabalho visa preencher essa lacuna ao oferecer uma contrib
 \section{Objetivos}
 
 \subsection{Objetivo Geral}
-O objetivo geral deste trabalho de conclusão de curso é apresentar um estudo de caso realista integrando a \acrlong{ams} e \acrlong{ddd} no desenvolvimento de um sistema de locação de veículos. Busca-se fornecer um guia prático para a utilização adequada dessas duas tecnologias em qualquer contexto.
+O objetivo geral deste trabalho de conclusão de curso é apresentar um estudo de caso realista integrando a \acrlong{ams} e \acrlong{ddd} no desenvolvimento de um sistema de locação de veículos. Busca-se demonstrar ganhos de escalabilidade, manutenibilidade e desempenho. Além disso, pretende-se apresentar um guia prático para a utilização adequada dessas duas tecnologias em qualquer contexto.
 
 \subsection{Objetivos Específicos}
 \begin{itemize}
 \item Apresentar uma estratégia para transformar requisitos funcionais em um \english{design} com \acrshort{ams} e \acrshort{ddd}.
 \item Prover informações relevantes para definição dos estilo de comunicação adequado entre microsserviços.
-\item Demonstrar abordagens de testes e monitoramento de microsserviços.
+\item Demonstrar desempenho e escalabilidade do sistema desenvolvido através de testes de carga.
 \end{itemize}
 
 \section{Estrutura do Trabalho}

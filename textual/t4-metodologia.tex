@@ -11,7 +11,7 @@ Este capítulo apresenta a metodologia e os recursos utilizados para atingir o o
     \label{fig:metodo_recurso}
 \end{figure}
 
-Pode-se observar na \autoref{fig:metodo_recurso} as etapas de execução dessa pesquisa. Inicialmente, o escopo é definido e primeiro capítulo é elaborado. Em seguida, a fundamentação teórica com os conceitos-chave é construída. Posteriormente, se realiza um mapeamento da literatura buscando trabalhos similares. Adicionalmente, um estudo de caso realista com a utilização de microsserviços e diversos conceitos do \acrshort{ddd} é desenvolvido e um relatório é produzido. Por fim, é escrita a conclusão do trabalho.
+Pode-se observar na \autoref{fig:metodo_recurso} as etapas de execução dessa pesquisa. Inicialmente, o escopo é definido e o primeiro capítulo é elaborado. Em seguida, a fundamentação teórica com os conceitos-chave é construída. Posteriormente, se realiza um mapeamento da literatura buscando trabalhos similares. Paralelamente a isso, um estudo de caso realista com a utilização de microsserviços e diversos conceitos do \acrshort{ddd} é desenvolvido e um relatório é produzido. Por fim, é escrita a conclusão do trabalho.
 
 \section{Mapeamento sistemático da Literatura}
 Esta seção apresenta o protocolo de mapeamento sistemático da literatura usado para atingir os objetivos da pesquisa.
@@ -94,11 +94,21 @@ A pesquisa é executada seguindo os passos a seguir:
 
 \subsection{Contexto}
 \label{section:contexto}
-O estudo de caso é realizado em uma empresa fictícia chamada \emph{CarroFacil}. Essa empresa é uma locadora de veículos que atua em todo o território nacional. Ela possui uma frota de veículos própria e uma grande quantidade de clientes, sendo pessoas físicas ou jurídicas. Eles podem alugar veículos por períodos de tempo variados, desde horas até semanas. Os veículos são retirados em uma das lojas da empresa. A \emph{CarroFacil} possui um sistema de locação de veículos que foi desenvolvido há alguns anos e está apresentando problemas de escalabilidade e manutenção. Por esse motivo, a empresa decidiu desenvolver um novo sistema de locação de veículos utilizando microsserviços e \acrshort{ddd}.
+O estudo de caso é realizado em uma empresa fictícia chamada \emph{CarroFacil}. Essa empresa é uma locadora de veículos que atua em todo o território nacional. Ela possui uma frota de veículos própria e uma grande quantidade de clientes, sendo pessoas físicas ou jurídicas. Eles podem alugar veículos por períodos de tempo variados, desde horas até semanas. Os veículos são retirados em uma das lojas da empresa. A \emph{CarroFacil} possui um sistema de locação de veículos que foi desenvolvido há alguns anos e está apresentando problemas de escalabilidade, desempenho e manutenibilidade. Por esse motivo, a empresa decidiu desenvolver um novo sistema de locação de veículos utilizando microsserviços e \acrshort{ddd}.
+
+\begin{figure}[!h]
+    \centering
+    \caption{Diagrama de caso de uso}
+    \includegraphics[width=0.9\textwidth]{media/diagrama_usecase.png}
+    \legend{Fonte: o autor}
+    \label{fig:caso_uso}
+\end{figure}
+
+A \autoref{fig:caso_uso} apresenta o diagrama de caso de uso do sistema de locação de veículos. As seções a seguir apresentam uma especificação parcial dos requsitos que será aprimorada e detalhada ao decorrer do desenvolvimento da aplicação.
 
 \subsection{Processo de Desenvolvimento}
 \label{section:processo_desenvolvimento}
-O processo de desenvolvimento utilizado para construir o sistema de locação de veículos é o \english{Kanban}. Essa metodologia de desenvolvimento ágil é baseada em um quadro de tarefas, no qual cada tarefa é representada por um cartão \cite{gomes2014agile}. O quadro é dividido em colunas que representam o estado atual de cada tarefa. As colunas mais comuns são: \english{To Do}, \english{Doing} e \english{Done}. O quadro é atualizado conforme as tarefas são realizadas. A \autoref{fig:kanban} apresenta um exemplo de quadro \english{Kanban}.
+O processo de desenvolvimento utilizado para construir o sistema de locação de veículos é o \english{Kanban}. Essa metodologia de desenvolvimento ágil é baseada em um quadro de tarefas, no qual cada tarefa é representada por um cartão \cite{gomes2014agile}. O quadro é dividido em colunas que representam o estado atual de cada tarefa. As colunas mais comuns são: \english{To Do}, \english{Doing} e \english{Done}. O quadro é atualizado conforme as tarefas são realizadas. A \autoref{fig:kanban} apresenta um exemplo de quadro \english{Kanban} será utilizado para mapear as tarefas e medir o progresso do desenvolvimento deste sistema.
 
 \begin{figure}[h]
     \centering
@@ -125,7 +135,7 @@ A seguir são apresentados os requisitos do sistema de locação de veículos.
     \textbf{Pre-condições} & O cliente ainda não está cadastrado. \\ \hline
     \textbf{Pós-condições} & O cliente é registrado na plataforma\\ \hline
     \textbf{Cenário Principal} & \begin{enumerate}
-        \item O cliente informa o nome, \acrshort{cpf} ou \acrshort{cnpj}, e-mail e senha.
+        \item O cliente informa o nome, CPF ou CNPJ, e-mail e senha.
         \item O cliente é redirecionado para a tela principal.
     \end{enumerate}  \\ \hline
     \textbf{Fluxo de Exceção} & \begin{enumerate}
@@ -243,15 +253,16 @@ O quadro \ref{quad:realizar_checkout} especifica o processo de realização do \
 
 \begin{enumerate}
     \item O sistema deve garantir a segurança dos dados dos clientes.
-    \item O tempo de resposta do sistema deve ser menor que 500 milissegundos em 95\% das requisições.
+    \item O tempo de resposta do sistema deve ser menor que 500 milissegundos em 99\% das requisições.
     \item O sistema deve suportar 1000 requisições por segundo.
-    \item A disponibilidade do sistema deve ser de 99,9\%.
+    \item Picos de até 10.000 requisições por segundo devem ser suportados sem degradação do desempenho.
+    \item As funcionalidades do sistema devem ser fornecidadas através de uma \acrshort{api} \english{REST}.
 \end{enumerate}
 
 \subsection{Design}
-Para realização do \english{design} deste projeto, é utilizado o \english{Astah UML}. Com essa ferramenta, são criados diagramas de classes, diagramas de sequência, diagramas de casos de uso, entre outros diagramas da \english{\acrfull{uml}} \cite{astahUml}. Além disso, para modelagem da arquitetura do sistema, o modelo C4 é empregado. Este, pode ser entendido como um conjunto hierárquico de diagramas que possibilita a visão do sistema em diferentes níveis de abstração \cite{c4Model}. 
-
 Para construção de cada microsserviços, é feito uso da \hyperref[section:hexagonal]{Arquitetura Hexagonal}. Essa, por sua vez, separa a aplicação em duas partes principais: núcleo da aplicação e adaptadores. O núcleo da aplicação contém as regras de negócio e os adaptadores são responsáveis por adaptar a aplicação para o mundo externo. Para modelagem do domínio, é utilizado o \english{\acrfull{ddd}}. O \acrshort{ddd} fornece uma estratégia para modelagem do domínio de negócio, diversos padrões para resolver problemas de modelagem recorrentes e facilidade de entendimento e manutenção de código \cite{evans2004ddd}.
+
+Para realização do \english{design} deste projeto, é utilizado a \english{UML}. Especificamente, são criados diagramas de classes, diagramas de sequência, diagramas de casos de uso. Além disso, para modelagem da arquitetura do sistema, o diagrama de contexto de sistema do modelo C4 é empregado \cite{c4Model}. 
 
 \subsection{Implementação}
 A implementação desse projeto é feita utilizando a linguagem de programação \english{Java} na versão 17. Além disso, o\english{framework} \english{Spring Boot} é empregado na construção dos microsserviços. Essa ferramenta fornece uma série de recursos para construção de microsserviços, como: injeção de dependências, configuração de banco de dados, configuração de \english{logs}, entre outros \cite{springBoot}. 
