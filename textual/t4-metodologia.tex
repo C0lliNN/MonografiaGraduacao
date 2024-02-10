@@ -36,7 +36,7 @@ Esta seção apresenta a estratégia de buscas de artigos científicos e livros 
 
 Como grande parte das publicações na área de computação são em inglês, esta pesquisa utiliza esse idioma para fazer buscas nas ferramentas indicadas. Além disso, \acrfull{ams} e \acrfull{ddd} são relativamente recentes, as buscas se limitaram a publicações feitas nos últimos 20 anos.
 
-Os termos-chave para realização das buscas são: Microsserviço, \acrshort{ddd} e \acrlong{ddd}. Como a busca será feita em inglês, se usará \english{microservice} nas buscas.
+Os termos-chave para realização das buscas são: Microsserviço, \acrshort{ddd} e \acrlong{ddd}. Como a busca é feita em inglês, se usará \english{microservice} nas buscas.
 \subsection{Expressão de busca}
 \label{section:string_busca}
 
@@ -108,7 +108,7 @@ A \autoref{fig:caso_uso} apresenta o diagrama de caso de uso do sistema de loca�
 
 \subsection{Processo de Desenvolvimento}
 \label{section:processo_desenvolvimento}
-O processo de desenvolvimento utilizado para construir o sistema de locação de veículos é o \english{Kanban}. Essa metodologia de desenvolvimento ágil é baseada em um quadro de tarefas, no qual cada tarefa é representada por um cartão \cite{gomes2014agile}. O quadro é dividido em colunas que representam o estado atual de cada tarefa. As colunas mais comuns são: \english{To Do}, \english{Doing} e \english{Done}. O quadro é atualizado conforme as tarefas são realizadas. A \autoref{fig:kanban} apresenta um exemplo de quadro \english{Kanban} será utilizado para mapear as tarefas e medir o progresso do desenvolvimento deste sistema.
+O processo de desenvolvimento utilizado para construir o sistema de locação de veículos é o \english{Kanban}. Essa metodologia de desenvolvimento ágil é baseada em um quadro de tarefas, no qual cada tarefa é representada por um cartão \cite{gomes2014agile}. O quadro é dividido em colunas que representam o estado atual de cada tarefa. As colunas mais comuns são: \english{To Do}, \english{Doing} e \english{Done}. O quadro é atualizado conforme as tarefas são realizadas. A \autoref{fig:kanban} apresenta um exemplo de quadro \english{Kanban} que é utilizado para mapear as tarefas e medir o progresso do desenvolvimento deste sistema.
 
 \begin{figure}[h]
     \centering
@@ -147,6 +147,32 @@ A seguir são apresentados os requisitos do sistema de locação de veículos.
 \end{quadro}
 
 O caso de uso do quadro \ref{quad:registrar_cliente} especifica o registro de um cliente. Esse é o primeiro passo para que um cliente possa realizar uma reserva de veículo.
+
+\begin{quadro}[H]
+    \centering
+    \caption{Reservar login}
+    \label{quad:realizar_login}
+    \begin{tabular}{|p{1.2in}|p{3.5in}|}
+    \hline
+    
+    \textbf{Caso de uso} & Realizar login\\ \hline
+    \textbf{Descrição} & Permite que um cliente ou funcionário realizem login na plataforma. \\ \hline
+    \textbf{Ator} & Cliente \\ \hline
+    \textbf{Pre-condições} & O usuário está registrado na plataforma\\ \hline
+    \textbf{Pós-condições} & O usuário está autenticado\\ \hline
+    \textbf{Cenário Principal} & \begin{enumerate}
+        \item Na tela de login, o usuário informa seu email e senha.
+        \item O usuário aperta o botão de login.
+        \item O usuário é redirecionado para a tela principal.
+    \end{enumerate}  \\ \hline
+    \textbf{Fluxo de Exceção} & \begin{enumerate}
+        \item O email ou senha informados estão incorretos. Nesse caso, o sistema exibe uma mensagem de erro.
+    \end{enumerate}  \\ \hline
+    \end{tabular} 
+    \fonte{o autor.}
+\end{quadro}
+
+O caso de uso do quadro \ref{quad:realizar_login} especifica o processo de autenticação de um usuário. Esse é o segundo passo para que um cliente possa realizar uma reserva de veículo.
 
 \begin{quadro}[H]
     \centering
@@ -262,7 +288,7 @@ O quadro \ref{quad:realizar_checkout} especifica o processo de realização do \
 \subsection{Design}
 Para construção de cada microsserviços, é feito uso da \hyperref[section:hexagonal]{Arquitetura Hexagonal}. Essa, por sua vez, separa a aplicação em duas partes principais: núcleo da aplicação e adaptadores. O núcleo da aplicação contém as regras de negócio e os adaptadores são responsáveis por adaptar a aplicação para o mundo externo. Para modelagem do domínio, é utilizado o \english{\acrfull{ddd}}. O \acrshort{ddd} fornece uma estratégia para modelagem do domínio de negócio, diversos padrões para resolver problemas de modelagem recorrentes e facilidade de entendimento e manutenção de código \cite{evans2004ddd}.
 
-Para realização do \english{design} deste projeto, é utilizado a \english{UML}. Especificamente, são criados diagramas de classes, diagramas de sequência, diagramas de casos de uso. Além disso, para modelagem da arquitetura do sistema, o diagrama de contexto de sistema do modelo C4 é empregado \cite{c4Model}. 
+Para realização do \english{design} deste projeto, é utilizado a \english{UML}. Especificamente, são criados diagramas de classes com propósito de modelar os objetos, seus relacionamentos e os serviços que fornecem. Adicionalmente, para detalhamento do fluxo de execução de operações chaves, alguns diagramas de sequência são empregados. Além disso, visando fornecer uma visão geral da arquiteura do sistema, o diagrama de contexto de sistema do modelo C4 é utilizado \cite{c4Model}. 
 
 \subsection{Implementação}
 A implementação desse projeto é feita utilizando a linguagem de programação \english{Java} na versão 17. Além disso, o\english{framework} \english{Spring Boot} é empregado na construção dos microsserviços. Essa ferramenta fornece uma série de recursos para construção de microsserviços, como: injeção de dependências, configuração de banco de dados, configuração de \english{logs}, entre outros \cite{springBoot}. 
@@ -281,9 +307,26 @@ O projeto é desenvolvido com as estratégias \acrfull{tdd} e \acrfull{bdd}. Ess
 Três tipos de testes são escritos para validar os requisitos funcionais do sistema: testes unitários, testes de integração e testes de aceitação. Os testes unitários são escritos para validar métodos e classes do sistema. Por outro lado, os testes de integração validam a integração entre dois microsserviços e integrações com componentes externos, como banco de dados. Por fim, os testes de aceitação são implementados para validar os requisitos do sistema. É importante ressaltar que todos os testes são automatizados utilizando o \english{JUnit}.
 
 \subsubsection{Requisitos não funcionais}
-Por outro lado, para validação dos requisitos não funcionais, testes de carga são empregados. O ambiente de execução desses testes será o mesmo de produção. No entanto, apenas duas instâncias são utilizadas. Através da ferramenta Gatling, a bateria de testes consistirá de 1000 operações sendo executadas a cada minuto por um período de 1 hora. Além disso, a cada 15 minutos haverá um pico de 10000 operações em um minuto. Serão avaliados o tempo de resposta, a utilização da CPU, o consumo de memória e a quantidade erros. Cada operação possui as seguintes etapas: registrar um novo veículo, cadastrar um cliente, listar veículos e realizar uma reserva.
+Por outro lado, para validação dos requisitos não funcionais, testes de carga são empregados. O ambiente de execução desses testes é o mesmo de produção. No entanto, apenas duas instâncias são utilizadas. Através da ferramenta Gatling, a bateria de testes consiste de 1000 operações sendo executadas a cada minuto por um período de 1 hora. Além disso, a cada 15 minutos há um pico de 10000 operações em um minuto. São avaliados o tempo de resposta, a utilização da CPU, o consumo de memória e a quantidade erros. Os resultados obtidos são comparados com o \autoref{quad:metricas_comparacao} Cada operação possui as seguintes etapas: registrar um novo veículo, cadastrar um cliente, listar veículos e realizar uma reserva.
 
-Após a execução dos testes de carga, os resultados obtidos serão analizados e comparados com os requisitios não funcionais. Dessa forma, um relatório será produzido com uma análise gráfica e númerica.
+Após a execução dos testes de carga, os resultados obtidos são analizados e comparados com os requisitios não funcionais. Dessa forma, um relatório é produzido com uma análise gráfica e númerica.
+
+\begin{quadro}[H]
+    \centering
+    \caption{Métricas de comparação}
+    \label{quad:metricas_comparacao}
+    \begin{tabular}{|p{1.2in}|p{3.5in}|}
+    \hline
+    
+    \textbf{Métrica} & \textbf{Alvo} \\ \hline
+    Tempo de resposta & <= 500 ms em 99\% das requisições. \\ \hline
+    Utilização da CPU & <= 70\% durante toda a execução. \\ \hline
+    Consumo de memória & <= 70\% durante toda a execução. \\ \hline
+    Quantidade de erros & <= 1\% das requisições. \\ \hline
+
+    \end{tabular}
+    \fonte{o autor.}
+\end{quadro}
 
 \subsection{Implantação}
 O sistema é implantado na nuvem da \english{\acrfull{aws}}. A \acrshort{aws} é uma plataforma de computação em nuvem que oferece mais de 200 serviços completos de \english{data centers} em todo o mundo \cite{aws}. Esses serviços incluem computação, armazenamento, banco de dados, \english{networking}, \english{analytics}, \english{machine learning}, inteligência artificial, \english{Internet of Things}, segurança, entre outros.
