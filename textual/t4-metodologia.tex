@@ -276,7 +276,7 @@ O caso de uso Realizar \english{check-in} é apresentado no quadro \ref{quad:rea
 O quadro \ref{quad:realizar_checkout} especifica o processo de realização do \english{check-out}. Esse processo é realizado pelo funcionário e permite que o cliente devolva o veículo alugado.
 
 \subsubsection{Requisitos não Funcionais}
-
+Com base na quantidade de clientes atuais e a estimativa de crescimento, bem como suas expectativas quanto ao desempenho do sistema, são definidos os seguintes requisitos não funcionais:
 \begin{enumerate}
     \item O sistema deve garantir a segurança dos dados dos clientes.
     \item O tempo de resposta do sistema deve ser menor que 500 milissegundos em 99\% das requisições.
@@ -309,7 +309,7 @@ Três tipos de testes são escritos para validar os requisitos funcionais do sis
 \subsubsection{Requisitos não funcionais}
 Por outro lado, para validação dos requisitos não funcionais, testes de carga são empregados. O ambiente de execução desses testes é o mesmo de produção. No entanto, apenas duas instâncias são utilizadas. Através da ferramenta Gatling, a bateria de testes consiste de 1000 operações sendo executadas a cada minuto por um período de 1 hora. Além disso, a cada 15 minutos há um pico de 10000 operações em um minuto. São avaliados o tempo de resposta, a utilização da CPU, o consumo de memória e a quantidade erros. Os resultados obtidos são comparados com o \autoref{quad:metricas_comparacao} Cada operação possui as seguintes etapas: registrar um novo veículo, cadastrar um cliente, listar veículos e realizar uma reserva.
 
-Após a execução dos testes de carga, os resultados obtidos são analizados e comparados com os requisitios não funcionais. Dessa forma, um relatório é produzido com uma análise gráfica e númerica.
+Após a execução dos testes de carga, os resultados obtidos são analizados e comparados com os requisitos não funcionais. Dessa forma, um relatório é produzido com uma análise gráfica e númerica.
 
 \begin{quadro}[H]
     \centering
