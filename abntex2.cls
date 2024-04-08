@@ -1041,6 +1041,14 @@
 % ---
 % Impressão da Capa
 \newcommand{\imprimircapa}{%
+
+    \begin{adjustwidth}{0pt}{0pt}
+      \begin{figure}[!ht]
+          \includegraphics[width=1.0\textwidth]{media/institution_header.jpeg}
+          \label{fig:institution_header}
+      \end{figure}  
+    \end{adjustwidth}
+
   \begin{capa}%
     \center
     \ABNTEXchapterfont\large\imprimirautor
@@ -1118,6 +1126,12 @@
 
 \newcommand{\imprimirfolhaderostonostar}[1]{%
   \begin{folhaderosto}{#1}
+      \begin{adjustwidth}{0pt}{0pt}
+        \begin{figure}[!ht]
+            \includegraphics[width=1.0\textwidth]{media/institution_header.jpeg}
+            \label{fig:institution_header}
+        \end{figure}  
+      \end{adjustwidth}
      \folhaderostocontent
   \end{folhaderosto}}
 
