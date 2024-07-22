@@ -111,18 +111,83 @@ A \autoref{fig:realizar-checkout} ilustra o fluxo de realizar um check-out. Inic
 \end{figure}
 
 \subsection{User Service}
-TBD
+A \autoref{fig:user-service} apresenta os principais componentes do \english{User Service} na Arquitetura Hexagonal.
+
+\begin{figure}[H]
+    \centering
+    \caption{User Service}
+    \fbox{\includegraphics[width=0.8\textwidth]{media/user-service.png}}
+    \fonte{o autor}
+    \label{fig:user-service}
+\end{figure}
+
+Os componentes do \english{Application core} são: \english{User} e \english{UserService}. A aplicação possui as seguintes portas: \english{UserRepository}, \english{PasswordEncoder} e \english{TokenManager}. Por fim, os adaptadores \english{UserController}, \english{DynamoDBUserRepository}, \english{BCryptPasswordEncoder} e \english{JwtTokenManager} são responsáveis por integrar a aplicação com o mundo externo.
 
 \subsection{Customer Service}
-TBD
+A \autoref{fig:customer-service} apresenta os principais componentes do \english{Customer Service} na Arquitetura Hexagonal.
+
+\begin{figure}[H]
+    \centering
+    \caption{Customer Service}
+    \fbox{\includegraphics[width=0.8\textwidth]{media/customer-service.png}}
+    \fonte{o autor}
+    \label{fig:customer-service}
+\end{figure}
+
+Nesse serviço, o \english{Application core} é composto por  \english{Customer} e \english{CustomerService}. As portas são: \english{CustomerRepository} e \english{UserService}. Por fim, os adaptadores são: \english{CustomerController}, \english{RestUserService} \english{DynamoDBCustomerRepository} e \english{SQSMessageListener}.
 
 \subsection{Employee Service}
-TBD
+A \autoref{fig:employee-service} apresenta os principais componentes do \english{Employee Service} na Arquitetura Hexagonal.
+
+\begin{figure}[H]
+    \centering
+    \caption{Employee Service}
+    \fbox{\includegraphics[width=0.8\textwidth]{media/employee-service.png}}
+    \fonte{o autor}
+    \label{fig:employee-service}
+\end{figure}
+
+O \english{Application core} é composto por \english{Employee} e \english{EmployeeService}. As portas são: \english{EmployeeRepository} e \english{UserService}. Por fim, os adaptadores são: \english{EmployeeController}, \english{DynamoDBEmployeeRepository} e \english{RestUserService}.
 
 \subsection{Inventory Service}
-TBD
+Essa seção apresenta os principais componentes do \english{Inventory Service} na Arquitetura Hexagonal, ilustrados na \autoref{fig:inventory-service}.
+
+\begin{figure}[H]
+    \centering
+    \caption{Inventory Service}
+    \fbox{\includegraphics[width=0.8\textwidth]{media/inventory-service.png}}
+    \fonte{o autor}
+    \label{fig:inventory-service}
+\end{figure}
+
+Nessa aplicação, o \english{Application core} é composto por \english{Vehicle}, \english{VehicleType}, \english{VehicleCategory}, \english{VehicleStatus} e \english{InventoryService}. As portas são: \english{VehicleRepository} e \english{UserService}. Por fim, os adaptadores são: \english{InventoryController}, \english{JDBCInventoryRepository} e \english{RestUserService}.
 
 \subsection{Booking Service}
-TBD
+A \autoref{fig:booking-service} apresenta os principais componentes do \english{Booking Service} na Arquitetura Hexagonal.
+
+\begin{figure}[H]
+    \centering
+    \caption{Booking Service}
+    \fbox{\includegraphics[width=0.8\textwidth]{media/booking-service.png}}
+    \fonte{o autor}
+    \label{fig:booking-service}
+\end{figure}
+
+O \english{Application core} é composto por \english{Booking}, \english{BookingPricingStrategy}, \english{Vehicle}, \english{PricingStrategyFactory}, \english{BookingEvent} e \english{BookingService}. As portas são: \english{BookingRepository}, \english{EventPublisher}, \english{UserService} e \english{InventoryService}. Por fim, os adaptadores são: \english{BookingController}, \english{JDBCBookingRepository}, \english{SNSEventPublisher}, \english{RestUserServiceClient} e \english{RestInventoryServiceClient}.
 
 \section{Implementação}
+Esta seção apresenta os trechos de código chaves para a implementação do caso de uso. O código completo pode ser encontrado no repositório do projeto \footnote{\url{https://github.com/C0lliNN/CarroFacil}}.
+
+\begin{codigo}[H]
+\begin{lstlisting}
+    public void checkIn() {
+        if (status != Status.CREATED) {
+            throw new InvalidBookingStateException("Booking is not in CREATED state");
+        }
+
+        status = Status.IN_PROGRESS;
+        checkedInAt = LocalDateTime.now();
+    }   
+\end{lstlisting}
+\caption{Método para realizar check-in}
+\end{codigo}
