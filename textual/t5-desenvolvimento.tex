@@ -178,16 +178,250 @@ O \english{Application core} é composto por \english{Booking}, \english{Booking
 \section{Implementação}
 Esta seção apresenta os trechos de código chaves para a implementação do caso de uso. O código completo pode ser encontrado no repositório do projeto \footnote{\url{https://github.com/C0lliNN/CarroFacil}}.
 
+\subsection{Login de usuário}
+O \autoref{cod:login} apresenta o método para realizar login de um usuário. Esse método recebe um \english{LoginRequest} contendo o email e senha do usuário. Em seguida, ele busca o usuário no repositório e compara a senha informada com a senha armazenada no banco de dados. Caso a senha seja válida, o método retorna um \english{UserResponse} contendo o token de autenticação. O procedimento lança exceções caso o email não seja encontrado ou a senha seja inválida.
+
 \begin{codigo}[H]
-\begin{lstlisting}
-    public void checkIn() {
-        if (status != Status.CREATED) {
-            throw new InvalidBookingStateException("Booking is not in CREATED state");
+    \begin{lstlisting}[language=Java]
+    public class UserService {
+        private final UserRepository repository;
+        private final PasswordEncoder passwordEncoder;
+        private final TokenManager tokenManager;
+
+        public UserResponse login(LoginRequest request) {
+            User user = repository.findByEmail(request.email()).
+                    orElseThrow(() -> new EmailNotFoundException("The email '%s' could not be found.", request.email()));
+
+            if (!passwordEncoder.comparePasswordAndHash(request.password(), user.getPassword())) {
+                throw new IncorrectPasswordException("The provided password is incorrect.");
+            }
+
+            return createUserResponseWithToken(user);
         }
 
-        status = Status.IN_PROGRESS;
-        checkedInAt = LocalDateTime.now();
-    }   
-\end{lstlisting}
-\caption{Método para realizar check-in}
+        // Other methods
+    }
+    \end{lstlisting}
+    \caption{Método para realizar login}
+    \label{cod:login}
 \end{codigo}
+
+\subsection{Cadastro de Cliente}
+O \autoref{cod:cadastro-cliente} apresenta o método para realizar o cadastro de um cliente. Esse método recebe um \english{RegisterRequest} contendo o nome, email e senha do cliente. Em seguida, ele realiza o cadastro do usuário no \english{User Service} e cria um cliente no \english{Customer Service}. Por fim, o método retorna um \english{CustomerResponse} contendo as informações do cliente.
+
+\begin{codigo}[H]
+    \begin{lstlisting}[language=Java]
+        public class CustomerService {
+            private final UserServiceClient userServiceClient;
+            private final CustomerRepository customerRepository;
+        
+            public CustomerResponse register(RegisterRequest request) {
+                User user = userServiceClient.register(request.name(), request.email(), request.password());
+        
+                Customer customer = Customer.builder()
+                        .name(request.name())
+                        .userId(user.getId())
+                        .build();
+        
+                return CustomerResponse.fromCustomer(customerRepository.save(customer), user);
+            }
+
+        // Other methods
+    }
+    \end{lstlisting}
+    \caption{Método para realizar cadastro de cliente}
+    \label{cod:cadastro-cliente}
+\end{codigo}
+
+\subsection{Realizar Reserva}
+O \autoref{cod:realizar-reserva} apresenta o método para realizar uma reserva. Esse método recebe um \english{BookingRequest} contendo as informações da reserva. Em seguida, ele busca o veículo no \english{Inventory Service} e realiza a reserva no \english{Booking Service}. Além disso, o método publica um evento que poderá ser consumido por outros serviços. Por fim, o método retorna um \english{BookingResponse} contendo as informações da reserva.
+
+\begin{codigo}[H]
+    \begin{lstlisting}[language=Java]
+        public class BookingService {
+            private BookingRepository bookingRepository;
+            private InventoryClient inventoryClient;
+            private BookingEventPublisher bookingEventPublisher;
+
+            public BookingResponse createBooking(BookingRequest bookingRequest) {
+                Booking booking = bookingRequest.createBooking();
+                Vehicle vehicle = inventoryClient.getVehicle(booking.getVehicleId());
+                booking.setVehicle(vehicle);
+        
+                booking = bookingRepository.save(booking);
+        
+                bookingEventPublisher.publishBookingEvent(
+                        new BookingEvent(booking.getId(), booking.getUserId(), vehicle.getId())
+                );
+        
+                return BookingResponse.from(booking);
+            }
+
+            // Other methods
+        }
+    \end{lstlisting}
+    \caption{Método para criar reserva}
+    \label{cod:realizar-reserva}
+\end{codigo}
+
+\subsection{Realizar Check-in}
+O \autoref{cod:realizar-check-in} contém o código necessário para realizar um check-in. No \english{BookingService} é possível ver o método \english{checkin} que recebe o id da reserva e realiza o check-in. Esse método busca a reserva no repositório, realiza o check-in e salva a reserva. Toda a operação é executada em uma transação ACID com nível de isolamento de serialização para previnir checkins duplicados. O método \english{checkIn} da classe \english{Booking} é responsável por validar o estado da reserva, atualizar o status e a data de check-in.
+
+\begin{codigo}[H]
+    \begin{lstlisting}[language=Java]
+        public class BookingService {
+            private BookingRepository bookingRepository;
+            private InventoryClient inventoryClient;
+            private BookingEventPublisher bookingEventPublisher;
+
+            @Transactional(isolation = Isolation.SERIALIZABLE)
+            public void checkin(int bookingId) {
+                Booking booking = bookingRepository.findById(bookingId)
+                        .orElseThrow(() -> new EntityNotFoundException("Booking not found"));
+        
+                booking.checkIn();
+                bookingRepository.save(booking);
+            }
+
+            // Other methods
+        }
+
+        public class Booking {
+            // other fields and methods
+
+            public void checkIn() {
+                if (status != Status.CREATED) {
+                    throw new InvalidBookingStateException("Booking is not in CREATED state");
+                }
+        
+                status = Status.IN_PROGRESS;
+                checkedInAt = LocalDateTime.now();
+            }
+        }
+    \end{lstlisting}
+    \caption{Métodos para realizar check-in}
+    \label{cod:realizar-check-in}
+\end{codigo}
+
+\subsection{Realizar Check-out}
+O \autoref{cod:realizar-check-out} contém o código necessário para realizar um check-out. No \english{BookingService} é possível ver o método \english{checkout} que recebe o id da reserva e realiza o check-out. Esse método busca a reserva no repositório, realiza o check-out e salva a reserva. Toda a operação é executada em uma transação ACID com nível de isolamento de serialização para previnir checkouts duplicados. O método \english{checkOut} da classe \english{Booking} é responsável por validar o estado da reserva, atualizar o status e a data de check-out.
+
+\begin{codigo}[H]
+    \begin{lstlisting}[language=Java]
+        public class BookingService {
+            private BookingRepository bookingRepository;
+            private InventoryClient inventoryClient;
+            private BookingEventPublisher bookingEventPublisher;
+
+            @Transactional(isolation = Isolation.SERIALIZABLE)
+            public void checkout(int bookingId) {
+                Booking booking = bookingRepository.findById(bookingId)
+                        .orElseThrow(() -> new EntityNotFoundException("Booking not found"));
+
+                booking.checkOut();
+                bookingRepository.save(booking);
+            }
+
+            // Other methods
+        }
+
+        public class Booking {
+            // other fields and methods
+
+            public void checkOut() {
+                if (status != Status.IN_PROGRESS) {
+                    throw new InvalidBookingStateException("Booking is not in IN_PROGRESS state");
+                }
+
+                status = Status.CLOSED;
+                checkedOutAt = LocalDateTime.now();
+            }
+        }
+    \end{lstlisting}
+    \caption{Métodos para realizar check-out}
+    \label{cod:realizar-check-out}
+\end{codigo}
+
+\subsection{Comunicação síncrona entre Microsserviços}
+O \autoref{cod:rest-inventory-client} demonstra como a comunicação síncrona entre microsserviços é realizada. O método \english{getVehicle} da classe \english{RestInventoryClient} é responsável por obter um veículo do \english{Inventory Service}. Esse método utiliza o \english{RestTemplate} para realizar uma requisição \acrshort{http} para \english{Inventory Service}. É importante notar que a classe \english{RestInventoryClient} implementa a interface de domínio \english{InventoryClient}. Dessa forma o dominio não está acoplado ao mecanismo de comunicação.
+
+\begin{codigo}[H]
+    \begin{lstlisting}[language=Java]
+        public class RestInventoryClient implements InventoryClient {
+            private RestTemplate restTemplate;
+            private String baseUrl;
+
+            @Override
+            public Vehicle getVehicle(int id) {
+                HttpHeaders headers = new HttpHeaders();
+                headers.set("Authorization", "Bearer " + getToken());
+                HttpEntity<VehicleResponse> entity = new HttpEntity<>(headers);
+
+                ResponseEntity<VehicleResponse> response = restTemplate.exchange(baseUrl + "/vehicles/{id}", HttpMethod.GET, entity, VehicleResponse.class, id);
+                if (response.getStatusCode().value() == 404) {
+                    throw new EntityNotFoundException("Vehicle not found");
+                }
+
+                if (response.getStatusCode().isError()) {
+                    throw new RuntimeException("Error while fetching vehicle");
+                }
+
+                return response.getBody().toVehicle();
+            }
+        }
+    \end{lstlisting}
+    \caption{Método para obter um veículo do \english{Inventory Service}}
+    \label{cod:rest-inventory-client}
+\end{codigo}
+
+\subsection{Comunicação assíncrona entre Microsserviços}
+O \autoref{cod:comunicacao-assincrona} apresenta como a comunicação assíncrona entre microsserviços é realizada. A classe \english{SNSEventPublisher} é responsável por publicar eventos de reserva no \english{Booking Service}. O método \english{publishBookingEvent} recebe um evento de reserva, serializa o evento e publica no tópico \acrshort{sns}. Por outro lado, a classe \english{SQSListener} é responsável por ouvir eventos de reserva no \english{Customer Service}. O método \english{listen} recebe uma mensagem do \acrshort{sqs}, desserializa a mensagem e incrementa o contador de reservas do usuário. Da mesma forma que na comunicação síncrona, o domínio não está acoplado ao mecanismo de comunicação.
+
+\begin{codigo}[H]
+    \begin{lstlisting}[language=Java]
+        // class in Booking Service
+        public class SNSEventPublisher implements BookingEventPublisher {
+            private final SnsClient snsClient;
+            private final ObjectMapper objectMapper;
+
+            private String topicArn;
+
+            public void publishBookingEvent(BookingEvent bookingEvent) {
+                String message = objectMapper.writeValueAsString(bookingEvent);
+
+                PublishRequest request = PublishRequest.builder()
+                        .topicArn(topicArn)
+                        .message(message)
+                        .build();
+
+                PublishResponse response = snsClient.publish(request);
+            }
+        }
+
+        // class in Customer service
+        public class SQSListener {
+            private final CustomerService service;
+            private final ObjectMapper objectMapper;
+
+            @SqsListener(queueNames = "${aws.queues.bookings}")
+            public void listen(Message message) {
+                try {
+                    MessageBody body = objectMapper.readValue(message.body(), MessageBody.class);
+                    BookingMessage bookingMessage = objectMapper.readValue(body.getMessage(), BookingMessage.class);
+
+                    log.info("Received message: {}", bookingMessage);
+
+                    service.incrementBookingsCount(bookingMessage.getUserId());
+                } catch (Exception e) {
+                    throw new RuntimeException("Error while processing message", e);
+                }
+            }
+        }
+
+    \end{lstlisting}
+    \caption{Código para realizar comunicação assíncrona entre microsserviços}
+    \label{cod:comunicacao-assincrona}
+\end{codigo}
+
+\section{Testes}
+Esta seção apresenta os testes realizados para validar os requisitos funcionais e não funcionais do sistema.
