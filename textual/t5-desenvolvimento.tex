@@ -425,3 +425,176 @@ O \autoref{cod:comunicacao-assincrona} apresenta como a comunicação assíncron
 
 \section{Testes}
 Esta seção apresenta os testes realizados para validar os requisitos funcionais e não funcionais do sistema.
+
+\subsection{Testes Unitários}
+Os testes unitários foram realizados utilizando o \english{framework} JUnit. O \autoref{cod:unitario-simples} apresenta um teste unitário simples para o método \english{checkIn} da classe \english{Booking}. Esse teste verifica se o status da reserva é alterado para \english{IN\_PROGRESS} e se a data de check-in é definida quando o status é \english{CREATED}. Além disso, o teste verifica se uma exceção é lançada quando o status não é \english{CREATED}.
+
+\begin{codigo}[H]
+    \begin{lstlisting}[language=Java]
+        @Nested
+        @DisplayName("checkIn method")
+        class CheckInMethod {
+
+            @Test
+            @DisplayName("should change status to IN_PROGRESS and set checkedInAt to current time when status is CREATED")
+            void shouldChangeStatusToInProgressAndSetCheckedInAtToCurrentTimeWhenStatusIsCreated() {
+                Booking booking = new Booking();
+                booking.setStatus(Booking.Status.CREATED);
+
+                booking.checkIn();
+
+                assertEquals(Booking.Status.IN_PROGRESS, booking.getStatus());
+                assertNotNull(booking.getCheckedInAt());
+            }
+
+            @Test
+            @DisplayName("should throw InvalidBookingStateException when status is not CREATED")
+            void shouldThrowInvalidBookingStateExceptionWhenStatusIsNotCreated() {
+                Booking booking = new Booking();
+                booking.setStatus(Booking.Status.CANCELLED);
+
+                assertThrows(InvalidBookingStateException.class, booking::checkIn);
+            }
+        }
+    \end{lstlisting}
+    \caption{Teste unitário simples}
+    \label{cod:unitario-simples}
+\end{codigo}
+
+\subsection{Testes de Integração}
+O framework Mockito é utilizado para execucação dos testes de integração de maneira isolada. O \autoref{cod:test-integracao} apresenta um teste de integração para o método \english{checkin} da classe \english{BookingService}. Esse teste verifica se uma exceção é lançada quando a reserva não é encontrada e se o status da reserva é alterado para \english{IN\_PROGRESS} quando a reserva é encontrada. Além disso, o teste verifica se o método \english{save} do repositório é chamado uma vez.
+
+\begin{codigo}[H]
+    \begin{lstlisting}[language=Java]
+        @Nested
+        @DisplayName("method: checkin")
+        class Checkin {
+
+            @Mock
+            private BookingRepository bookingRepository;
+
+            @Test
+            @DisplayName("when booking is not found, then it should throw a EntityNotFoundException")
+            void whenBookingIsNotFound_thenItShouldThrowAEntityNotFoundException() {
+                assertThrows(EntityNotFoundException.class, () -> bookingService.checkin(1));
+            }
+
+            @Test
+            @DisplayName("when all operations are successful, then it should checkin the booking")
+            void whenAllOperationsAreSuccessful_thenItShouldCheckinTheBooking() {
+                when(bookingRepository.findById(1)).thenReturn(Optional.of(booking));
+                when(bookingRepository.save(booking)).thenReturn(booking);
+
+                bookingService.checkin(1);
+
+                assertEquals(Booking.Status.IN_PROGRESS, booking.getStatus());
+                verify(bookingRepository, times(1)).save(booking);
+            }
+        }
+    \end{lstlisting}
+    \caption{Teste de integração}
+    \label{cod:test-integracao}
+\end{codigo}
+
+\subsection{Testes de Sistema}
+Os testes de sistema são realizados com auxílio do Testcontainers, uma ferramenta que permite a execucação de testes de sistema com alto nível de confibilidade através da criação de containers Docker. O \autoref{cod:test-sistema} apresenta um teste de sistema para a rota \english{POST /bookings}. Esse teste verifica se uma requisição inválida retorna um código de status 400 e se uma requisição válida retorna um código de status 201.
+
+\begin{codigo}[H]
+    \begin{lstlisting}[language=Java]
+        @Nested
+        @DisplayName("POST /bookings")
+        class PostBookings {
+
+            @Test
+            @DisplayName("When request is not valid, then it should return 400 Bad Request")
+            void whenRequestIsNotValid_shouldReturn400() throws Exception {
+                mockMvc.perform(post("/bookings")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content("{" +
+                                        "\"vehicleId\": 1," +
+                                        "\"userId\": \"\"," +
+                                        "\"startTime\": \"2023-01-01T00:00:00\"," +
+                                        "\"endTime\": \"2023-01-02T00:00:00\"" +
+                                        "}"))
+                        .andExpect(status().isBadRequest());
+            }
+
+            @Test
+            @WithMockEmployee
+            @DisplayName("when request is valid, then it should return 201 Created")
+            void whenRequestIsValid_shouldReturn201() throws Exception {
+                when(inventoryClient.getVehicle(1)).thenReturn(new Vehicle(1, "vehicle", "model", 2023));
+
+                mockMvc.perform(post("/bookings")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content("{" +
+                                        "\"vehicleId\": 1," +
+                                        "\"userId\": \"user-id\"," +
+                                        "\"startTime\": \"2026-01-01T00:00:00\"," +
+                                        "\"endTime\": \"2026-01-02T00:00:00\"" +
+                                        "}"))
+                        .andExpect(status().isCreated());
+            }
+        }
+    \end{lstlisting}
+    \caption{Teste de sistema}
+    \label{cod:test-sistema}
+\end{codigo}
+
+\subsection{Testes de Carga}
+Para os testes de carga, o framework \english{Gatling} é utilizado. O \autoref{cod:test-carga} apresenta um teste de carga para o cenário de reserva. Esse teste simula o cadastro de 100 usuários, a criação de um veículo, a reserva do veículo e o check-in e check-out da reserva. O teste é realizado com 100 usuários simultâneos durante 30 minutos como especificado no \autoref{cap:metodologia}.
+
+\begin{codigo}[H]
+    \begin{lstlisting}[language=Java]
+        private final int NUM_USERS = 100;
+        private final int RAMP_UP_TIME = 30;
+
+        ScenarioBuilder registerScenario = scenario("register")
+                .feed(feeder)
+                .exec(
+                        http("Register Customer")
+                                .post(CUSTOMER_BASE_URL + "/register")
+                                .header("Content-Type", "application/json")
+                                .body(StringBody("{\"name\": \"#{name}\", \"email\": \"#{email}\", \"password\": \"#{password}\"}"))
+                                .check(status().is(200))
+                                .check(jsonPath("$.token").saveAs("token")))
+                .exec(http("Create Vehicle")
+                        .put(INVENTORY_BASE_URL + "/vehicles")
+                        .header("Content-Type", "application/json")
+                        .header("Authorization", "Bearer " + EMPLOYEE_TOKEN)
+                        .body(StringBody("{\"typeId\":1,\"make\":\"Hyundai\",\"model\":\"Creta\",\"year\":2024,\"mileage\":10000,\"licensePlate\":\"23525\",\"chassisNumber\":\"252355125\",\"engineNumber\":\"234242\",\"color\":\"white\"}"))
+                        .check(status().is(200))
+                        .check(jsonPath("$.id").saveAs("vehicleId")))
+                .exec(http("Book Vehicle")
+                        .post(BOOKING_BASE_URL + "/bookings")
+                        .header("Content-Type", "application/json")
+                        .header("Authorization", "Bearer #{token}")
+                        .body(StringBody("{\"vehicleId\":#{vehicleId},\"startTime\":\"2024-12-03T10:15:30\",\"endTime\":\"2024-12-04T10:15:30\"}"))
+                        .check(status().is(201))
+                        .check(jsonPath("$.id").saveAs("bookingId")))
+                .exec(http("Check in Booking")
+                        .patch(BOOKING_BASE_URL + "/bookings/#{bookingId}/check-in")
+                        .header("Content-Type", "application/json")
+                        .header("Authorization", "Bearer " + EMPLOYEE_TOKEN)
+                        .check(status().is(200)))
+                .exec(http("Check out Booking")
+                        .patch(BOOKING_BASE_URL + "/bookings/#{bookingId}/check-out")
+                        .header("Content-Type", "application/json")
+                        .header("Authorization", "Bearer " + EMPLOYEE_TOKEN)
+                        .check(status().is(200)));
+
+
+        HttpProtocolBuilder httpProtocol =
+                http.enableHttp2();
+
+        {
+            setUp(
+                    registerScenario.injectClosed(
+                            rampConcurrentUsers(0).to(NUM_USERS).during(Duration.ofMinutes(RAMP_UP_TIME))
+                    )
+            ).protocols(httpProtocol);
+        }
+    \end{lstlisting}
+    \caption{Teste de carga}
+    \label{cod:test-carga}
+\end{codigo}
