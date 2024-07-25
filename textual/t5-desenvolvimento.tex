@@ -66,6 +66,11 @@ Com os \acrshort{bc} definidos, é possível definir os limites de cada microsse
 
 Cada microsserviço é responsável por um \acrshort{bc} e possui sua própria base de dados. O \english{User Service} realiza o cadastro e login de todos usuários do sistema, além de validar \english{tokens} de autenticação. O \english{Customer Service} lida com informações de clientes. Esse serviço também consome uma fila de mensagens de reservas e atualiza um contador de reservas para cada usuário. O \english{Employee Service} gerencia informações de funcionários. O \english{Vehicle Service} trata informações de veículos como quantidade em estoque, marca, modelo, cor e tipo. Por fim, o \english{Booking Service} gerencia informações de reservas e estratégias de precificação.
 
+\subsection{Interações entre Microsserviços}
+Como mencionado no \autoref{cap:fundamentacao}, há duas formas principais para estabelecer a comunicação entre microsserviços: síncrona e assíncrona. Para este caso de uso, é utilizada a comunicação assíncrona com a utilização de tópicos e filas de mensagens. A comunicação assíncrona é preferível, pois permite que os microsserviços sejam escalados independentemente, não bloqueia o fluxo de execução e possui maior resiliência. O \english{Booking Service} publica uma mensagem em um tópico de reservas toda vez que uma nova reserva é criada. O \english{Customer Service} consome essa mensagem e atualiza o contador de reservas do usuário.
+
+No entanto, há muitas situações em que a comunicação síncrona é necessária, pois o cliente precisa de uma resposta mediata. Uma opção muito comum é utilizar \english{API Restful} com o protocolo HTTP. Por exemplo, no momento de criação de uma nova reserva o \english{Booking Service} precisa verificar a disponibilidade de veículos no \english{Inventory Service}. Nesse caso, o \english{Booking Service} envia uma requisição HTTP para o \english{Inventory Service} e aguarda a resposta.
+
 \subsection{Principais casos de uso}
 A seguir são detalhadas as interações entre os microsserviços para os principais casos de uso do sistema. Especificamente, são descritos os casos de uso que compõem o ciclo de vida de uma reserva ilustrado no \autoref{fig:ciclo-reserva}.
 
@@ -183,24 +188,24 @@ O \autoref{cod:login} apresenta o método para realizar login de um usuário. Es
 
 \begin{codigo}[H]
     \begin{lstlisting}[language=Java]
-    public class UserService {
-        private final UserRepository repository;
-        private final PasswordEncoder passwordEncoder;
-        private final TokenManager tokenManager;
+public class UserService {
+    private final UserRepository repository;
+    private final PasswordEncoder passwordEncoder;
+    private final TokenManager tokenManager;
 
-        public UserResponse login(LoginRequest request) {
-            User user = repository.findByEmail(request.email()).
-                    orElseThrow(() -> new EmailNotFoundException("The email '%s' could not be found.", request.email()));
+    public UserResponse login(LoginRequest request) {
+        User user = repository.findByEmail(request.email()).
+                orElseThrow(() -> new EmailNotFoundException("The email '%s' could not be found.", request.email()));
 
-            if (!passwordEncoder.comparePasswordAndHash(request.password(), user.getPassword())) {
-                throw new IncorrectPasswordException("The provided password is incorrect.");
-            }
-
-            return createUserResponseWithToken(user);
+        if (!passwordEncoder.comparePasswordAndHash(request.password(), user.getPassword())) {
+            throw new IncorrectPasswordException("The provided password is incorrect.");
         }
 
-        // Other methods
+        return createUserResponseWithToken(user);
     }
+
+    // Other methods
+}
     \end{lstlisting}
     \caption{Método para realizar login}
     \label{cod:login}
@@ -211,22 +216,22 @@ O \autoref{cod:cadastro-cliente} apresenta o método para realizar o cadastro de
 
 \begin{codigo}[H]
     \begin{lstlisting}[language=Java]
-        public class CustomerService {
-            private final UserServiceClient userServiceClient;
-            private final CustomerRepository customerRepository;
-        
-            public CustomerResponse register(RegisterRequest request) {
-                User user = userServiceClient.register(request.name(), request.email(), request.password());
-        
-                Customer customer = Customer.builder()
-                        .name(request.name())
-                        .userId(user.getId())
-                        .build();
-        
-                return CustomerResponse.fromCustomer(customerRepository.save(customer), user);
-            }
+public class CustomerService {
+    private final UserServiceClient userServiceClient;
+    private final CustomerRepository customerRepository;
 
-        // Other methods
+    public CustomerResponse register(RegisterRequest request) {
+        User user = userServiceClient.register(request.name(), request.email(), request.password());
+
+        Customer customer = Customer.builder()
+                .name(request.name())
+                .userId(user.getId())
+                .build();
+
+        return CustomerResponse.fromCustomer(customerRepository.save(customer), user);
+    }
+
+// Other methods
     }
     \end{lstlisting}
     \caption{Método para realizar cadastro de cliente}
@@ -238,27 +243,27 @@ O \autoref{cod:realizar-reserva} apresenta o método para realizar uma reserva. 
 
 \begin{codigo}[H]
     \begin{lstlisting}[language=Java]
-        public class BookingService {
-            private BookingRepository bookingRepository;
-            private InventoryClient inventoryClient;
-            private BookingEventPublisher bookingEventPublisher;
+public class BookingService {
+    private BookingRepository bookingRepository;
+    private InventoryClient inventoryClient;
+    private BookingEventPublisher bookingEventPublisher;
 
-            public BookingResponse createBooking(BookingRequest bookingRequest) {
-                Booking booking = bookingRequest.createBooking();
-                Vehicle vehicle = inventoryClient.getVehicle(booking.getVehicleId());
-                booking.setVehicle(vehicle);
-        
-                booking = bookingRepository.save(booking);
-        
-                bookingEventPublisher.publishBookingEvent(
-                        new BookingEvent(booking.getId(), booking.getUserId(), vehicle.getId())
-                );
-        
-                return BookingResponse.from(booking);
-            }
+    public BookingResponse createBooking(BookingRequest bookingRequest) {
+        Booking booking = bookingRequest.createBooking();
+        Vehicle vehicle = inventoryClient.getVehicle(booking.getVehicleId());
+        booking.setVehicle(vehicle);
 
-            // Other methods
-        }
+        booking = bookingRepository.save(booking);
+
+        bookingEventPublisher.publishBookingEvent(
+                new BookingEvent(booking.getId(), booking.getUserId(), vehicle.getId())
+        );
+
+        return BookingResponse.from(booking);
+    }
+
+    // Other methods
+}
     \end{lstlisting}
     \caption{Método para criar reserva}
     \label{cod:realizar-reserva}
@@ -269,35 +274,35 @@ O \autoref{cod:realizar-check-in} contém o código necessário para realizar um
 
 \begin{codigo}[H]
     \begin{lstlisting}[language=Java]
-        public class BookingService {
-            private BookingRepository bookingRepository;
-            private InventoryClient inventoryClient;
-            private BookingEventPublisher bookingEventPublisher;
+public class BookingService {
+    private BookingRepository bookingRepository;
+    private InventoryClient inventoryClient;
+    private BookingEventPublisher bookingEventPublisher;
 
-            @Transactional(isolation = Isolation.SERIALIZABLE)
-            public void checkin(int bookingId) {
-                Booking booking = bookingRepository.findById(bookingId)
-                        .orElseThrow(() -> new EntityNotFoundException("Booking not found"));
-        
-                booking.checkIn();
-                bookingRepository.save(booking);
-            }
+    @Transactional(isolation = Isolation.SERIALIZABLE)
+    public void checkin(int bookingId) {
+        Booking booking = bookingRepository.findById(bookingId)
+                .orElseThrow(() -> new EntityNotFoundException("Booking not found"));
 
-            // Other methods
+        booking.checkIn();
+        bookingRepository.save(booking);
+    }
+
+    // Other methods
+}
+
+public class Booking {
+    // other fields and methods
+
+    public void checkIn() {
+        if (status != Status.CREATED) {
+            throw new InvalidBookingStateException("Booking is not in CREATED state");
         }
 
-        public class Booking {
-            // other fields and methods
-
-            public void checkIn() {
-                if (status != Status.CREATED) {
-                    throw new InvalidBookingStateException("Booking is not in CREATED state");
-                }
-        
-                status = Status.IN_PROGRESS;
-                checkedInAt = LocalDateTime.now();
-            }
-        }
+        status = Status.IN_PROGRESS;
+        checkedInAt = LocalDateTime.now();
+    }
+}
     \end{lstlisting}
     \caption{Métodos para realizar check-in}
     \label{cod:realizar-check-in}
@@ -308,35 +313,35 @@ O \autoref{cod:realizar-check-out} contém o código necessário para realizar u
 
 \begin{codigo}[H]
     \begin{lstlisting}[language=Java]
-        public class BookingService {
-            private BookingRepository bookingRepository;
-            private InventoryClient inventoryClient;
-            private BookingEventPublisher bookingEventPublisher;
+public class BookingService {
+    private BookingRepository bookingRepository;
+    private InventoryClient inventoryClient;
+    private BookingEventPublisher bookingEventPublisher;
 
-            @Transactional(isolation = Isolation.SERIALIZABLE)
-            public void checkout(int bookingId) {
-                Booking booking = bookingRepository.findById(bookingId)
-                        .orElseThrow(() -> new EntityNotFoundException("Booking not found"));
+    @Transactional(isolation = Isolation.SERIALIZABLE)
+    public void checkout(int bookingId) {
+        Booking booking = bookingRepository.findById(bookingId)
+                .orElseThrow(() -> new EntityNotFoundException("Booking not found"));
 
-                booking.checkOut();
-                bookingRepository.save(booking);
-            }
+        booking.checkOut();
+        bookingRepository.save(booking);
+    }
 
-            // Other methods
+    // Other methods
+}
+
+public class Booking {
+    // other fields and methods
+
+    public void checkOut() {
+        if (status != Status.IN_PROGRESS) {
+            throw new InvalidBookingStateException("Booking is not in IN_PROGRESS state");
         }
 
-        public class Booking {
-            // other fields and methods
-
-            public void checkOut() {
-                if (status != Status.IN_PROGRESS) {
-                    throw new InvalidBookingStateException("Booking is not in IN_PROGRESS state");
-                }
-
-                status = Status.CLOSED;
-                checkedOutAt = LocalDateTime.now();
-            }
-        }
+        status = Status.CLOSED;
+        checkedOutAt = LocalDateTime.now();
+    }
+}
     \end{lstlisting}
     \caption{Métodos para realizar check-out}
     \label{cod:realizar-check-out}
@@ -347,28 +352,28 @@ O \autoref{cod:rest-inventory-client} demonstra como a comunicação síncrona e
 
 \begin{codigo}[H]
     \begin{lstlisting}[language=Java]
-        public class RestInventoryClient implements InventoryClient {
-            private RestTemplate restTemplate;
-            private String baseUrl;
+public class RestInventoryClient implements InventoryClient {
+    private RestTemplate restTemplate;
+    private String baseUrl;
 
-            @Override
-            public Vehicle getVehicle(int id) {
-                HttpHeaders headers = new HttpHeaders();
-                headers.set("Authorization", "Bearer " + getToken());
-                HttpEntity<VehicleResponse> entity = new HttpEntity<>(headers);
+    @Override
+    public Vehicle getVehicle(int id) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Authorization", "Bearer " + getToken());
+        HttpEntity<VehicleResponse> entity = new HttpEntity<>(headers);
 
-                ResponseEntity<VehicleResponse> response = restTemplate.exchange(baseUrl + "/vehicles/{id}", HttpMethod.GET, entity, VehicleResponse.class, id);
-                if (response.getStatusCode().value() == 404) {
-                    throw new EntityNotFoundException("Vehicle not found");
-                }
-
-                if (response.getStatusCode().isError()) {
-                    throw new RuntimeException("Error while fetching vehicle");
-                }
-
-                return response.getBody().toVehicle();
-            }
+        ResponseEntity<VehicleResponse> response = restTemplate.exchange(baseUrl + "/vehicles/{id}", HttpMethod.GET, entity, VehicleResponse.class, id);
+        if (response.getStatusCode().value() == 404) {
+            throw new EntityNotFoundException("Vehicle not found");
         }
+
+        if (response.getStatusCode().isError()) {
+            throw new RuntimeException("Error while fetching vehicle");
+        }
+
+        return response.getBody().toVehicle();
+    }
+}
     \end{lstlisting}
     \caption{Método para obter um veículo do \english{Inventory Service}}
     \label{cod:rest-inventory-client}
@@ -379,44 +384,44 @@ O \autoref{cod:comunicacao-assincrona} apresenta como a comunicação assíncron
 
 \begin{codigo}[H]
     \begin{lstlisting}[language=Java]
-        // class in Booking Service
-        public class SNSEventPublisher implements BookingEventPublisher {
-            private final SnsClient snsClient;
-            private final ObjectMapper objectMapper;
+// class in Booking Service
+public class SNSEventPublisher implements BookingEventPublisher {
+    private final SnsClient snsClient;
+    private final ObjectMapper objectMapper;
 
-            private String topicArn;
+    private String topicArn;
 
-            public void publishBookingEvent(BookingEvent bookingEvent) {
-                String message = objectMapper.writeValueAsString(bookingEvent);
+    public void publishBookingEvent(BookingEvent bookingEvent) {
+        String message = objectMapper.writeValueAsString(bookingEvent);
 
-                PublishRequest request = PublishRequest.builder()
-                        .topicArn(topicArn)
-                        .message(message)
-                        .build();
+        PublishRequest request = PublishRequest.builder()
+                .topicArn(topicArn)
+                .message(message)
+                .build();
 
-                PublishResponse response = snsClient.publish(request);
-            }
+        PublishResponse response = snsClient.publish(request);
+    }
+}
+
+// class in Customer service
+public class SQSListener {
+    private final CustomerService service;
+    private final ObjectMapper objectMapper;
+
+    @SqsListener(queueNames = "${aws.queues.bookings}")
+    public void listen(Message message) {
+        try {
+            MessageBody body = objectMapper.readValue(message.body(), MessageBody.class);
+            BookingMessage bookingMessage = objectMapper.readValue(body.getMessage(), BookingMessage.class);
+
+            log.info("Received message: {}", bookingMessage);
+
+            service.incrementBookingsCount(bookingMessage.getUserId());
+        } catch (Exception e) {
+            throw new RuntimeException("Error while processing message", e);
         }
-
-        // class in Customer service
-        public class SQSListener {
-            private final CustomerService service;
-            private final ObjectMapper objectMapper;
-
-            @SqsListener(queueNames = "${aws.queues.bookings}")
-            public void listen(Message message) {
-                try {
-                    MessageBody body = objectMapper.readValue(message.body(), MessageBody.class);
-                    BookingMessage bookingMessage = objectMapper.readValue(body.getMessage(), BookingMessage.class);
-
-                    log.info("Received message: {}", bookingMessage);
-
-                    service.incrementBookingsCount(bookingMessage.getUserId());
-                } catch (Exception e) {
-                    throw new RuntimeException("Error while processing message", e);
-                }
-            }
-        }
+    }
+}
 
     \end{lstlisting}
     \caption{Código para realizar comunicação assíncrona entre microsserviços}
@@ -431,31 +436,31 @@ Os testes unitários foram realizados utilizando o \english{framework} JUnit. O 
 
 \begin{codigo}[H]
     \begin{lstlisting}[language=Java]
-        @Nested
-        @DisplayName("checkIn method")
-        class CheckInMethod {
+@Nested
+@DisplayName("checkIn method")
+class CheckInMethod {
 
-            @Test
-            @DisplayName("should change status to IN_PROGRESS and set checkedInAt to current time when status is CREATED")
-            void shouldChangeStatusToInProgressAndSetCheckedInAtToCurrentTimeWhenStatusIsCreated() {
-                Booking booking = new Booking();
-                booking.setStatus(Booking.Status.CREATED);
+    @Test
+    @DisplayName("should change status to IN_PROGRESS and set checkedInAt to current time when status is CREATED")
+    void shouldChangeStatusToInProgressAndSetCheckedInAtToCurrentTimeWhenStatusIsCreated() {
+        Booking booking = new Booking();
+        booking.setStatus(Booking.Status.CREATED);
 
-                booking.checkIn();
+        booking.checkIn();
 
-                assertEquals(Booking.Status.IN_PROGRESS, booking.getStatus());
-                assertNotNull(booking.getCheckedInAt());
-            }
+        assertEquals(Booking.Status.IN_PROGRESS, booking.getStatus());
+        assertNotNull(booking.getCheckedInAt());
+    }
 
-            @Test
-            @DisplayName("should throw InvalidBookingStateException when status is not CREATED")
-            void shouldThrowInvalidBookingStateExceptionWhenStatusIsNotCreated() {
-                Booking booking = new Booking();
-                booking.setStatus(Booking.Status.CANCELLED);
+    @Test
+    @DisplayName("should throw InvalidBookingStateException when status is not CREATED")
+    void shouldThrowInvalidBookingStateExceptionWhenStatusIsNotCreated() {
+        Booking booking = new Booking();
+        booking.setStatus(Booking.Status.CANCELLED);
 
-                assertThrows(InvalidBookingStateException.class, booking::checkIn);
-            }
-        }
+        assertThrows(InvalidBookingStateException.class, booking::checkIn);
+    }
+}
     \end{lstlisting}
     \caption{Teste unitário simples}
     \label{cod:unitario-simples}
@@ -466,31 +471,31 @@ O framework Mockito é utilizado para execucação dos testes de integração de
 
 \begin{codigo}[H]
     \begin{lstlisting}[language=Java]
-        @Nested
-        @DisplayName("method: checkin")
-        class Checkin {
+@Nested
+@DisplayName("method: checkin")
+class Checkin {
 
-            @Mock
-            private BookingRepository bookingRepository;
+    @Mock
+    private BookingRepository bookingRepository;
 
-            @Test
-            @DisplayName("when booking is not found, then it should throw a EntityNotFoundException")
-            void whenBookingIsNotFound_thenItShouldThrowAEntityNotFoundException() {
-                assertThrows(EntityNotFoundException.class, () -> bookingService.checkin(1));
-            }
+    @Test
+    @DisplayName("when booking is not found, then it should throw a EntityNotFoundException")
+    void whenBookingIsNotFound_thenItShouldThrowAEntityNotFoundException() {
+        assertThrows(EntityNotFoundException.class, () -> bookingService.checkin(1));
+    }
 
-            @Test
-            @DisplayName("when all operations are successful, then it should checkin the booking")
-            void whenAllOperationsAreSuccessful_thenItShouldCheckinTheBooking() {
-                when(bookingRepository.findById(1)).thenReturn(Optional.of(booking));
-                when(bookingRepository.save(booking)).thenReturn(booking);
+    @Test
+    @DisplayName("when all operations are successful, then it should checkin the booking")
+    void whenAllOperationsAreSuccessful_thenItShouldCheckinTheBooking() {
+        when(bookingRepository.findById(1)).thenReturn(Optional.of(booking));
+        when(bookingRepository.save(booking)).thenReturn(booking);
 
-                bookingService.checkin(1);
+        bookingService.checkin(1);
 
-                assertEquals(Booking.Status.IN_PROGRESS, booking.getStatus());
-                verify(bookingRepository, times(1)).save(booking);
-            }
-        }
+        assertEquals(Booking.Status.IN_PROGRESS, booking.getStatus());
+        verify(bookingRepository, times(1)).save(booking);
+    }
+}
     \end{lstlisting}
     \caption{Teste de integração}
     \label{cod:test-integracao}
@@ -501,41 +506,41 @@ Os testes de sistema são realizados com auxílio do Testcontainers, uma ferrame
 
 \begin{codigo}[H]
     \begin{lstlisting}[language=Java]
-        @Nested
-        @DisplayName("POST /bookings")
-        class PostBookings {
+@Nested
+@DisplayName("POST /bookings")
+class PostBookings {
 
-            @Test
-            @DisplayName("When request is not valid, then it should return 400 Bad Request")
-            void whenRequestIsNotValid_shouldReturn400() throws Exception {
-                mockMvc.perform(post("/bookings")
-                                .contentType(MediaType.APPLICATION_JSON)
-                                .content("{" +
-                                        "\"vehicleId\": 1," +
-                                        "\"userId\": \"\"," +
-                                        "\"startTime\": \"2023-01-01T00:00:00\"," +
-                                        "\"endTime\": \"2023-01-02T00:00:00\"" +
-                                        "}"))
-                        .andExpect(status().isBadRequest());
-            }
+    @Test
+    @DisplayName("When request is not valid, then it should return 400 Bad Request")
+    void whenRequestIsNotValid_shouldReturn400() throws Exception {
+        mockMvc.perform(post("/bookings")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{" +
+                                "\"vehicleId\": 1," +
+                                "\"userId\": \"\"," +
+                                "\"startTime\": \"2023-01-01T00:00:00\"," +
+                                "\"endTime\": \"2023-01-02T00:00:00\"" +
+                                "}"))
+                .andExpect(status().isBadRequest());
+    }
 
-            @Test
-            @WithMockEmployee
-            @DisplayName("when request is valid, then it should return 201 Created")
-            void whenRequestIsValid_shouldReturn201() throws Exception {
-                when(inventoryClient.getVehicle(1)).thenReturn(new Vehicle(1, "vehicle", "model", 2023));
+    @Test
+    @WithMockEmployee
+    @DisplayName("when request is valid, then it should return 201 Created")
+    void whenRequestIsValid_shouldReturn201() throws Exception {
+        when(inventoryClient.getVehicle(1)).thenReturn(new Vehicle(1, "vehicle", "model", 2023));
 
-                mockMvc.perform(post("/bookings")
-                                .contentType(MediaType.APPLICATION_JSON)
-                                .content("{" +
-                                        "\"vehicleId\": 1," +
-                                        "\"userId\": \"user-id\"," +
-                                        "\"startTime\": \"2026-01-01T00:00:00\"," +
-                                        "\"endTime\": \"2026-01-02T00:00:00\"" +
-                                        "}"))
-                        .andExpect(status().isCreated());
-            }
-        }
+        mockMvc.perform(post("/bookings")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{" +
+                                "\"vehicleId\": 1," +
+                                "\"userId\": \"user-id\"," +
+                                "\"startTime\": \"2026-01-01T00:00:00\"," +
+                                "\"endTime\": \"2026-01-02T00:00:00\"" +
+                                "}"))
+                .andExpect(status().isCreated());
+    }
+}
     \end{lstlisting}
     \caption{Teste de sistema}
     \label{cod:test-sistema}
@@ -546,54 +551,54 @@ Para os testes de carga, o framework \english{Gatling} é utilizado. O \autoref{
 
 \begin{codigo}[H]
     \begin{lstlisting}[language=Java]
-        private final int NUM_USERS = 100;
-        private final int RAMP_UP_TIME = 30;
+private final int NUM_USERS = 100;
+private final int RAMP_UP_TIME = 30;
 
-        ScenarioBuilder registerScenario = scenario("register")
-                .feed(feeder)
-                .exec(
-                        http("Register Customer")
-                                .post(CUSTOMER_BASE_URL + "/register")
-                                .header("Content-Type", "application/json")
-                                .body(StringBody("{\"name\": \"#{name}\", \"email\": \"#{email}\", \"password\": \"#{password}\"}"))
-                                .check(status().is(200))
-                                .check(jsonPath("$.token").saveAs("token")))
-                .exec(http("Create Vehicle")
-                        .put(INVENTORY_BASE_URL + "/vehicles")
+ScenarioBuilder registerScenario = scenario("register")
+        .feed(feeder)
+        .exec(
+                http("Register Customer")
+                        .post(CUSTOMER_BASE_URL + "/register")
                         .header("Content-Type", "application/json")
-                        .header("Authorization", "Bearer " + EMPLOYEE_TOKEN)
-                        .body(StringBody("{\"typeId\":1,\"make\":\"Hyundai\",\"model\":\"Creta\",\"year\":2024,\"mileage\":10000,\"licensePlate\":\"23525\",\"chassisNumber\":\"252355125\",\"engineNumber\":\"234242\",\"color\":\"white\"}"))
+                        .body(StringBody("{\"name\": \"#{name}\", \"email\": \"#{email}\", \"password\": \"#{password}\"}"))
                         .check(status().is(200))
-                        .check(jsonPath("$.id").saveAs("vehicleId")))
-                .exec(http("Book Vehicle")
-                        .post(BOOKING_BASE_URL + "/bookings")
-                        .header("Content-Type", "application/json")
-                        .header("Authorization", "Bearer #{token}")
-                        .body(StringBody("{\"vehicleId\":#{vehicleId},\"startTime\":\"2024-12-03T10:15:30\",\"endTime\":\"2024-12-04T10:15:30\"}"))
-                        .check(status().is(201))
-                        .check(jsonPath("$.id").saveAs("bookingId")))
-                .exec(http("Check in Booking")
-                        .patch(BOOKING_BASE_URL + "/bookings/#{bookingId}/check-in")
-                        .header("Content-Type", "application/json")
-                        .header("Authorization", "Bearer " + EMPLOYEE_TOKEN)
-                        .check(status().is(200)))
-                .exec(http("Check out Booking")
-                        .patch(BOOKING_BASE_URL + "/bookings/#{bookingId}/check-out")
-                        .header("Content-Type", "application/json")
-                        .header("Authorization", "Bearer " + EMPLOYEE_TOKEN)
-                        .check(status().is(200)));
+                        .check(jsonPath("$.token").saveAs("token")))
+        .exec(http("Create Vehicle")
+                .put(INVENTORY_BASE_URL + "/vehicles")
+                .header("Content-Type", "application/json")
+                .header("Authorization", "Bearer " + EMPLOYEE_TOKEN)
+                .body(StringBody("{\"typeId\":1,\"make\":\"Hyundai\",\"model\":\"Creta\",\"year\":2024,\"mileage\":10000,\"licensePlate\":\"23525\",\"chassisNumber\":\"252355125\",\"engineNumber\":\"234242\",\"color\":\"white\"}"))
+                .check(status().is(200))
+                .check(jsonPath("$.id").saveAs("vehicleId")))
+        .exec(http("Book Vehicle")
+                .post(BOOKING_BASE_URL + "/bookings")
+                .header("Content-Type", "application/json")
+                .header("Authorization", "Bearer #{token}")
+                .body(StringBody("{\"vehicleId\":#{vehicleId},\"startTime\":\"2024-12-03T10:15:30\",\"endTime\":\"2024-12-04T10:15:30\"}"))
+                .check(status().is(201))
+                .check(jsonPath("$.id").saveAs("bookingId")))
+        .exec(http("Check in Booking")
+                .patch(BOOKING_BASE_URL + "/bookings/#{bookingId}/check-in")
+                .header("Content-Type", "application/json")
+                .header("Authorization", "Bearer " + EMPLOYEE_TOKEN)
+                .check(status().is(200)))
+        .exec(http("Check out Booking")
+                .patch(BOOKING_BASE_URL + "/bookings/#{bookingId}/check-out")
+                .header("Content-Type", "application/json")
+                .header("Authorization", "Bearer " + EMPLOYEE_TOKEN)
+                .check(status().is(200)));
 
 
-        HttpProtocolBuilder httpProtocol =
-                http.enableHttp2();
+HttpProtocolBuilder httpProtocol =
+        http.enableHttp2();
 
-        {
-            setUp(
-                    registerScenario.injectClosed(
-                            rampConcurrentUsers(0).to(NUM_USERS).during(Duration.ofMinutes(RAMP_UP_TIME))
-                    )
-            ).protocols(httpProtocol);
-        }
+{
+    setUp(
+            registerScenario.injectClosed(
+                    rampConcurrentUsers(0).to(NUM_USERS).during(Duration.ofMinutes(RAMP_UP_TIME))
+            )
+    ).protocols(httpProtocol);
+}
     \end{lstlisting}
     \caption{Teste de carga}
     \label{cod:test-carga}
