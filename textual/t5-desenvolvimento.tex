@@ -14,7 +14,7 @@ Este capítulo apresenta o desenvolvimento do estudo de caso com Microsserviços
     \label{fig:ciclo-vida}
 \end{figure}
 
-Para este trabalho, os requistos foram definidos no \autoref{cap:metodologia}. Da mesma forma, a fase de manutenção não será abordada, pois o foco é a construção do sistema.
+Para este trabalho, os requisitos foram definidos no \autoref{cap:metodologia}. Da mesma forma, a fase de manutenção não será abordada, pois o foco é a construção do sistema.
 
 \section{Design}
 Esta seção utiliza como entrada os requisitos funcionais e não-funcionais definidos no \autoref{cap:metodologia} para descrever o design do sistema utilizando \acrfull{ams} e \acrfull{ddd}.
@@ -270,7 +270,7 @@ public class BookingService {
 \end{codigo}
 
 \subsection{Realizar Check-in}
-O \autoref{cod:realizar-check-in} contém o código necessário para realizar um check-in. No \english{BookingService} é possível ver o método \english{checkin} que recebe o id da reserva e realiza o check-in. Esse método busca a reserva no repositório, realiza o check-in e salva a reserva. Toda a operação é executada em uma transação ACID com nível de isolamento de serialização para previnir checkins duplicados. O método \english{checkIn} da classe \english{Booking} é responsável por validar o estado da reserva, atualizar o status e a data de check-in.
+O \autoref{cod:realizar-check-in} contém o código necessário para realizar um check-in. No \english{BookingService} é possível ver o método \english{checkin} que recebe o id da reserva e realiza o check-in. Esse método busca a reserva no repositório, realiza o check-in e salva a reserva. Toda a operação é executada em uma transação ACID com nível de isolamento \english{serializable} para prevenir \english{check-ins} duplicados. O método \english{checkIn} da classe \english{Booking} é responsável por validar o estado da reserva, atualizar o status e a data de \english{check-in}.
 
 \begin{codigo}[H]
     \begin{lstlisting}[language=Java]
@@ -309,7 +309,7 @@ public class Booking {
 \end{codigo}
 
 \subsection{Realizar Check-out}
-O \autoref{cod:realizar-check-out} contém o código necessário para realizar um check-out. No \english{BookingService} é possível ver o método \english{checkout} que recebe o id da reserva e realiza o check-out. Esse método busca a reserva no repositório, realiza o check-out e salva a reserva. Toda a operação é executada em uma transação ACID com nível de isolamento de serialização para previnir checkouts duplicados. O método \english{checkOut} da classe \english{Booking} é responsável por validar o estado da reserva, atualizar o status e a data de check-out.
+O \autoref{cod:realizar-check-out} contém o código necessário para realizar um check-out. No \english{BookingService} é possível ver o método \english{checkout} que recebe o id da reserva e realiza o check-out. Esse método busca a reserva no repositório, realiza o check-out e salva a reserva. Toda a operação é executada em uma transação ACID com nível de isolamento de \english{serializable} para prevenir \english{check-outs} duplicados. O método \english{checkOut} da classe \english{Booking} é responsável por validar o estado da reserva, atualizar o status e a data de \english{check-out}.
 
 \begin{codigo}[H]
     \begin{lstlisting}[language=Java]
@@ -348,7 +348,7 @@ public class Booking {
 \end{codigo}
 
 \subsection{Comunicação síncrona entre Microsserviços}
-O \autoref{cod:rest-inventory-client} demonstra como a comunicação síncrona entre microsserviços é realizada. O método \english{getVehicle} da classe \english{RestInventoryClient} é responsável por obter um veículo do \english{Inventory Service}. Esse método utiliza o \english{RestTemplate} para realizar uma requisição \acrshort{http} para \english{Inventory Service}. É importante notar que a classe \english{RestInventoryClient} implementa a interface de domínio \english{InventoryClient}. Dessa forma o dominio não está acoplado ao mecanismo de comunicação.
+O \autoref{cod:rest-inventory-client} demonstra como a comunicação síncrona entre microsserviços é realizada. O método \english{getVehicle} da classe \english{RestInventoryClient} é responsável por obter um veículo do \english{Inventory Service}. Esse método utiliza o \english{RestTemplate} para realizar uma requisição \acrshort{http} para \english{Inventory Service}. É importante notar que a classe \english{RestInventoryClient} implementa a interface de domínio \english{InventoryClient}. Dessa forma o domínio não está acoplado ao mecanismo de comunicação.
 
 \begin{codigo}[H]
     \begin{lstlisting}[language=Java]
@@ -380,7 +380,7 @@ public class RestInventoryClient implements InventoryClient {
 \end{codigo}
 
 \subsection{Comunicação assíncrona entre Microsserviços}
-O \autoref{cod:comunicacao-assincrona} apresenta como a comunicação assíncrona entre microsserviços é realizada. A classe \english{SNSEventPublisher} é responsável por publicar eventos de reserva no \english{Booking Service}. O método \english{publishBookingEvent} recebe um evento de reserva, serializa o evento e publica no tópico \acrshort{sns}. Por outro lado, a classe \english{SQSListener} é responsável por ouvir eventos de reserva no \english{Customer Service}. O método \english{listen} recebe uma mensagem do \acrshort{sqs}, desserializa a mensagem e incrementa o contador de reservas do usuário. Da mesma forma que na comunicação síncrona, o domínio não está acoplado ao mecanismo de comunicação.
+O \autoref{cod:comunicacao-assincrona} apresenta como a comunicação assíncrona entre microsserviços é realizada. A classe \english{SNSEventPublisher} é responsável por publicar eventos de reserva no \english{Booking Service}. O método \english{publishBookingEvent} recebe um evento de reserva, serializa o evento e publica no tópico \acrshort{sns}. Por outro lado, a classe \english{SQSListener} é responsável por ouvir eventos de reserva no \english{Customer Service}. O método \english{listen} recebe uma mensagem do \acrshort{sqs}, converte a mensagem e incrementa o contador de reservas do usuário. Da mesma forma que na comunicação síncrona, o domínio não está acoplado ao mecanismo de comunicação.
 
 \begin{codigo}[H]
     \begin{lstlisting}[language=Java]

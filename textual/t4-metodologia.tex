@@ -280,7 +280,7 @@ O \autoref{quad:listar_reservas} especifica o processo de listagem de reservas. 
     \textbf{Pre-condições} & O funcionário está autenticado. \\ \hline
     \textbf{Pós-condições} & O veículo é registrado na plataforma. \\ \hline
     \textbf{Cenário Principal} & \begin{enumerate}
-        \item O funcionário informa o tipo, marca, modelo, kilometragem, ano, placa, chassis e a cor do veículo.
+        \item O funcionário informa o tipo, marca, modelo, quilometragem, ano, placa, chassis e a cor do veículo.
         \item O funcionário envia a requisição.
     \end{enumerate}  \\ \hline
     \textbf{Fluxo de Exceção} & \begin{enumerate}
@@ -298,13 +298,13 @@ Com base na quantidade de clientes atuais e a estimativa de crescimento, bem com
     \item Os serviços devem garantir a segurança dos dados dos clientes.
     \item O tempo de resposta dos serviços deve ser menor que 2 segundos em 90\% das requisições.
     \item O sistema como um topo deve suportar 100 usuários simultâneos.
-    \item As funcionalidades dos serviços devem ser fornecidadas através de \acrshort{api}s acessíveis com o protocolo HTTP.
+    \item As funcionalidades dos serviços devem ser fornecidas através de \acrshort{api}s acessíveis com o protocolo HTTP.
 \end{enumerate}
 
 \subsection{Design}
 Para construção de cada microsserviços, é feito uso da \hyperref[section:hexagonal]{Arquitetura Hexagonal}. Essa, por sua vez, separa a aplicação em duas partes principais: núcleo da aplicação e adaptadores. O núcleo da aplicação contém as regras de negócio e os adaptadores são responsáveis por adaptar a aplicação para o mundo externo. Para modelagem do domínio, é utilizado o \english{\acrfull{ddd}}. O \acrshort{ddd} fornece uma estratégia para modelagem do domínio de negócio, diversos padrões para resolver problemas de modelagem recorrentes e facilidade de entendimento e manutenção de código \cite{evans2004ddd}.
 
-Para realização do \english{design} deste projeto, é utilizado a \english{UML}. Especificamente, são criados diagramas de classes com propósito de modelar os tipos de objeto, seus relacionamentos e os serviços que fornecem. Adicionalmente, para detalhamento do fluxo de execução de operações chaves, alguns diagramas de sequência são empregados. Além disso, visando fornecer uma visão geral da arquiteura do sistema, o diagrama de contexto de sistema do modelo C4 é utilizado \cite{c4Model}. 
+Para realização do \english{design} deste projeto, é utilizado a \english{UML}. Especificamente, são criados diagramas de classes com propósito de modelar os tipos de objeto, seus relacionamentos e os serviços que fornecem. Adicionalmente, para detalhamento do fluxo de execução de operações chaves, alguns diagramas de sequência são empregados. Além disso, visando fornecer uma visão geral da arquitetura do sistema, o diagrama de contexto de sistema do modelo C4 é utilizado \cite{c4Model}. 
 
 \subsection{Implementação}
 A implementação desse projeto é feita utilizando a linguagem de programação \english{Java} na versão 17 \cite{java}. Além disso, o \english{framework} \english{Spring Boot} é empregado na construção dos microsserviços. Essa ferramenta fornece uma série de recursos para construção de microsserviços como: injeção de dependências, configuração de banco de dados, configuração de \english{logs}, entre outros \cite{springBoot}. 
@@ -315,7 +315,7 @@ O \english{PostgreSQL} é um sistema de gerenciamento de banco de dados relacion
 
 Por outro lado, o \english{Amazon DynamoDB} é um banco de dados não relacional, que fornece desempenho de milissegundos de um dígito a qualquer escala. Esse banco de dados é totalmente gerenciado, ou seja, não é necessário realizar a configuração de servidores, escalabilidade, replicação, entre outros. Além disso, o \english{Amazon DynamoDB} é um banco de dados sem servidor, ou seja, o usuário paga apenas pelo que utiliza \cite{dynamoDb}.
 
-Para a intercomunicação entre os microsserviços de maneira assíncrona, são utilizados o \english{Amazon Simple Notification System (SNS)} e o \english{Amazon Simple Queue System (SQS)}. O SNS é um serviço de mensagens que permite a publicação e a entrega de mensagens para assinantes ou pontos de extremidade \cite{amazonSns}. Por outro lado, o SQS é um \english{broker} permite que os microsserviços se comuniquem de maneira assíncrona, sem que um microsserviço precise conhecer o outro \cite{amazonSqs}. Além disso, o \english{Amazon SQS} permite que as mensagens sejam armazenadas em uma fila, caso o microsserviço destinatário da mensagem esteja fora do ar. Utilizados em conjunto, essas fermamentas permitem a comunicação assíncrona na forma "um para muitos" entre os microsserviços. Um microsserviço publica uma mensagem em  um tópico do SNS e os microsserviços interessados utilizam uma fila do SQS para consumir essa mensagem.
+Para a intercomunicação entre os microsserviços de maneira assíncrona, são utilizados o \english{Amazon Simple Notification System (SNS)} e o \english{Amazon Simple Queue System (SQS)}. O SNS é um serviço de mensagens que permite a publicação e a entrega de mensagens para assinantes ou pontos de extremidade \cite{amazonSns}. Por outro lado, o SQS é um \english{broker} permite que os microsserviços se comuniquem de maneira assíncrona, sem que um microsserviço precise conhecer o outro \cite{amazonSqs}. Além disso, o \english{Amazon SQS} permite que as mensagens sejam armazenadas em uma fila, caso o microsserviço destinatário da mensagem esteja fora do ar. Utilizados em conjunto, essas ferramentas permitem a comunicação assíncrona na forma "um para muitos" entre os microsserviços. Um microsserviço publica uma mensagem em  um tópico do SNS e os microsserviços interessados utilizam uma fila do SQS para consumir essa mensagem.
 
 \subsection{Validação}
 O projeto é desenvolvido com as estratégias \acrfull{tdd} e \acrfull{bdd}. Essas abordagens de desenvolvimento de \english{software} permitem que o código seja desenvolvido de maneira mais confiável e com maior qualidade \cite{barauna2020tdd}. Além disso, o \acrshort{tdd} e o \acrshort{bdd} permitem que o código seja desenvolvido de maneira mais rápida, pois os testes são escritos antes do código.
@@ -324,7 +324,7 @@ Três tipos de testes são escritos para validar os requisitos funcionais do sis
 
 Por outro lado, para validação dos requisitos não funcionais, testes de carga são empregados. O ambiente de execução desses testes é o mesmo de implantação, definido na seção \ref{section:implantacao}. Através da ferramenta Gatling \cite{gatling}, a bateria de testes consiste de 100 usuários executando operações simultâneas por um período de 30 minutos. São avaliados o tempo de resposta, a utilização da CPU, o consumo de memória e a quantidade erros. Os resultados obtidos são comparados com o \autoref{quad:metricas_comparacao}. Cada operação possui as seguintes etapas: registrar um novo veículo, cadastrar um cliente, realizar uma reserva, realizar o \english{check-in} e realizar o \english{check-out}.
 
-Após a execução dos testes de carga, os resultados obtidos são analizados e comparados com os requisitos não funcionais. Dessa forma, um relatório é produzido com uma análise gráfica e númerica.
+Após a execução dos testes de carga, os resultados obtidos são avaliados e comparados com os requisitos não funcionais. Dessa forma, um relatório é produzido com uma análise gráfica e numérica.
 
 \begin{quadro}[H]
     \centering
@@ -351,6 +351,6 @@ O sistema é implantado na nuvem da \english{\acrfull{aws}}. A \acrshort{aws} é
 
 Cada microsserviço é implantado em um \english{container} \english{Docker}. Essa tecnologia permite que os microsserviços sejam executados de maneira isolada, sem que um microsserviço interfira no outro. Além disso, o \english{Docker} permite que os microsserviços sejam executados em qualquer ambiente, sem que seja necessário realizar alterações no código \cite{docker}. O serviço \english{Amazon ECS} é utilizado para orquestrar os \english{containers} \english{Docker}. Esse serviço permite que os \english{containers} sejam executados em um ambiente de produção de maneira escalável e confiável \cite{amazonEcs}. Ao todo, serão utilizadas 5 \english{tasks} (uma para cada microsserviço). Cada \english{task} possui 2 CPUs e 4 GB de memória RAM.
 
-Dois \english{clusters} do \english{PostgreSQL} com o auxílio do serviço \english{Amazon RDS} são utilizados \cite{postgreSql}. Um para o serviço de estoque e outro para o serviço de reservas. Com a arquitetura de microsserviços, é essencial o isolamento das bases de bados. Além disso, três tabelas do \english{Amazon DynamoDB} são utilizadas para armazenamento de informações de usuários, clientes e funcionários. Da mesma forma, um tópico do SNS para reservas e um fila SQS que consome informações de reservas e mantem um contador de reservas por cliente são utilizados.
+Dois \english{clusters} do \english{PostgreSQL} com o auxílio do serviço \english{Amazon RDS} são utilizados \cite{postgreSql}. Um para o serviço de estoque e outro para o serviço de reservas. Com a arquitetura de microsserviços, é essencial o isolamento das bases de dados. Além disso, três tabelas do \english{Amazon DynamoDB} são utilizadas para armazenamento de informações de usuários, clientes e funcionários. Da mesma forma, um tópico do SNS para reservas e um fila SQS que consome informações de reservas e mantém um contador de reservas por cliente são utilizados.
 
 Para a orquestração e automatização do provisionamento e configuração da infraestrutura, é feito uso da ferramenta \english{Terraform}. Essa ferramenta permite que a infraestrutura seja definida como código, ou seja, é possível definir a infraestrutura utilizando uma linguagem de programação \cite{terraform}. Além disso, o \english{Terraform} permite que a infraestrutura seja provisionada e configurada de maneira automatizada.
