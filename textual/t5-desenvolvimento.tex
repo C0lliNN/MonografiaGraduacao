@@ -1,4 +1,4 @@
-\chapter{Desenvolvimento}
+\chapter{Estudo de Caso: Design, Implementação e Testes}
 \label{cap:desenvolvimento}
 
 Este capítulo apresenta o desenvolvimento do estudo de caso com Microsserviços e \acrshort{ddd}. Ele descreve as etapas para construção do sistema a partir de requisitos funcionais e não-funcionais.
@@ -19,7 +19,7 @@ Para este trabalho, os requisitos foram definidos no \autoref{cap:metodologia}. 
 \section{Design}
 Esta seção utiliza como entrada os requisitos funcionais e não-funcionais definidos no \autoref{cap:metodologia} para descrever o design do sistema utilizando \acrfull{ams} e \acrfull{ddd}.
 
-Inicialmente, é importante definir os conceitos chaves do sistema, bem como seus relacionamentos. A \autoref{fig:modelo_conceitual} ilustra as abstrações do sistema.
+Inicialmente, é importante definir os conceitos chave do sistema, bem como seus relacionamentos. A \autoref{fig:modelo_conceitual} ilustra as abstrações do sistema.
 
 \begin{figure}[H]
     \centering
@@ -64,7 +64,7 @@ Com os \acrshort{bc} definidos, é possível definir os limites de cada microsse
     \label{fig:microsservicos}
 \end{figure}
 
-Cada microsserviço é responsável por um \acrshort{bc} e possui sua própria base de dados. O \english{User Service} realiza o cadastro e login de todos usuários do sistema, além de validar \english{tokens} de autenticação. O \english{Customer Service} lida com informações de clientes. Esse serviço também consome uma fila de mensagens de reservas e atualiza um contador de reservas para cada usuário. O \english{Employee Service} gerencia informações de funcionários. O \english{Vehicle Service} trata informações de veículos como quantidade em estoque, marca, modelo, cor e tipo. Por fim, o \english{Booking Service} gerencia informações de reservas e estratégias de precificação.
+Cada microsserviço é responsável por um \acrshort{bc} e possui sua própria base de dados. O \english{User Service} realiza o cadastro e login de todos usuários do sistema, além de validar \english{tokens} de autenticação. O \english{Customer Service} lida com informações de clientes. Esse serviço também consome uma fila de mensagens de reservas e atualiza um contador de reservas para cada usuário. O \english{Employee Service} gerencia informações de funcionários. O \english{Inventory Service} trata informações de veículos como quantidade em estoque, marca, modelo, cor e tipo. Por fim, o \english{Booking Service} gerencia informações de reservas e estratégias de precificação.
 
 \subsection{Interações entre Microsserviços}
 Como mencionado no \autoref{cap:fundamentacao}, há duas formas principais para estabelecer a comunicação entre microsserviços: síncrona e assíncrona. Para este caso de uso, é utilizada a comunicação assíncrona com a utilização de tópicos e filas de mensagens. A comunicação assíncrona é preferível, pois permite que os microsserviços sejam escalados independentemente, não bloqueia o fluxo de execução e possui maior resiliência. O \english{Booking Service} publica uma mensagem em um tópico de reservas toda vez que uma nova reserva é criada. O \english{Customer Service} consome essa mensagem e atualiza o contador de reservas do usuário.
@@ -83,7 +83,7 @@ A seguir são detalhadas as interações entre os microsserviços para os princi
 \end{figure}
 
 \subsubsection{Criar reserva}
-A \autoref{fig:realizar-reserva} ilustra o fluxo de criação de uma reserva. Inicialmente, o cliente realiza o login no \english{User Service} e recebe um token como resposta. Em seguida, ele acessa o \english{Vehicle Service} para verificar a disponibilidade de veículos. Esse verifica se o usuário está autenticado realizando uma chamada para o \english{User Service}. Caso o usuário esteja autenticado, o \english{Vehicle Service} retorna a lista de veículos disponíveis. Posteriormente, O cliente seleciona um veículo e realiza a reserva no \english{Booking Service}. Esse serviço envia uma requisição para o \english{Inventory Service} para decrementar a quantidade de veículos disponíveis e confirmar a reserva. Por fim, o \english{Booking Service} retorna a confirmação da reserva.
+A \autoref{fig:realizar-reserva} ilustra o fluxo de criação de uma reserva. Inicialmente, o cliente realiza o login no \english{User Service} e recebe um token como resposta. Em seguida, ele acessa o \english{Inventory Service} para verificar a disponibilidade de veículos. Esse verifica se o usuário está autenticado realizando uma chamada para o \english{User Service}. Caso o usuário esteja autenticado, o \english{Inventory Service} retorna a lista de veículos disponíveis. Posteriormente, O cliente seleciona um veículo e realiza a reserva no \english{Booking Service}. Esse serviço envia uma requisição para o \english{Inventory Service} para decrementar a quantidade de veículos disponíveis e confirmar a reserva. Por fim, o \english{Booking Service} retorna a confirmação da reserva.
 
 \begin{figure}[H]
     \centering
@@ -181,7 +181,7 @@ A \autoref{fig:booking-service} apresenta os principais componentes do \english{
 O \english{Application core} é composto por \english{Booking}, \english{BookingPricingStrategy}, \english{Vehicle}, \english{PricingStrategyFactory}, \english{BookingEvent} e \english{BookingService}. As portas são: \english{BookingRepository}, \english{EventPublisher}, \english{UserService} e \english{InventoryService}. Por fim, os adaptadores são: \english{BookingController}, \english{JDBCBookingRepository}, \english{SNSEventPublisher}, \english{RestUserServiceClient} e \english{RestInventoryServiceClient}.
 
 \section{Implementação}
-Esta seção apresenta os trechos de código chaves para a implementação do caso de uso. O código completo pode ser encontrado no repositório do projeto \footnote{\url{https://github.com/C0lliNN/CarroFacil}}.
+Esta seção apresenta os trechos de código chave para a implementação do caso de uso. O código completo pode ser encontrado no repositório do projeto \footnote{\url{https://github.com/C0lliNN/CarroFacil}}.
 
 \subsection{Login de usuário}
 O \autoref{cod:login} apresenta o método para realizar login de um usuário. Esse método recebe um \english{LoginRequest} contendo o email e senha do usuário. Em seguida, ele busca o usuário no repositório e compara a senha informada com a senha armazenada no banco de dados. Caso a senha seja válida, o método retorna um \english{UserResponse} contendo o token de autenticação. O procedimento lança exceções caso o email não seja encontrado ou a senha seja inválida.

@@ -3,6 +3,49 @@
 
 Este capítulo apresenta os conceitos de Sistemas Distribuídos, \acrfull{soa} Microsserviços, \acrfull{ddd} e Arquitetura Hexagonal.
 
+\section{\english{Domain-Driven Design (DDD)}} 
+\english{\acrfull{ddd}} é uma abordagem para o desenvolvimento de software focada na construção de um modelo de domínio que representa de maneira sofisticada os processos e regras de negócio do sistema em questão \cite{dddFowler}. \acrshort{ddd} é muito efetivo para desenvolver sistemas com regras de negócio complexas, que possuem, por exemplo, diversos atores, entidades e validações. A \acrfull{poo} é geralmente empregada para a implementação do modelo de domínio, visto que possui uma série de recursos que facilitam a modelagem de objetos do mundo real \cite{evans2004ddd}.
+
+Um ponto central da metodologia \acrshort{ddd}, no desenvolvimento de softwares complexos, é a utilização de uma linguagem ubíqua que insere terminologia e jargões do domínio em componentes de software como atributos, métodos, classes, interfaces e pacotes \cite{dddFowler}. Assim, tanto especialistas de negócio quanto desenvolvedores e projetistas compartilham um vocabulário comum que facilita na comunicação e reduz a necessidade de realizar o mapeamento entre termos técnicos e termos do domínio. Além disso, a estrutura de sistema passa a representar a estrutura do negócio, tornando-se, assim, mais fácil de ser compreendida e modificada.
+
+O nome dessa estrategia vem de um livro publicado em \citeyear{evans2004ddd} por Eric Evans que descreve a abordagem, uma série de conceitos e um catálogo de  padrões comumente utilizados para resolução de problemas de modelagem de domínios. Os mais relevantes dentre estes são descritos a seguir.
+
+\subsection{Modelo e Domínio}
+Os conceitos de modelo e domínio, no contexto da engenharia de software, são fundamentais para o entendimento do \acrshort{ddd}. Modelo é uma simplificação, uma interpretação da realidade que abstrai os aspectos relevantes para resolver o problema em questão e ignora detalhes superficiais \cite{evans2004ddd}. Da mesma forma, todo sistema computacional está relacionado a alguma atividade ou interesse do usuário final. Assim, a área para qual o usuário utiliza o sistema é domínio do software \cite{evans2004ddd}. Alguns exemplos de domínios comuns são: financeiro, médico, logística e \english{marketplace}.
+
+\subsection{Entidade}
+No contexto da \acrfull{poo}, muitos objetos não são fundamentalmente definidos por seus atributos, mas por um fio de continuidade e identidade \cite{evans2004ddd}. Eles podem ter distintas representações como, por exemplo, em memória ou em um banco de dados. No entanto, eles necessitam ser distinguíveis mesmo se todas suas propriedades forem iguais. Em um domínio financeiro, por exemplo, uma transação composta por valor, data e usuário necessita ser diferenciável de outra transação com as mesmas características. Por outro lado, para uma classe fictícia chamada \english{Money} composta por valor e moeda, dois objetos com os mesmos atributos podem ser geralmente considerados iguais, sem gerar corrupções de dados ou impactos para os usuários finais do sistema. Em resumo, quando um objeto definido principalmente por sua identidade, ele é chamado de Entidade \cite{evans2004ddd}.
+
+\subsection{\english{\acrfull{vo}}}
+Muitos objetos não possuem identidade conceitual, sendo somente utilizados para descrever características de outro objeto. São objetos que descrevem coisas, classificados como \acrfull{vo} \cite{evans2004ddd}. Para um sistema de uma loja de roupas, por exemplo, um objeto que representa cor de cada peça formado pelas propriedades \english{red}, \english{green} e \english{blue}, não possui identidade. Não necessita ser diferenciável de outro objeto com as mesmas propriedades. Este objeto somente descreve uma característica de uma peça de roupa. É importante ressaltar, porém, que a diferenciação entre Entidade e \english{\acrlong{vo}} depende do contexto do software. Para um sistema de software de computação gráfica, a cor é um conceito chave no sistema e pode possuir identidade.
+
+Pode-se pensar que é mais vantajoso sempre projetar os objetos do sistema como Entidade, pois adicionaria identidade, facilitaria o rastreamento de mudanças e agregaria mais recursos ao objeto. No entanto, a adição de identidade para objetos que não necessitam desta classificação pode prejudicar o desempenho do sistema, adicionar mais esforço de análise e aumentar a complexidade do modelo de domínio \cite{evans2004ddd}. Por esse motivo, recomenda-se a utilização de \acrshort{vo} sempre que for possível, pois se tratam de objetos mais fáceis de gerenciar.
+
+\subsection{Serviço}
+Em muitos casos, há operações importantes no modelo que não pertencem conceitualmente a nenhuma Entidade ou \acrshort{vo}. Dessa forma, surge o conceito de Serviço: uma operação fornecida como uma interface autônoma no modelo, sem encapsular estado como outros tipos de objeto \cite{evans2004ddd}.
+
+Um erro comum é a abusar da utilização de Serviços, desistindo de encontrar o objeto apropriado para uma operação de domínio. Da mesma forma, a inserção de um método que não está alinhado com a definição do objeto resulta na perda de coesão desse objeto, tornando-o mais difícil de compreender e refatorar \cite{evans2004ddd}. Considerando esses pontos, um serviço deve ser utilizado quando um processo ou transformação relevante no modelo de domínio não faz parte da responsabilidade natural de uma Entidade ou \acrshort{vo}.
+
+Além disso, \citeonline{evans2004ddd} destaca três características de um bom Serviço:
+\begin{itemize}
+    \item A operação não possui estado (\english{stateless}).
+    \item A interface é defina em termos de outros elementos do modelo de domínio.
+    \item A operação se relaciona a um conceito do modelo que não é parte natural de uma Entidade ou \acrshort{vo}.
+\end{itemize}
+
+\subsection{\textit{Aggregate}}
+\label{section:aggregate}
+Um \english{Aggregate} é um conjunto de objetos associados, tratados como uma única unidade para o proposito de alterações de dados \cite{evans2004ddd}. Em um sistema de grande porte, é difícil garantir a consistência de alterações em objetos com relacionamentos complexos. As invariantes que precisam ser mantidas geralmente envolvem um grupo de objetos intimamente associados, ao invés de objetos isolados. Assim, o padrão \english{Aggregate} propõe delimitações definidas e restrições de acesso visando o melhor tratamento das associações entre objetos.
+
+Cada \english{Aggregate} possui uma raiz e uma delimitação, que define o que está dentro do \english{Aggregate} \cite{evans2004ddd}. A raiz é a única entidade global - que possui identidade em todo o sistema - contida dentro do \english{Aggregate}, também conhecida como \english{Aggregate root} \cite{evans2004ddd}. Objetos fora da delimitação do \english{Aggregate} só podem possuir referências a raiz e não a outros objetos dentro do \english{Aggregate}. Excluindo a raiz, outras entidades somente possuem identidade local, necessitando somente ser distinguíveis dentro dos limites do \english{Aggregate}, visto que nenhum objeto de fora consegue obtê-las desassociadas da entidade raiz \cite{evans2004ddd}.
+
+\subsection{\acrfull{bc}}
+\label{section:bounded_context}
+Em grandes projetos, muitos modelos coexistem em diferentes contextos. Quando a base de código, no entanto, combina diferentes modelos sem que haja uma separação clara, o \english{software} se torna defeituoso, frágil e difícil de ser compreendido \cite{evans2004ddd}. Assim, é necessário especificar em qual o contexto um determinado modelo está sendo aplicado.  Assim, um \english{\acrfull{bc}} delimita a aplicabilidade de um modelo, de tal forma que os membros da equipe tenham um entendimento claro do que precisa ser consistente e a relação do modelo com outros contextos. Um \acrshort{bc} engloba tanto componentes de modelo como \english{Aggregates}, Entidades, \english{\acrlong{vo}}s e Serviços, quanto detalhes técnicos como persistência. É uma parte completa e funcional de software sob responsabilidade de uma única equipe.
+
+Por exemplo, um \english{software} para um \english{e-commerce} possui um módulo que lida com pedidos, em que cada pedido contém um ou mais produtos. Da mesma forma, outra equipe é responsável por um módulo que realiza o gerenciamento de produtos em estoque. O conceito de um produto para um sistema de pedidos é distinto de uma aplicação de estoque. Enquanto este pode ter um enfoque no armazém, na categoria e no estoque do produto, aquele está mais preocupado com o preço, nome e disponibilidade. Assim, ao tratar esses dois conceitos da maneira igual, confusões e defeitos são gerados.
+
+
 \section{Sistema Distribuído} 
 \label{section:sistemas_distribuidos}
 
@@ -15,7 +58,7 @@ Um dos principais desafios desse tipo de sistema é a concorrência e coordenaç
 \subsection{\english{\acrfull{soa}}} 
 A arquitetura orientada a serviços ou \acrfull{soa} é estilo arquitetural no qual um sistema é dividido em componentes de software chamados de serviços, responsáveis por satisfazer uma necessidade de negócio específica.
 
-As políticas, práticas e \english{frameworks} que permitem que a funcionalidade da aplicação seja fornecida e consumida como conjuntos de serviços publicados em uma granularidade relevante para o consumidor do serviço. Os serviços podem ser invocados, publicados e descobertos, e são abstraídos da implementação usando uma única forma de interface baseada em padrões \cite{understandingSOA}.
+As políticas, práticas e \english{frameworks} permitem que a funcionalidade da aplicação seja fornecida e consumida como conjuntos de serviços publicados em uma granularidade relevante para o consumidor do serviço. Os serviços podem ser invocados, publicados e descobertos, e são abstraídos da implementação usando uma única forma de interface baseada em padrões \cite{understandingSOA}.
 
 As principais vantagens da \acrshort{soa} são: reusabilidade dos serviços, simplicidade de manutenção, facilidade de escalar os serviços, maior disponibilidade do sistema e possibilidade de utilização de diferentes tecnologias nos serviços.
 
@@ -30,12 +73,12 @@ A implantação de um sistema com a utilização de microsserviços aumenta a re
 
 Cada serviço na \acrshort{ams} pode ser escalado de maneira independente de outros serviços utilizando, por exemplo, escalonamento horizontal ou vertical \cite{richardson2018microservices}. Ademais, para cada serviço pode ser selecionado o \english{hardware} mais adequado para seu tipo de processamento. Dessa forma, uma parte do sistema que requer maior utilização da CPU pode ser implantada em uma infraestrutura diferente de outra secção que necessita realizar mais operações de entrada e saída.
 
-Outro benefício dessa arquitetura é o fato de cada serviço ser relativamente pequeno, sendo, assim, de fácil compreensão por todos que trabalham na base de código. Adicionalmente, um serviço pequeno possibilita um bom desempenho da \acrshort{ide} e também pode ser executado localmente de maneira rápida. Esses fatores contribuem para um aumento de produtividade da equipe \cite{richardson2018microservices}.
+Outro benefício dessa arquitetura é o fato de cada serviço ser relativamente pequeno, sendo, assim, de fácil compreensão por todos que trabalham na base de código. Adicionalmente, um serviço pequeno possibilita um bom desempenho da \acrfull{ide} e também pode ser executado localmente de maneira rápida. Esses fatores contribuem para um aumento de produtividade da equipe \cite{richardson2018microservices}.
 
 Por outro lado, com um sistema composto de múltiplos componentes, torna possível a utilização de diferentes tecnologias dentro da cada serviço. Dessa forma, a ferramenta mais apropriada para resolver a necessidade específica do serviço pode ser selecionada, eliminando a obrigatoriedade de escolher uma única tecnologia para todo o sistema \cite{buildingMicroservices}.
 
 \subsection{Comunicação entre microsserviços}
-Quando um sistema é composto por um único monólito, a comunicação entre os diferentes módulos é simplificada, pois se trata de um único processo a nível do sistema operacional e, portanto, compartilha a área da memória principal. No entanto, microsserviços são implantados em diferentes processos(usualmente em diferentes computadores), assim se faz necessária a utilização de algum mecanismo de comunicação entre processos, também conhecido como \acrfull{ipc}.
+Quando um sistema é composto por um único monólito, a comunicação entre os diferentes módulos é simplificada, pois se trata de um único processo em nível do sistema operacional e, portanto, compartilha a área da memória principal. No entanto, microsserviços são implantados em diferentes processos(usualmente em diferentes computadores), assim se faz necessária a utilização de algum mecanismo de comunicação entre processos, também conhecido como \acrfull{ipc}.
 
 Existe no mercado uma série de tecnologias, protocolos e ferramentas que viabilizam a comunicação entre microsserviços. Porém, antes de selecionar o mecanismo de \acrshort{ipc}, é importante compreender os estilos de interações entre sistemas \cite{richardson2018microservices}. Essa abordagem coloca foco nos requisitos da aplicação, no lugar de detalhes de um mecanismo específico.
 
@@ -159,53 +202,11 @@ Apesar de \acrfull{ddd} ser uma excelente maneira de delimitar microsserviços, 
 É importante mencionar que essas opções não são mutualmente exclusivas. Em um sistema real, provavelmente uma mistura de estratégias necessitará ser aplicada para satisfazer os requisitos funcionais e não-funcionais.
 
 \subsection{Desafios na implementação de microsserviços}
-Certamente, não há nenhuma tecnologia que não possua limitações. Isso não é diferente com a \acrlong{ams} \cite{richardson2018microservices}. 
+Certamente, não há nenhuma tecnologia que não possua limitações. Isso não é diferente com a \acrshort{ams} \cite{richardson2018microservices}. 
 
 Primeiramente, como microsserviços baseiam-se no conceito de \nameref{section:sistemas_distribuidos}, uma série de novos problemas estão presentes nessa arquitetura. Como os serviços necessitam utilizar algum mecanismo de \acrshort{ipc}, há um grande aumento na complexidade do ciclo de desenvolvimento como um todo. \acrshort{ide}s e outras ferramentas de desenvolvimento possuem maior foco no desenvolvimento de aplicações monolíticas. Adicionalmente, escrever testes automatizados envolvendo múltiplos serviços é uma tarefa complexa. Além disso, a \acrshort{ams} introduz dificuldades significantes de operação, como necessidade de alto nível de automação e ferramentas de monitoramento avançadas. Assim, uma equipe técnica altamente qualificada se torna necessária, podendo inclusive ser útil a contratação de consultorias especializadas nessa tecnologia \cite{richardson2018microservices}.
 
-Por outro lado, a \acrfull{ams} engloba desafios para manter a consistência dos dados. Enquanto em um sistema monolítico, dados são usualmente armazenados em uma única base de dados relacional, que oferece suporte a transações \acrshort{acid}, em um sistema distribuído, no qual múltiplos banco de dados - possivelmente de tipos e fornecedores diferentes - são empregados, esse tipo de segurança não pode ser atingido facilmente \cite{buildingMicroservices}. Transações distribuídas ou \english{Sagas} podem ser aplicadas para reduzir problemas de consistência, no entanto, essas técnicas adicionam grande complexidade ao sistema \cite{buildingMicroservices}.
-
-\section{\english{Domain-Driven Design (DDD)}} 
-\english{\acrfull{ddd}} é uma abordagem para o desenvolvimento de software focada na construção de um modelo de domínio que representa de maneira sofisticada os processos e regras de negócio do sistema em questão \cite{dddFowler}. \acrshort{ddd} é muito efetivo para desenvolver sistemas com regras de negócio complexas, que possuem, por exemplo, diversos atores, entidades e validações. A \acrfull{poo} é geralmente empregada para a implementação do modelo de domínio, visto que possui uma série de recursos que facilitam a modelagem de objetos do mundo real \cite{evans2004ddd}.
-
-Um ponto central da metodologia \acrshort{ddd} no desenvolvimento de softwares complexos, é a utilização de uma linguagem ubíqua que insere terminologia e jargões do domínio em componentes de software como atributos, métodos, classes, interfaces e pacotes \cite{dddFowler}. Assim, tanto especialistas de negócio quanto desenvolvedores e projetistas compartilham um vocabulário comum que facilita na comunicação e reduz a necessidade de realizar o mapeamento entre termos técnicos e termos do domínio. Além disso, a estrutura de sistema passa a representar a estrutura do negócio, tornando-se, assim, mais fácil de ser compreendida e modificada.
-
-O nome dessa estrategia vem de um livro publicado em \citeyear{evans2004ddd} por Eric Evans que descreve a abordagem, uma série de conceitos e um catálogo de  padrões comumente utilizados para resolução de problemas de modelagem de domínios. Os mais relevantes dentre estes são descritos a seguir.
-
-\subsection{Modelo e Domínio}
-Os conceitos de modelo e domínio, no contexto da engenharia de software, são fundamentais para o entendimento do \acrshort{ddd}. Modelo é uma simplificação, uma interpretação da realidade que abstrai os aspectos relevantes para resolver o problema em questão e ignora detalhes superficiais \cite{evans2004ddd}. Da mesma forma, todo sistema computacional está relacionado a alguma atividade ou interesse do usuário final. Assim, a área para qual o usuário utiliza o sistema é domínio do software \cite{evans2004ddd}. Alguns exemplos de domínios comuns são: financeiro, médico, logística e \english{marketplace}.
-
-\subsection{Entidade}
-No contexto da \acrfull{poo}, muitos objetos não são fundamentalmente definidos por seus atributos, mas por um fio de continuidade e identidade \cite{evans2004ddd}. Eles podem ter distintas representações como, por exemplo, em memória ou em um banco de dados. No entanto, eles necessitam ser distinguíveis mesmo se todas suas propriedades forem iguais. Em um domínio financeiro, por exemplo, uma transação composta por valor, data e usuário necessita ser diferenciável de outra transação com as mesmas características. Por outro lado, para uma classe fictícia chamada \english{Money} composta por valor e moeda, dois objetos com os mesmos atributos podem ser geralmente considerados iguais, sem gerar corrupções de dados ou impactos para os usuários finais do sistema. Em resumo, quando um objeto definido principalmente por sua identidade, ele é chamado de Entidade \cite{evans2004ddd}.
-
-\subsection{\english{\acrfull{vo}}}
-Muitos objetos não possuem identidade conceitual, sendo somente utilizados para descrever características de outro objeto. São objetos que descrevem coisas, classificados como \acrfull{vo} \cite{evans2004ddd}. Para um sistema de uma loja de roupas, por exemplo, um objeto que representa cor de cada peça formado pelas propriedades \english{red}, \english{green} e \english{blue}, não possui identidade. Não necessita ser diferenciável de outro objeto com as mesmas propriedades. Este objeto somente descreve uma característica de uma peça de roupa. É importante ressaltar, porém, que a diferenciação entre Entidade e \english{\acrlong{vo}} depende do contexto do software. Para um sistema de software de computação gráfica, a cor é um conceito chave no sistema e pode possuir identidade.
-
-Pode-se pensar que é mais vantajoso sempre projetar os objetos do sistema como Entidade, pois adicionaria identidade, facilitaria o rastreamento de mudanças e agregaria mais recursos ao objeto. No entanto, a adição de identidade para objetos que não necessitam desta classificação pode prejudicar o desempenho do sistema, adicionar mais esforço de análise e aumentar a complexidade do modelo de domínio \cite{evans2004ddd}. Por esse motivo, recomenda-se a utilização de \acrshort{vo} sempre que for possível, pois se tratam de objetos mais fáceis de gerenciar.
-
-\subsection{Serviço}
-Em muitos casos, há operações importantes no modelo que não pertencem conceitualmente a nenhuma Entidade ou \acrshort{vo}. Dessa forma, surge o conceito de Serviço: uma operação fornecida como uma interface autônoma no modelo, sem encapsular estado como outros tipos de objeto \cite{evans2004ddd}.
-
-Um erro comum é a abusar da utilização de Serviços, desistindo de encontrar o objeto apropriado para uma operação de domínio. Da mesma forma, a inserção de um método que não está alinhado com a definição do objeto resulta na perda de coesão desse objeto, tornando-o mais difícil de compreender e refatorar \cite{evans2004ddd}. Considerando esses pontos, um serviço deve ser utilizado quando um processo ou transformação relevante no modelo de domínio não faz parte da responsabilidade natural de uma Entidade ou \acrshort{vo}.
-
-Além disso, \citeonline{evans2004ddd} destaca três características de um bom Serviço:
-\begin{itemize}
-    \item A operação não possui estado (\english{stateless}).
-    \item A interface é defina em termos de outros elementos do modelo de domínio.
-    \item A operação se relaciona a um conceito do modelo que não é parte natural de uma Entidade ou \acrshort{vo}.
-\end{itemize}
-
-\subsection{\textit{Aggregate}}
-\label{section:aggregate}
-Um \english{Aggregate} é um conjunto de objetos associados, tratados como uma única unidade para o proposito de alterações de dados \cite{evans2004ddd}. Em um sistema de grande porte, é difícil garantir a consistência de alterações em objetos com relacionamentos complexos. As invariantes que precisam ser mantidas geralmente envolvem um grupo de objetos intimamente associados, ao invés de objetos isolados. Assim, o padrão \english{Aggregate} propõe delimitações definidas e restrições de acesso visando o melhor tratamento das associações entre objetos.
-
-Cada \english{Aggregate} possui uma raiz e uma delimitação, que define o que está dentro do \english{Aggregate} \cite{evans2004ddd}. A raiz é a única entidade global - que possui identidade em todo o sistema - contida dentro do \english{Aggregate}, também conhecida como \english{Aggregate root} \cite{evans2004ddd}. Objetos fora da delimitação do \english{Aggregate} só podem possuir referências a raiz e não a outros objetos dentro do \english{Aggregate}. Excluindo a raiz, outras entidades somente possuem identidade local, necessitando somente ser distinguíveis dentro dos limites do \english{Aggregate}, visto que nenhum objeto de fora consegue obtê-las desassociadas da entidade raiz \cite{evans2004ddd}.
-
-\subsection{\acrfull{bc}}
-\label{section:bounded_context}
-Em grandes projetos, muitos modelos coexistem em diferentes contextos. Quando a base de código, no entanto, combina diferentes modelos sem que haja uma separação clara, o \english{software} se torna defeituoso, frágil e difícil de ser compreendido \cite{evans2004ddd}. Assim, é necessário especificar em qual o contexto um determinado modelo está sendo aplicado.  Assim, um \english{\acrfull{bc}} delimita a aplicabilidade de um modelo, de tal forma que os membros da equipe tenham um entendimento claro do que precisa ser consistente e a relação do modelo com outros contextos. Um \acrshort{bc} engloba tanto componentes de modelo como \english{Aggregates}, Entidades, \english{\acrlong{vo}}s e Serviços, quanto detalhes técnicos como persistência. É uma parte completa e funcional de software sob responsabilidade de uma única equipe.
-
-Por exemplo, um \english{software} para um \english{e-commerce} possui um módulo que lida com pedidos, em que cada pedido contém um ou mais produtos. Da mesma forma, outra equipe é responsável por um módulo de realiza o gerenciamento de produtos em estoque. O conceito de um produto para um sistema de pedidos é distinto de uma aplicação de estoque. Enquanto este pode ter um enfoque no armazém, na categoria e no estoque do produto, aquele está mais preocupado com o preço, nome e disponibilidade. Assim, ao tratar esses dois conceitos da maneira igual, confusões e defeitos são gerados.
+Por outro lado, a \acrfull{ams} engloba desafios para manter a consistência dos dados. Enquanto em um sistema monolítico, dados são usualmente armazenados em uma única base de dados relacional, que oferece suporte a transações \acrshort{acid}, em um sistema distribuído, no qual múltiplos banco de dados - possivelmente de tipos e fornecedores diferentes - são empregados, esse tipo de segurança não pode ser atingido facilmente \cite{buildingMicroservices}. Transações distribuídas podem ser aplicadas para reduzir problemas de consistência, no entanto, essas técnicas adicionam grande complexidade ao sistema \cite{buildingMicroservices}.
 
 \section{Arquitetura Hexagonal} 
 \label{section:hexagonal}
