@@ -1,5 +1,5 @@
 \chapter{Estudo de Caso: Design, Implementação e Testes}
-\label{cap:desenvolvimento}
+\label{cap:estudo_caso2}
 
 Este capítulo apresenta o desenvolvimento do estudo de caso com Microsserviços e \acrshort{ddd}. Ele descreve as etapas para construção do sistema a partir de requisitos funcionais e não-funcionais.
 
@@ -14,10 +14,10 @@ Este capítulo apresenta o desenvolvimento do estudo de caso com Microsserviços
     \label{fig:ciclo-vida}
 \end{figure}
 
-Para este trabalho, os requisitos foram definidos no \autoref{cap:metodologia}. Da mesma forma, a fase de manutenção não será abordada, pois o foco é a construção do sistema.
+Para este trabalho, os requisitos foram definidos no \autoref{cap:estudo_caso1}. Da mesma forma, a fase de manutenção não será abordada, pois o foco é a construção do sistema.
 
 \section{Design}
-Esta seção utiliza como entrada os requisitos funcionais e não-funcionais definidos no \autoref{cap:metodologia} para descrever o design do sistema utilizando \acrfull{ams} e \acrfull{ddd}.
+Esta seção utiliza como entrada os requisitos funcionais e não-funcionais definidos no \autoref{cap:estudo_caso1} para descrever o design do sistema utilizando \acrfull{ams} e \acrfull{ddd}.
 
 Inicialmente, é importante definir os conceitos chave do sistema, bem como seus relacionamentos. A \autoref{fig:modelo_conceitual} ilustra as abstrações do sistema.
 
@@ -547,7 +547,7 @@ class PostBookings {
 \end{codigo}
 
 \subsection{Testes de Carga}
-Para os testes de carga, o framework \english{Gatling} é utilizado. O \autoref{cod:test-carga} apresenta um teste de carga para o cenário de reserva. Esse teste simula o cadastro de 100 usuários, a criação de um veículo, a reserva do veículo e o check-in e check-out da reserva. O teste é realizado com 100 usuários simultâneos durante 30 minutos como especificado no \autoref{cap:metodologia}.
+Para os testes de carga, o framework \english{Gatling} é utilizado. O \autoref{cod:test-carga} apresenta um teste de carga para o cenário de reserva. Esse teste simula o cadastro de 100 usuários, a criação de um veículo, a reserva do veículo e o check-in e check-out da reserva. O teste é realizado com 100 usuários simultâneos durante 30 minutos como especificado no \autoref{cap:estudo_caso1}.
 
 \begin{codigo}[H]
     \begin{lstlisting}[language=Java]
