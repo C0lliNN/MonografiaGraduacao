@@ -29,12 +29,12 @@ Inicialmente, é importante definir os conceitos chave do sistema, bem como seus
     \label{fig:modelo_conceitual}
 \end{figure}
 
-O sistema tem como componente principal a entidade \texit{Booking} que está relacionada com um \english{Vehicle} e um \english{Customer}. Cada \english{Vehicle} possui um \english{VehicleType} que tem como função agrupar veículos com características similares. Além disso, cada reserva contém uma \english{PricingStrategy} que é responsável por calcular o preço da reserva baseado em diferentes critérios. Um \english{Customer} é um subtipo de \english{Person}. Da mesma forma, o \english{Employee} é um subtipo de \english{Person}.
+O sistema tem como componente principal a entidade \texit{Booking} que está relacionada com um \english{Vehicle} e um \english{Customer}. Cada \english{Vehicle} possui um \english{VehicleType} que tem como função agrupar veículos com características similares. O \english{VehicleType}, por sua vez, está associado a um \english{VehicleCategory} como \english{Hatch} ou \english{SUV}. O veículo também tem um \english{VehicleStatus} que define o estado atual de um veículo específico. Além disso, cada reserva contém uma \english{PricingStrategy} que é responsável por calcular o preço da reserva baseado em diferentes critérios. Um \english{Customer} é um subtipo de \english{Person}. Da mesma forma, o \english{Employee} é um subtipo de \english{Person}.
 
-No contexto deste caso de uso, as abstrações \english{Booking}, \english{Vehicle}, \english{Customer}, \english{Person} e \english{Employee} possuem identidade e ciclo de vida próprios. Portanto, são entidades. Por outro lado, \english{VehicleType} e \english{PricingStrategy} são \acrfull{vo}, pois não possuem identidade própria e são imutáveis. 
+No contexto deste caso de uso, as abstrações \english{Booking}, \english{Vehicle}, \english{Customer}, \english{Person} e \english{Employee} possuem identidade e ciclo de vida próprios. Portanto, são entidades. Por outro lado, \english{VehicleType}, \english{VehicleCategory}, \english{VehicleStatus} e \english{PricingStrategy} são \acrfull{vo}, pois não possuem identidade própria e são imutáveis. 
 
 \subsection{Bounded Contexts}
-Após ter identificado as entidades e \acrfull{vo}, é necessário definir os \acrfull{bc} do sistema. \citeonline{evans2004ddd} define \acrshort{bc} como um limite lógico dentro do qual um modelo é consistente. Além disso, cada \acrshort{bc} possui um ou mais \english{Aggregates}. Nesse sentido, a \autoref{fig:bounded_contexts} ilustra os \acrshort{bc} do sistema.
+Após ter identificado as entidades e \acrshort{vo}, é necessário definir os \acrshort{bc} do sistema. \citeonline{evans2004ddd} define \acrshort{bc} como um limite lógico dentro do qual um modelo é consistente. Além disso, cada \acrshort{bc} possui um ou mais \english{Aggregates}. Nesse sentido, a \autoref{fig:bounded_contexts} ilustra os \acrshort{bc} do sistema.
 
 \begin{figure}[H]
     \centering
@@ -83,7 +83,7 @@ A seguir são detalhadas as interações entre os microsserviços para os princi
 \end{figure}
 
 \subsubsection{Criar reserva}
-A \autoref{fig:realizar-reserva} ilustra o fluxo de criação de uma reserva. Inicialmente, o cliente realiza o login no \english{User Service} e recebe um token como resposta. Em seguida, ele acessa o \english{Inventory Service} para verificar a disponibilidade de veículos. Esse verifica se o usuário está autenticado realizando uma chamada para o \english{User Service}. Caso o usuário esteja autenticado, o \english{Inventory Service} retorna a lista de veículos disponíveis. Posteriormente, O cliente seleciona um veículo e realiza a reserva no \english{Booking Service}. Esse serviço envia uma requisição para o \english{Inventory Service} para decrementar a quantidade de veículos disponíveis e confirmar a reserva. Por fim, o \english{Booking Service} retorna a confirmação da reserva.
+A \autoref{fig:realizar-reserva} ilustra o fluxo de criação de uma reserva. Inicialmente, o cliente realiza o login no \english{User Service} e recebe um token de autenticação como resposta. Em seguida, ele acessa o \english{Inventory Service} para verificar a disponibilidade de veículos. Esse verifica se o usuário está autenticado realizando uma chamada para o \english{User Service}. Caso o usuário esteja autenticado, o \english{Inventory Service} retorna a lista de veículos disponíveis. Posteriormente, O cliente seleciona um veículo e realiza a reserva no \english{Booking Service}. Esse serviço envia uma requisição para o \english{Inventory Service} para decrementar a quantidade de veículos disponíveis e confirmar a reserva. Por fim, o \english{Booking Service} retorna a confirmação da reserva.
 
 \begin{figure}[H]
     \centering
@@ -94,7 +94,7 @@ A \autoref{fig:realizar-reserva} ilustra o fluxo de criação de uma reserva. In
 \end{figure}
 
 \subsubsection{Realizar check-in}
-A \autoref{fig:realizar-checkin} ilustra o fluxo de realizar um check-in. Primeiramente, o funcionário realiza o login no \english{User Service} e recebe um token como resposta. Em seguida, ele acessa o \english{Booking Service} para realizar o check-in. Esse serviço verifica se o usuário está autenticado realizando uma chamada para o \english{User Service}. Caso o usuário esteja autenticado, o \english{Booking Service} realiza o check-in e retorna a confirmação.
+A \autoref{fig:realizar-checkin} ilustra o fluxo de realizar um check-in. Primeiramente, o funcionário realiza o login no \english{User Service} e recebe um token de autenticação como resposta. Em seguida, ele acessa o \english{Booking Service} para realizar o check-in. Esse serviço verifica se o usuário está autenticado realizando uma chamada para o \english{User Service}. Caso o usuário esteja autenticado, o \english{Booking Service} realiza o check-in e retorna a confirmação.
 
 \begin{figure}[H]
     \centering
@@ -105,7 +105,7 @@ A \autoref{fig:realizar-checkin} ilustra o fluxo de realizar um check-in. Primei
 \end{figure}
 
 \subsubsection{Realizar check-out}
-A \autoref{fig:realizar-checkout} ilustra o fluxo de realizar um check-out. Inicialmente, o funcionário realiza a autenticação no \english{User Service} e recebe um token como resposta. Posteriormente, ele acessa o \english{Booking Service} para realizar o check-out. Esse serviço verifica se o usuário está autenticado realizando uma chamada para o \english{User Service}. Caso o usuário esteja autenticado, o \english{Booking Service} realiza o check-out e retorna a confirmação.
+A \autoref{fig:realizar-checkout} ilustra o fluxo de realizar um check-out. Inicialmente, o funcionário realiza a autenticação no \english{User Service} e recebe um token de autenticação como resposta. Posteriormente, ele acessa o \english{Booking Service} para realizar o check-out. Esse serviço verifica se o usuário está autenticado realizando uma chamada para o \english{User Service}. Caso o usuário esteja autenticado, o \english{Booking Service} realiza o check-out e retorna a confirmação.
 
 \begin{figure}[H]
     \centering
