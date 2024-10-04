@@ -1,7 +1,7 @@
 \chapter{Fundamentação Teórica}
 \label{cap:fundamentacao}
 
-Este capítulo apresenta os conceitos de Sistemas Distribuídos, \acrfull{soa} Microsserviços, \acrshort{ddd} e Arquitetura Hexagonal.
+Este capítulo apresenta os conceitos de \acrshort{ddd}, Sistemas Distribuídos, \acrfull{soa}, Microsserviços e Arquitetura Hexagonal.
 
 \section{\english{Domain-Driven Design (DDD)}} 
 \english{\acrfull{ddd}} é uma abordagem para o desenvolvimento de software focada na construção de um modelo de domínio que representa de maneira sofisticada os processos e regras de negócio do sistema em questão \cite{dddFowler}. \acrshort{ddd} é muito efetivo para desenvolver sistemas com regras de negócio complexas, que possuem, por exemplo, diversos atores, entidades e validações. A \acrfull{poo} é geralmente empregada para a implementação do modelo de domínio, visto que possui uma série de recursos que facilitam a modelagem de objetos do mundo real \cite{evans2004ddd}.
@@ -18,7 +18,6 @@ No contexto da \acrshort{poo}, muitos objetos não são fundamentalmente definid
 
 \subsection{\english{\acrfull{vo}}}
 Muitos objetos não possuem identidade conceitual, sendo somente utilizados para descrever características de outro objeto. São objetos que descrevem coisas, classificados como \acrshort{vo} \cite{evans2004ddd}. Para um sistema de uma loja de roupas, por exemplo, um objeto que representa cor de cada peça formado pelas propriedades \english{red}, \english{green} e \english{blue}, não possui identidade. Não necessita ser diferenciável de outro objeto com as mesmas propriedades. Este objeto somente descreve uma característica de uma peça de roupa. É importante ressaltar, porém, que a diferenciação entre Entidade e \english{\acrlong{vo}} depende do contexto do software. Para um sistema de software de computação gráfica, a cor é um conceito chave no sistema e pode possuir identidade.
-
 Pode-se pensar que é mais vantajoso sempre projetar os objetos do sistema como Entidade, pois adicionaria identidade, facilitaria o rastreamento de mudanças e agregaria mais recursos ao objeto. No entanto, a adição de identidade para objetos que não necessitam desta classificação pode prejudicar o desempenho do sistema, adicionar mais esforço de análise e aumentar a complexidade do modelo de domínio \cite{evans2004ddd}. Por esse motivo, recomenda-se a utilização de \acrshort{vo} sempre que for possível, pois se tratam de objetos mais fáceis de gerenciar.
 
 \subsection{Serviço}
